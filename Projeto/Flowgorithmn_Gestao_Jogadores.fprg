@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="TENTATIVA 2"/>
+        <attribute name="authors" value="MARIANA"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-04-11 07:28:39 "/>
+        <attribute name="created" value="TUFSSUFOQTtMQVBUT1AtMjNTNzJRSTM7MjAyNi0wNC0wOTsiMDI6MTk6MzMgIjsyNzA0"/>
+        <attribute name="edited" value="TUFSSUFOQTtMQVBUT1AtMjNTNzJRSTM7MjAyNi0wNC0wOTsiMDI6NTg6MDggIjsxO3JpdGFtO0xBUFRPUC0yVklWT1VHUjsyMDI2LTA0LTA5OyIwMjoxOTo0NSAiO3RlbnRhdGl2YSAyLmZwcmc7NzMzMQ=="/>
+        <attribute name="edited" value="cml0YW07TEFQVE9QLTJWSVZPVUdSOzIwMjYtMDQtMTA7IjExOjMwOjQ1ICI7MTtyaXRhbTtMQVBUT1AtMlZJVk9VR1I7MjAyNi0wNC0wOTsiMDI6MTk6NDUgIjt0ZW50YXRpdmEgMi5mcHJnOzc0Njg="/>
+        <attribute name="edited" value="cml0YW07TEFQVE9QLTJWSVZPVUdSOzIwMjYtMDQtMTA7IjEyOjUyOjQ5ICI7MjsyOTY0"/>
+        <attribute name="edited" value="TUFSSUFOQTtMQVBUT1AtMjNTNzJRSTM7MjAyNi0wNC0xMTsiMDc6Mjg6MzkgIjszOzI4MTg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="opcao" type="Integer" array="False" size=""/>
+            <declare name="totalJogadores" type="Integer" array="False" size=""/>
+            <declare name="linha" type="String" array="False" size=""/>
+            <declare name="partes" type="String" array="True" size="10"/>
+            <declare name="indice" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="campo" type="String" array="False" size=""/>
+            <assign variable="totalJogadores" expression="0"/>
+            <assign variable="opcao" expression="-1"/>
+            <declare name="nomeJogador" type="String" array="True" size="100"/>
+            <declare name="cidadeJogador" type="String" array="True" size="100"/>
+            <declare name="idadeJogador" type="Integer" array="True" size="100"/>
+            <declare name="profissaoJogador" type="String" array="True" size="100"/>
+            <open expression="&quot;jogadores.txt&quot;" mode="read"/>
+            <while expression="not EOF()">
+                <read variable="linha"/>
+                <assign variable="indice" expression="0"/>
+                <assign variable="campo" expression="&quot;&quot;"/>
+                <for variable="i" start="0" end="Len(linha) - 1" direction="inc" step="1">
+                    <if expression="Char(linha, i) != &quot;;&quot;">
+                        <then>
+                            <assign variable="campo" expression="campo &amp; Char(linha, i)"/>
+                        </then>
+                        <else>
+                            <assign variable="partes[indice]" expression="campo"/>
+                            <assign variable="campo" expression="&quot;&quot;"/>
+                            <assign variable="indice" expression="indice + 1"/>
+                        </else>
+                    </if>
+                </for>
+                <assign variable="partes[indice]" expression="campo"/>
+                <assign variable="nomeJogador[totalJogadores]" expression="partes[0]"/>
+                <assign variable="idadeJogador[totalJogadores]" expression="ToInteger(partes[1])"/>
+                <assign variable="profissaoJogador[totalJogadores]" expression="partes[2]"/>
+                <assign variable="cidadeJogador[totalJogadores]" expression="partes[3]"/>
+                <assign variable="totalJogadores" expression="totalJogadores + 1"/>
+            </while>
+            <close mode="read"/>
+            <do expression="opcao != 0">
+                <output expression="&quot;Gest&#227;o de Jogadores&quot;" newline="True"/>
+                <output expression="&quot;1.Listar Jogadores&quot;" newline="True"/>
+                <output expression="&quot;2.Ver detalhes do jogador&quot;" newline="True"/>
+                <output expression="&quot;3.Remover jogador&quot;" newline="True"/>
+                <output expression="&quot;0. Voltar&quot;" newline="True"/>
+                <input variable="opcao"/>
+                <if expression="opcao == 1">
+                    <then>
+                        <call expression="ListarJogadores(totalJogadores, nomeJogador)"/>
+                    </then>
+                    <else>
+                        <if expression="opcao == 2">
+                            <then>
+                                <call expression="VerDetalhesJogador(totalJogadores, nomeJogador, cidadeJogador, idadeJogador, profissaoJogador)"/>
+                            </then>
+                            <else>
+                                <if expression="opcao == 3">
+                                    <then>
+                                        <call expression="RemoverJogador(totalJogadores, nomeJogador, cidadeJogador, idadeJogador, profissaoJogador)"/>
+                                    </then>
+                                    <else>
+                                        <if expression="opcao == 0">
+                                            <then>
+                                                <output expression="&quot;A sair do menu.&quot;" newline="True"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;Op&#231;&#227;o Inv&#225;lida&quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="LerJogadores" type="None" variable="">
+        <parameters>
+            <parameter name="totalJogadores" type="Integer" array="False"/>
+            <parameter name="nomeJogador" type="String" array="True"/>
+            <parameter name="idadeJogador" type="Integer" array="True"/>
+            <parameter name="profissaoJogador" type="String" array="True"/>
+            <parameter name="cidadeJogador" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="linha" type="String" array="False" size=""/>
+            <declare name="partes" type="String" array="True" size="10"/>
+            <assign variable="totalJogadores" expression="0"/>
+            <open expression="&quot;jogadores.txt&quot;" mode="read"/>
+            <while expression="Not eof()">
+                <read variable="linha"/>
+                <declare name="indice" type="Integer" array="False" size=""/>
+                <declare name="i" type="Integer" array="False" size=""/>
+                <assign variable="indice" expression="0"/>
+                <declare name="campo" type="String" array="False" size=""/>
+                <assign variable="campo" expression="&quot;&quot;"/>
+                <for variable="i" start="0" end="len(linha)-1" direction="inc" step="1">
+                    <if expression="linha[i] != &quot;;&quot;">
+                        <then>
+                            <assign variable="campo" expression="campo+linha[i]"/>
+                        </then>
+                        <else>
+                            <assign variable="partes[indice]" expression="campo"/>
+                            <assign variable="campo" expression="&quot;&quot;"/>
+                            <assign variable="indice" expression="indice+1"/>
+                        </else>
+                    </if>
+                </for>
+                <assign variable="partes[indice]" expression="campo"/>
+                <assign variable="nomeJogador[totalJogadores]" expression="partes[0]"/>
+                <assign variable="idadeJogador[totalJogadores]" expression="ToInteger(partes[1])"/>
+                <assign variable="profissaoJogador[totalJogadores]" expression="partes[2]"/>
+                <assign variable="cidadeJogador[totalJogadores]" expression="partes[3]"/>
+                <assign variable="totalJogadores" expression="totalJogadores+1"/>
+            </while>
+            <close mode="read"/>
+        </body>
+    </function>
+    <function name="ListarJogadores" type="None" variable="">
+        <parameters>
+            <parameter name="totalJogadores" type="Integer" array="False"/>
+            <parameter name="nomeJogador" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <if expression="totalJogadores==0">
+                <then>
+                    <output expression="&quot;N&#227;o h&#225; jogadores registados&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Jogadores registados&quot;" newline="True"/>
+                    <for variable="i" start="0" end="totalJogadores-1" direction="inc" step="1">
+                        <output expression="(i + 1) &amp; &quot;: &quot; &amp; nomeJogador[i]" newline="True"/>
+                    </for>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="RemoverJogador" type="None" variable="">
+        <parameters>
+            <parameter name="totalJogadores" type="Integer" array="False"/>
+            <parameter name="nomeJogador" type="String" array="True"/>
+            <parameter name="cidadeJogador" type="String" array="True"/>
+            <parameter name="idadeJogador" type="Integer" array="True"/>
+            <parameter name="profissaoJogador" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="j" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="k" type="Integer" array="False" size=""/>
+            <if expression="totalJogadores == 0">
+                <then>
+                    <output expression="&quot;N&#227;o h&#225; jogadores registados.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <declare name="nome" type="String" array="False" size=""/>
+                    <declare name="encontrado" type="Boolean" array="False" size=""/>
+                    <assign variable="encontrado" expression="False"/>
+                    <output expression="&quot;Indique o nome do jogador a remover:&quot;" newline="True"/>
+                    <input variable="nome"/>
+                    <for variable="i" start="0" end="totalJogadores-1" direction="inc" step="1">
+                        <if expression="nomeJogador[i] == nome">
+                            <then>
+                                <for variable="j" start="i" end="totalJogadores-2" direction="inc" step="1">
+                                    <assign variable="nomeJogador[j]" expression="nomeJogador[j+1]"/>
+                                    <assign variable="cidadeJogador[j]" expression="cidadeJogador[j+1]"/>
+                                    <assign variable="idadeJogador[j]" expression="idadeJogador[j+1]"/>
+                                    <assign variable="profissaoJogador[j]" expression="profissaoJogador[j+1]"/>
+                                </for>
+                                <assign variable="totalJogadores" expression="totalJogadores-1"/>
+                                <assign variable="encontrado" expression="True"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                    <if expression="encontrado==True">
+                        <then>
+                            <open expression="&quot;jogadores.txt&quot;" mode="write"/>
+                            <for variable="k" start="0" end="totalJogadores-1" direction="inc" step="1">
+                                <write expression="nomeJogador[k]&amp;&quot;;&quot;&amp; idadeJogador[k]&amp;&quot;;&quot;&amp; profissaoJogador[k]&amp;&quot;;&quot;&amp; cidadeJogador[k]"/>
+                            </for>
+                            <close mode="write"/>
+                            <output expression="&quot;Jogador removido.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Jogador n&#227;o encontrado.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="VerDetalhesJogador" type="None" variable="">
+        <parameters>
+            <parameter name="totalJogadores" type="Integer" array="False"/>
+            <parameter name="nomeJogador" type="String" array="True"/>
+            <parameter name="cidadeJogador" type="String" array="True"/>
+            <parameter name="idadeJogador" type="Integer" array="True"/>
+            <parameter name="profissaoJogador" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <if expression="totalJogadores==0">
+                <then>
+                    <output expression="&quot;N&#227;o h&#225; jogadores registados.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <declare name="nome" type="String" array="False" size=""/>
+                    <declare name="encontrado" type="Boolean" array="False" size=""/>
+                    <assign variable="encontrado" expression="False"/>
+                    <output expression="&quot;Indique o nome do jogador:&quot;" newline="True"/>
+                    <input variable="nome"/>
+                    <for variable="i" start="0" end="totalJogadores-1" direction="inc" step="1">
+                        <if expression="nomeJogador[i] == nome">
+                            <then>
+                                <output expression="&quot;Nome: &quot;&amp; nomeJogador[i]" newline="True"/>
+                                <output expression="&quot;Idade: &quot;&amp; idadeJogador[i]" newline="True"/>
+                                <output expression="&quot;Profiss&#227;o: &quot;&amp; profissaoJogador[i]" newline="True"/>
+                                <output expression="&quot;Cidade: &quot;&amp; cidadeJogador[i]" newline="True"/>
+                                <assign variable="encontrado" expression="True"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                    <if expression="encontrado == False">
+                        <then>
+                            <output expression="&quot;Jogador n&#227;o encontrado.&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

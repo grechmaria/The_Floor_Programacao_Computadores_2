@@ -1,0 +1,2229 @@
+[
+    {
+        "nome": "João Silva",
+        "idade": 21,
+        "profissao": "Estudante",
+        "cidade": "Braga",
+        "categoria": "Capitais do mundo",
+        "quadriculas": [
+            [
+                0,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Maria Costa",
+        "idade": 22,
+        "profissao": "Engenheira",
+        "cidade": "Porto",
+        "categoria": "Oceanos",
+        "quadriculas": [
+            [
+                0,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Pedro Santos",
+        "idade": 23,
+        "profissao": "Professor",
+        "cidade": "Lisboa",
+        "categoria": "Montanhas",
+        "quadriculas": [
+            [
+                0,
+                2
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Ana Ferreira",
+        "idade": 20,
+        "profissao": "Designer",
+        "cidade": "Coimbra",
+        "categoria": "Escritores famosos",
+        "quadriculas": [
+            [
+                0,
+                3
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Tiago Oliveira",
+        "idade": 24,
+        "profissao": "Geógrafo",
+        "cidade": "Faro",
+        "categoria": "Pintores",
+        "quadriculas": [
+            [
+                0,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Sofia Martins",
+        "idade": 22,
+        "profissao": "Músico",
+        "cidade": "Aveiro",
+        "categoria": "Inventores",
+        "quadriculas": [
+            [
+                0,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Ricardo Sousa",
+        "idade": 25,
+        "profissao": "Ator",
+        "cidade": "Guimarães",
+        "categoria": "Cientistas",
+        "quadriculas": [
+            [
+                0,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Beatriz Lopes",
+        "idade": 21,
+        "profissao": "Programador",
+        "cidade": "Setúbal",
+        "categoria": "Mitologia",
+        "quadriculas": [
+            [
+                0,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Miguel Rocha",
+        "idade": 23,
+        "profissao": "Escritor",
+        "cidade": "Évora",
+        "categoria": "Bandas de rock",
+        "quadriculas": [
+            [
+                0,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Carla Gomes",
+        "idade": 22,
+        "profissao": "Veterinário",
+        "cidade": "Leiria",
+        "categoria": "Cantores pop",
+        "quadriculas": [
+            [
+                0,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Bruno Ribeiro",
+        "idade": 26,
+        "profissao": "Engenheiro",
+        "cidade": "Viseu",
+        "categoria": "Filmes de animação",
+        "quadriculas": [
+            [
+                1,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Inês Carvalho",
+        "idade": 19,
+        "profissao": "Estudante",
+        "cidade": "Bragança",
+        "categoria": "Jogos de tabuleiro",
+        "quadriculas": [
+            [
+                1,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Diogo Teixeira",
+        "idade": 27,
+        "profissao": "Treinador",
+        "cidade": "Portalegre",
+        "categoria": "Apps famosas",
+        "quadriculas": [
+            [
+                1,
+                2
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Mariana Alves",
+        "idade": 24,
+        "profissao": "Designer",
+        "cidade": "Viana do Castelo",
+        "categoria": "Sistemas operativos",
+        "quadriculas": [
+            [
+                1,
+                3
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Rui Pinto",
+        "idade": 28,
+        "profissao": "Geógrafo",
+        "cidade": "Funchal",
+        "categoria": "Marcas de roupa",
+        "quadriculas": [
+            [
+                1,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Patrícia Melo",
+        "idade": 23,
+        "profissao": "Cantora",
+        "cidade": "Ponta Delgada",
+        "categoria": "Tipos de veículos",
+        "quadriculas": [
+            [
+                1,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Filipe Cardoso",
+        "idade": 29,
+        "profissao": "Ator",
+        "cidade": "Guarda",
+        "categoria": "Aeroportos",
+        "quadriculas": [
+            [
+                1,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Cláudia Cunha",
+        "idade": 22,
+        "profissao": "Programadora",
+        "cidade": "Castelo Branco",
+        "categoria": "Bandeiras",
+        "quadriculas": [
+            [
+                1,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Nuno Correia",
+        "idade": 30,
+        "profissao": "Professor",
+        "cidade": "Beja",
+        "categoria": "Moedas",
+        "quadriculas": [
+            [
+                1,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Sara Dias",
+        "idade": 21,
+        "profissao": "Bióloga",
+        "cidade": "Santarém",
+        "categoria": "Líderes mundiais",
+        "quadriculas": [
+            [
+                1,
+                9
+            ],
+            [
+                2,
+                9
+            ]
+        ],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 1,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [
+            1.2
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "André Antunes",
+        "idade": 20,
+        "profissao": "Estudante",
+        "cidade": "Braga",
+        "categoria": "Guerras históricas",
+        "quadriculas": [
+            [
+                2,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Joana Ramos",
+        "idade": 25,
+        "profissao": "Investigadora",
+        "cidade": "Porto",
+        "categoria": "Datas importantes",
+        "quadriculas": [
+            [
+                2,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Daniel Moreira",
+        "idade": 24,
+        "profissao": "Atleta",
+        "cidade": "Lisboa",
+        "categoria": "Programação",
+        "quadriculas": [
+            [
+                2,
+                2
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Rita Barbosa",
+        "idade": 26,
+        "profissao": "Designer",
+        "cidade": "Coimbra",
+        "categoria": "Desastres naturais",
+        "quadriculas": [
+            [
+                2,
+                3
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Hugo Neves",
+        "idade": 27,
+        "profissao": "Cartógrafo",
+        "cidade": "Faro",
+        "categoria": "Tipos de casas",
+        "quadriculas": [
+            [
+                2,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Liliana Faria",
+        "idade": 22,
+        "profissao": "Músico",
+        "cidade": "Aveiro",
+        "categoria": "Materiais de construção",
+        "quadriculas": [
+            [
+                2,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Paulo Monteiro",
+        "idade": 31,
+        "profissao": "Ator",
+        "cidade": "Guimarães",
+        "categoria": "Tipos de bebidas quentes",
+        "quadriculas": [
+            [
+                2,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Helena Freitas",
+        "idade": 23,
+        "profissao": "Programadora",
+        "cidade": "Setúbal",
+        "categoria": "Tipos de queijo",
+        "quadriculas": [
+            [
+                2,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Luís Azevedo",
+        "idade": 28,
+        "profissao": "Escritor",
+        "cidade": "Évora",
+        "categoria": "Sobremesas internacionais",
+        "quadriculas": [
+            [
+                2,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Marta Baptista",
+        "idade": 24,
+        "profissao": "Veterinária",
+        "cidade": "Leiria",
+        "categoria": "Peixes",
+        "quadriculas": [],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [
+            0.86
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Vasco Coelho",
+        "idade": 21,
+        "profissao": "Estudante",
+        "cidade": "Viseu",
+        "categoria": "Insetos",
+        "quadriculas": [
+            [
+                3,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Diana Pires",
+        "idade": 22,
+        "profissao": "Química",
+        "cidade": "Bragança",
+        "categoria": "Continentes",
+        "quadriculas": [
+            [
+                3,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Gonçalo Matos",
+        "idade": 23,
+        "profissao": "Treinador",
+        "cidade": "Portalegre",
+        "categoria": "Bebidas alcoólicas",
+        "quadriculas": [
+            [
+                3,
+                2
+            ]
+        ],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 1,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [
+            1.4
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Catarina Tavares",
+        "idade": 24,
+        "profissao": "Artista",
+        "cidade": "Viana do Castelo",
+        "categoria": "Peças de roupa",
+        "quadriculas": [
+            [
+                3,
+                3
+            ]
+        ],
+        "duelos_iniciados": 2,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 1,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 1,
+        "tempos_resposta": [
+            1.96,
+            4.36
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Eduardo Leal",
+        "idade": 25,
+        "profissao": "Geógrafo",
+        "cidade": "Funchal",
+        "categoria": "Bebidas",
+        "quadriculas": [
+            [
+                3,
+                4
+            ]
+        ],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [
+            1.05
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Sílvia Matias",
+        "idade": 23,
+        "profissao": "Cantora",
+        "cidade": "Ponta Delgada",
+        "categoria": "Planetas",
+        "quadriculas": [
+            [
+                3,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Tomás Guerreiro",
+        "idade": 26,
+        "profissao": "Ator",
+        "cidade": "Guarda",
+        "categoria": "Profissões",
+        "quadriculas": [
+            [
+                3,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Filipa Campos",
+        "idade": 22,
+        "profissao": "Programadora",
+        "cidade": "Castelo Branco",
+        "categoria": "Instrumentos musicais",
+        "quadriculas": [
+            [
+                3,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "José Pacheco",
+        "idade": 29,
+        "profissao": "Professor",
+        "cidade": "Beja",
+        "categoria": "Cores",
+        "quadriculas": [
+            [
+                3,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Teresa Nogueira",
+        "idade": 24,
+        "profissao": "Bióloga",
+        "cidade": "Santarém",
+        "categoria": "Transportes",
+        "quadriculas": [
+            [
+                3,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Alexandre Torres",
+        "idade": 21,
+        "profissao": "Estudante",
+        "cidade": "Braga",
+        "categoria": "Frutas",
+        "quadriculas": [
+            [
+                4,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Raquel Fonseca",
+        "idade": 22,
+        "profissao": "Física",
+        "cidade": "Porto",
+        "categoria": "Legumes",
+        "quadriculas": [
+            [
+                4,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Marco Peixoto",
+        "idade": 23,
+        "profissao": "Atleta",
+        "cidade": "Lisboa",
+        "categoria": "Países",
+        "quadriculas": [
+            [
+                4,
+                2
+            ]
+        ],
+        "duelos_iniciados": 2,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [
+            1.17,
+            8.83
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Daniela Neves",
+        "idade": 24,
+        "profissao": "Designer",
+        "cidade": "Coimbra",
+        "categoria": "Desportos",
+        "quadriculas": [
+            [
+                4,
+                3
+            ]
+        ],
+        "duelos_iniciados": 2,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 2,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 2,
+        "tempos_resposta": [
+            5.33,
+            3.45
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Fábio Mendes",
+        "idade": 25,
+        "profissao": "Geógrafo",
+        "cidade": "Faro",
+        "categoria": "Supermercado",
+        "quadriculas": [
+            [
+                4,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Vanessa Simões",
+        "idade": 23,
+        "profissao": "Músico",
+        "cidade": "Aveiro",
+        "categoria": "Clima",
+        "quadriculas": [
+            [
+                4,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Tiago Duarte",
+        "idade": 26,
+        "profissao": "Ator",
+        "cidade": "Guimarães",
+        "categoria": "Tecnologia",
+        "quadriculas": [
+            [
+                4,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Andreia Lopes",
+        "idade": 22,
+        "profissao": "Programadora",
+        "cidade": "Setúbal",
+        "categoria": "Escola",
+        "quadriculas": [
+            [
+                4,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Carlos Figueiredo",
+        "idade": 30,
+        "profissao": "Escritor",
+        "cidade": "Évora",
+        "categoria": "Jogos de cartas",
+        "quadriculas": [
+            [
+                4,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Helena Sousa",
+        "idade": 24,
+        "profissao": "Veterinária",
+        "cidade": "Leiria",
+        "categoria": "Animais domésticos",
+        "quadriculas": [
+            [
+                4,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Rafael Cunha",
+        "idade": 21,
+        "profissao": "Estudante",
+        "cidade": "Viseu",
+        "categoria": "Doces",
+        "quadriculas": [
+            [
+                5,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Mónica Reis",
+        "idade": 22,
+        "profissao": "Engenheira",
+        "cidade": "Bragança",
+        "categoria": "Dias da semana",
+        "quadriculas": [
+            [
+                5,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Fernando Rocha",
+        "idade": 23,
+        "profissao": "Professor",
+        "cidade": "Portalegre",
+        "categoria": "Meses",
+        "quadriculas": [
+            [
+                5,
+                2
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Cátia Gomes",
+        "idade": 24,
+        "profissao": "Designer",
+        "cidade": "Viana do Castelo",
+        "categoria": "Marcas",
+        "quadriculas": [
+            [
+                5,
+                3
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Sérgio Martins",
+        "idade": 25,
+        "profissao": "Geógrafo",
+        "cidade": "Funchal",
+        "categoria": "Videojogos",
+        "quadriculas": [
+            [
+                5,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Tatiana Lopes",
+        "idade": 23,
+        "profissao": "Cantora",
+        "cidade": "Ponta Delgada",
+        "categoria": "Redes sociais",
+        "quadriculas": [
+            [
+                5,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Joel Sousa",
+        "idade": 26,
+        "profissao": "Ator",
+        "cidade": "Guarda",
+        "categoria": "Carros",
+        "quadriculas": [
+            [
+                5,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Diana Costa",
+        "idade": 22,
+        "profissao": "Programadora",
+        "cidade": "Castelo Branco",
+        "categoria": "Comida rápida",
+        "quadriculas": [
+            [
+                5,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Artur Dias",
+        "idade": 29,
+        "profissao": "Escritor",
+        "cidade": "Beja",
+        "categoria": "Feriados",
+        "quadriculas": [
+            [
+                5,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Elsa Ferreira",
+        "idade": 24,
+        "profissao": "Veterinária",
+        "cidade": "Santarém",
+        "categoria": "Línguas",
+        "quadriculas": [
+            [
+                5,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Nélson Pinto",
+        "idade": 21,
+        "profissao": "Estudante",
+        "cidade": "Braga",
+        "categoria": "Corpos de água",
+        "quadriculas": [
+            [
+                6,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Sandra Alves",
+        "idade": 22,
+        "profissao": "Química",
+        "cidade": "Porto",
+        "categoria": "Mobília",
+        "quadriculas": [
+            [
+                6,
+                1
+            ]
+        ],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 1,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 1,
+        "tempos_resposta": [
+            3.83
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Leandro Melo",
+        "idade": 23,
+        "profissao": "Treinador",
+        "cidade": "Lisboa",
+        "categoria": "Ferramentas",
+        "quadriculas": [
+            [
+                6,
+                2
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Bianca Matos",
+        "idade": 24,
+        "profissao": "Artista",
+        "cidade": "Coimbra",
+        "categoria": "Partes do corpo",
+        "quadriculas": [
+            [
+                6,
+                3
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Renato Leal",
+        "idade": 25,
+        "profissao": "Geógrafo",
+        "cidade": "Faro",
+        "categoria": "Objetos eletrónicos",
+        "quadriculas": [
+            [
+                6,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Carina Faria",
+        "idade": 23,
+        "profissao": "Músico",
+        "cidade": "Aveiro",
+        "categoria": "Tipos de música",
+        "quadriculas": [
+            [
+                6,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Hélder Monteiro",
+        "idade": 26,
+        "profissao": "Ator",
+        "cidade": "Guimarães",
+        "categoria": "Formas geométricas",
+        "quadriculas": [
+            [
+                6,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Márcia Freitas",
+        "idade": 22,
+        "profissao": "Programadora",
+        "cidade": "Setúbal",
+        "categoria": "Cidades portuguesas",
+        "quadriculas": [
+            [
+                6,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Vítor Azevedo",
+        "idade": 28,
+        "profissao": "Professor",
+        "cidade": "Évora",
+        "categoria": "Jardinagem",
+        "quadriculas": [
+            [
+                6,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Paula Baptista",
+        "idade": 24,
+        "profissao": "Bióloga",
+        "cidade": "Leiria",
+        "categoria": "Series de televisão",
+        "quadriculas": [
+            [
+                6,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Gilberto Coelho",
+        "idade": 21,
+        "profissao": "Estudante",
+        "cidade": "Viseu",
+        "categoria": "Futebolistas",
+        "quadriculas": [
+            [
+                7,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Sónia Pires",
+        "idade": 22,
+        "profissao": "Física",
+        "cidade": "Bragança",
+        "categoria": "Fórmula 1",
+        "quadriculas": [
+            [
+                7,
+                1
+            ]
+        ],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [
+            4.57
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Gustavo Matos",
+        "idade": 23,
+        "profissao": "Atleta",
+        "cidade": "Portalegre",
+        "categoria": "Raças de cães",
+        "quadriculas": [
+            [
+                7,
+                2
+            ]
+        ],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [
+            6.68
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Carolina Tavares",
+        "idade": 24,
+        "profissao": "Designer",
+        "cidade": "Viana do Castelo",
+        "categoria": "Corpo humano",
+        "quadriculas": [
+            [
+                7,
+                3
+            ]
+        ],
+        "duelos_iniciados": 2,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 1,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 2,
+        "tempos_resposta": [
+            1.66,
+            4.17
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Adriano Leal",
+        "idade": 25,
+        "profissao": "Geógrafo",
+        "cidade": "Funchal",
+        "categoria": "Animais selvagens",
+        "quadriculas": [
+            [
+                7,
+                4
+            ]
+        ],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 1,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 1,
+        "tempos_resposta": [
+            4.45
+        ],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Rosa Matias",
+        "idade": 23,
+        "profissao": "Cantora",
+        "cidade": "Ponta Delgada",
+        "categoria": "Trânsito",
+        "quadriculas": [
+            [
+                7,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Simão Guerreiro",
+        "idade": 26,
+        "profissao": "Ator",
+        "cidade": "Guarda",
+        "categoria": "Lendas da música",
+        "quadriculas": [
+            [
+                7,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Ingrid Campos",
+        "idade": 22,
+        "profissao": "Programadora",
+        "cidade": "Castelo Branco",
+        "categoria": "Atrações turísticas nacionais",
+        "quadriculas": [
+            [
+                7,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "António Pacheco",
+        "idade": 29,
+        "profissao": "Escritor",
+        "cidade": "Beja",
+        "categoria": "Vilas e aldeias de Portugal",
+        "quadriculas": [
+            [
+                7,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Lurdes Nogueira",
+        "idade": 24,
+        "profissao": "Veterinária",
+        "cidade": "Santarém",
+        "categoria": "Agricultura",
+        "quadriculas": [
+            [
+                7,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Fábio Rocha",
+        "idade": 22,
+        "profissao": "Estudante",
+        "cidade": "Braga",
+        "categoria": "Fadistas",
+        "quadriculas": [
+            [
+                8,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Patrícia Sousa",
+        "idade": 23,
+        "profissao": "Engenheira",
+        "cidade": "Porto",
+        "categoria": "Árvores de fruto",
+        "quadriculas": [
+            [
+                8,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Rui Fernandes",
+        "idade": 24,
+        "profissao": "Professor",
+        "cidade": "Lisboa",
+        "categoria": "Flores",
+        "quadriculas": [
+            [
+                8,
+                2
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Ana Gomes",
+        "idade": 21,
+        "profissao": "Designer",
+        "cidade": "Coimbra",
+        "categoria": "Utensílios de cozinha",
+        "quadriculas": [
+            [
+                8,
+                3
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Tiago Costa",
+        "idade": 25,
+        "profissao": "Geógrafo",
+        "cidade": "Faro",
+        "categoria": "Monumentos nacionais",
+        "quadriculas": [
+            [
+                8,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Sofia Silva",
+        "idade": 22,
+        "profissao": "Músico",
+        "cidade": "Aveiro",
+        "categoria": "Pequeno almoço de hotel",
+        "quadriculas": [
+            [
+                8,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Pedro Lopes",
+        "idade": 23,
+        "profissao": "Ator",
+        "cidade": "Guimarães",
+        "categoria": "Higiene e beleza",
+        "quadriculas": [
+            [
+                8,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Beatriz Santos",
+        "idade": 24,
+        "profissao": "Programadora",
+        "cidade": "Setúbal",
+        "categoria": "Atores",
+        "quadriculas": [
+            [
+                8,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Miguel Ferreira",
+        "idade": 26,
+        "profissao": "Escritor",
+        "cidade": "Évora",
+        "categoria": "Cultura italiana",
+        "quadriculas": [
+            [
+                8,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Carla Martins",
+        "idade": 23,
+        "profissao": "Veterinária",
+        "cidade": "Leiria",
+        "categoria": "Artigos de papelaria",
+        "quadriculas": [
+            [
+                8,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 1,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Jorge Valente",
+        "idade": 27,
+        "profissao": "Advogado",
+        "cidade": "Lisboa",
+        "categoria": "Roupa e acessórios",
+        "quadriculas": [
+            [
+                9,
+                0
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Leonor Barros",
+        "idade": 20,
+        "profissao": "Estudante",
+        "cidade": "Porto",
+        "categoria": "Construção civil",
+        "quadriculas": [
+            [
+                9,
+                1
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Mateus Esteves",
+        "idade": 28,
+        "profissao": "Mecânico",
+        "cidade": "Braga",
+        "categoria": "Jogos olímpicos",
+        "quadriculas": [
+            [
+                9,
+                2
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Daniel Vieira",
+        "idade": 25,
+        "profissao": "Polícia",
+        "cidade": "Coimbra",
+        "categoria": "Geografia de Portugal",
+        "quadriculas": [
+            [
+                9,
+                3
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Eduarda Campos",
+        "idade": 23,
+        "profissao": "Enfermeira",
+        "cidade": "Faro",
+        "categoria": "Ficção cientifica",
+        "quadriculas": [
+            [
+                9,
+                4
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Hugo Cardoso",
+        "idade": 26,
+        "profissao": "Motorista",
+        "cidade": "Aveiro",
+        "categoria": "Origens dos famosos",
+        "quadriculas": [
+            [
+                9,
+                5
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Rita Duarte",
+        "idade": 21,
+        "profissao": "Estudante",
+        "cidade": "Guimarães",
+        "categoria": "Snacks da meia noite",
+        "quadriculas": [
+            [
+                9,
+                6
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Paulo Neves",
+        "idade": 29,
+        "profissao": "Gestor",
+        "cidade": "Setúbal",
+        "categoria": "Títulos de filmes",
+        "quadriculas": [
+            [
+                9,
+                7
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Inês Monteiro",
+        "idade": 22,
+        "profissao": "Psicóloga",
+        "cidade": "Évora",
+        "categoria": "Religião",
+        "quadriculas": [
+            [
+                9,
+                8
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    },
+    {
+        "nome": "Luís Faria",
+        "idade": 30,
+        "profissao": "Arquitecto",
+        "cidade": "Leiria",
+        "categoria": "Desportistas",
+        "quadriculas": [
+            [
+                9,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
+        "duelos_aceites": 0,
+        "duelos_ganhos": 0,
+        "duelos_perdidos": 0,
+        "regressos_grelha": 0,
+        "perguntas_respondidas": 0,
+        "respostas_certas": 0,
+        "tempos_resposta": [],
+        "perguntas_por_categoria": {}
+    }
+]

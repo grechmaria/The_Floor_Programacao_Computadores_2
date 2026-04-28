@@ -1,0 +1,202 @@
+[
+    {
+        "id_duelo": 0,
+        "desafiante": "",
+        "desafiado": "",
+        "categoria": "",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 2,
+        "desafiante": "Hugo Cardoso",
+        "desafiado": "Sofia Silva",
+        "categoria": "",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Sofia Silva",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 3,
+        "desafiante": "Hélder Monteiro",
+        "desafiado": "Simão Guerreiro",
+        "categoria": "",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Simão Guerreiro",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 4,
+        "desafiante": "Luís Faria",
+        "desafiado": "Carla Martins",
+        "categoria": "Artigos de papelaria",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Carla Martins",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 5,
+        "desafiante": "Helena Sousa",
+        "desafiado": "Elsa Ferreira",
+        "categoria": "Línguas",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Elsa Ferreira",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 6,
+        "desafiante": "Sónia Pires",
+        "desafiado": "Sandra Alves",
+        "categoria": "Mobília",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Sandra Alves",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 7,
+        "desafiante": "Catarina Tavares",
+        "desafiado": "Daniela Neves",
+        "categoria": "Desportos",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Daniela Neves",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 8,
+        "desafiante": "Daniela Neves",
+        "desafiado": "Marco Peixoto",
+        "categoria": "Países",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Daniela Neves",
+        "quadriculas_transferidas": [
+            [
+                4,
+                2
+            ]
+        ]
+    },
+    {
+        "id_duelo": 9,
+        "desafiante": "Eduardo Leal",
+        "desafiado": "Catarina Tavares",
+        "categoria": "Peças de roupa",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 1.05,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 4.36,
+        "vencedor": "Catarina Tavares",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 10,
+        "desafiante": "Gonçalo Matos",
+        "desafiado": "Marco Peixoto",
+        "categoria": "Países",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 1.4,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 8.83,
+        "vencedor": "Gonçalo Matos",
+        "quadriculas_transferidas": [
+            [
+                4,
+                2
+            ]
+        ]
+    },
+    {
+        "id_duelo": 11,
+        "desafiante": "Adriano Leal",
+        "desafiado": "Carolina Tavares",
+        "categoria": "Corpo humano",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 4.45,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 1.66,
+        "vencedor": "Adriano Leal",
+        "quadriculas_transferidas": [
+            [
+                7,
+                3
+            ]
+        ]
+    },
+    {
+        "id_duelo": 12,
+        "desafiante": "Gustavo Matos",
+        "desafiado": "Carolina Tavares",
+        "categoria": "Corpo humano",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Carolina Tavares",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 13,
+        "desafiante": "Luís Faria",
+        "desafiado": "Carla Martins",
+        "categoria": "Artigos de papelaria",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Carla Martins",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 14,
+        "desafiante": "Sara Dias",
+        "desafiado": "Marta Baptista",
+        "categoria": "Peixes",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Sara Dias",
+        "quadriculas_transferidas": [
+            [
+                2,
+                9
+            ]
+        ]
+    },
+    {
+        "id_duelo": 15,
+        "desafiante": "Helena Sousa",
+        "desafiado": "Elsa Ferreira",
+        "categoria": "Línguas",
+        "resposta_desafiante": "",
+        "tempo_desafiante": 0,
+        "resposta_desafiado": "",
+        "tempo_desafiado": 0,
+        "vencedor": "Elsa Ferreira",
+        "quadriculas_transferidas": []
+    }
+]
