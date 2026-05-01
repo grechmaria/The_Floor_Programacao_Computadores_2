@@ -1,10 +1,10 @@
 The Floor — Implementação em Python
 Trabalho Prático desenvolvido no âmbito da unidade curricular Programação de Computadores II
 
-Sobre o Jogo
+📺 Sobre o Jogo
 The Floor é um jogo de conquista de território inspirado no programa de televisão The Floor. O objetivo consiste em ser o último jogador a sobrar no tabuleiro.
 
-Regras Gerais:
+📝 Regras Gerais:
 - O tabuleiro é uma grelha de 10×10 com 100 quadrículas.
 - Cada quadrícula pertence a um jogador no início da partida.
 - Um jogador pode desafiar um vizinho (jogador adjacente na grelha) para um duelo.
@@ -28,7 +28,7 @@ Regras Gerais:
 ├── 📄 duelos.json             # Histórico de duelos (gerado automaticamente)
 
 
-Módulos — Explicação de cada ficheiro
+📝 Módulos — Explicação de cada ficheiro
 
 gestao_jogadores.py
 Tudo o que diz respeito aos jogadores fora do jogo:
@@ -71,7 +71,7 @@ Carregar e guardar perguntas em perguntas.json
 Pesquisa de perguntas específicas
 
 
-Modelo de Dados
+📝 Modelo de Dados
 Os dados são persistidos em ficheiros JSON com codificação UTF-8.
 Estrutura de um jogador exemplo (jogadores.json)
 json[
