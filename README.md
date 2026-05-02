@@ -17,15 +17,15 @@ The Floor é um jogo de conquista de território inspirado no programa de televi
 🗂️ Estrutura do Projeto
 📁 projeto/
 │
-├── 📄 gestao_jogadores.py     # Gestão dos jogadores (criar, listar, consultar)
-├── 📄 gestao_jogo.py          # Lógica principal do jogo (tabuleiro, duelos)
-├── 📄 estatisticas.py         # Estatísticas globais e por jogador
-├── 📄 duelos.py               # Registo e gestão do histórico de duelos
-├── 📄 gestao_categorias_perguntas.py            # Gestão das perguntas por categoria
+├── 📄 gestao_jogadores.py     		# Gestão dos jogadores (criar, listar, consultar)
+├── 📄 gestao_jogo.py          		# Lógica principal do jogo (tabuleiro, duelos)
+├── 📄 estatisticas.py         		# Estatísticas globais e por jogador
+├── 📄 duelos.py               		# Registo e gestão do histórico de duelos
+├── 📄 gestao_categorias_perguntas.py   # Gestão das perguntas por categoria
 │
-├── 📄 jogadores.json          # Base de dados dos jogadores (gerada automaticamente)
-├── 📄 categorias.json          # Base de dados das perguntas (gerada automaticamente)
-├── 📄 duelos.json             # Histórico de duelos (gerado automaticamente)
+├── 📄 jogadores.json          		# Base de dados dos jogadores (gerada automaticamente)
+├── 📄 categorias.json          	# Base de dados das perguntas (gerada automaticamente)
+├── 📄 duelos.json             		# Histórico de duelos (gerado automaticamente)
 
 
 📝 Módulos — Explicação de cada ficheiro
