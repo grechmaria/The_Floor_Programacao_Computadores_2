@@ -33,14 +33,16 @@
                 1
             ]
         ],
-        "duelos_iniciados": 0,
+        "duelos_iniciados": 1,
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
-        "duelos_perdidos": 0,
+        "duelos_perdidos": 1,
         "regressos_grelha": 0,
-        "perguntas_respondidas": 0,
+        "perguntas_respondidas": 1,
         "respostas_certas": 0,
-        "tempos_resposta": [],
+        "tempos_resposta": [
+            7.76
+        ],
         "perguntas_por_categoria": {}
     },
     {
@@ -56,13 +58,15 @@
             ]
         ],
         "duelos_iniciados": 0,
-        "duelos_aceites": 0,
-        "duelos_ganhos": 0,
+        "duelos_aceites": 1,
+        "duelos_ganhos": 1,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
-        "perguntas_respondidas": 0,
+        "perguntas_respondidas": 1,
         "respostas_certas": 0,
-        "tempos_resposta": [],
+        "tempos_resposta": [
+            10.46
+        ],
         "perguntas_por_categoria": {}
     },
     {
@@ -427,22 +431,16 @@
             [
                 1,
                 9
-            ],
-            [
-                2,
-                9
             ]
         ],
-        "duelos_iniciados": 1,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
-        "duelos_ganhos": 1,
+        "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
-        "tempos_resposta": [
-            1.2
-        ],
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -649,17 +647,20 @@
         "profissao": "Veterinária",
         "cidade": "Leiria",
         "categoria": "Peixes",
-        "quadriculas": [],
-        "duelos_iniciados": 1,
+        "quadriculas": [
+            [
+                2,
+                9
+            ]
+        ],
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
-        "tempos_resposta": [
-            0.86
-        ],
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -718,16 +719,14 @@
                 2
             ]
         ],
-        "duelos_iniciados": 1,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
-        "duelos_ganhos": 1,
+        "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
-        "tempos_resposta": [
-            1.4
-        ],
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -742,17 +741,14 @@
                 3
             ]
         ],
-        "duelos_iniciados": 2,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
-        "duelos_ganhos": 1,
+        "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
-        "respostas_certas": 1,
-        "tempos_resposta": [
-            1.96,
-            4.36
-        ],
+        "respostas_certas": 0,
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -767,16 +763,14 @@
                 4
             ]
         ],
-        "duelos_iniciados": 1,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
-        "tempos_resposta": [
-            1.05
-        ],
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -945,17 +939,14 @@
                 2
             ]
         ],
-        "duelos_iniciados": 2,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
-        "tempos_resposta": [
-            1.17,
-            8.83
-        ],
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -970,17 +961,14 @@
                 3
             ]
         ],
-        "duelos_iniciados": 2,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
-        "duelos_ganhos": 2,
+        "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
-        "respostas_certas": 2,
-        "tempos_resposta": [
-            5.33,
-            3.45
-        ],
+        "respostas_certas": 0,
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -1369,16 +1357,14 @@
                 1
             ]
         ],
-        "duelos_iniciados": 1,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
-        "duelos_ganhos": 1,
+        "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
-        "respostas_certas": 1,
-        "tempos_resposta": [
-            3.83
-        ],
+        "respostas_certas": 0,
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -1591,16 +1577,14 @@
                 1
             ]
         ],
-        "duelos_iniciados": 1,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
-        "tempos_resposta": [
-            4.57
-        ],
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -1615,16 +1599,14 @@
                 2
             ]
         ],
-        "duelos_iniciados": 1,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
-        "tempos_resposta": [
-            6.68
-        ],
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -1639,17 +1621,14 @@
                 3
             ]
         ],
-        "duelos_iniciados": 2,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
-        "duelos_ganhos": 1,
+        "duelos_ganhos": 0,
         "duelos_perdidos": 0,
-        "regressos_grelha": 0,
+        "regressos_grelha": 1,
         "perguntas_respondidas": 0,
-        "respostas_certas": 2,
-        "tempos_resposta": [
-            1.66,
-            4.17
-        ],
+        "respostas_certas": 0,
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -1664,16 +1643,14 @@
                 4
             ]
         ],
-        "duelos_iniciados": 1,
+        "duelos_iniciados": 0,
         "duelos_aceites": 0,
-        "duelos_ganhos": 1,
+        "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
-        "respostas_certas": 1,
-        "tempos_resposta": [
-            4.45
-        ],
+        "respostas_certas": 0,
+        "tempos_resposta": [],
         "perguntas_por_categoria": {}
     },
     {
@@ -2000,7 +1977,7 @@
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
-        "regressos_grelha": 1,
+        "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
         "tempos_resposta": [],

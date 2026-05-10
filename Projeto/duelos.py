@@ -43,7 +43,7 @@ def carregar_perguntas():
         return []
 
 def sortear_pergunta_unica(perguntas, categoria, perguntas_usadas):  # sorteia uma pergunta da categoria que ainda não foi usada neste duelo
-    disponiveis = [  p for p in perguntas if p["categoria"].lower() == categoria.lower() and p["pergunta"] not in perguntas_usadas]
+    disponiveis = [p for p in perguntas if p["categoria"].lower() == categoria.lower() and p["pergunta"] not in perguntas_usadas]
     if not disponiveis:
         return None
     return random.choice(disponiveis)
@@ -60,7 +60,7 @@ def inicializar_tabuleiro(jogadores):
             linha.append(jogadores[indice]["nome"])
         tabuleiro.append(linha)
 
-    with open(FICHEIRO_JOGADORES, "w", encoding="utf-8") as f: # guarda os jogadores com as quadrículas inicializadas
+    with open(FICHEIRO_JOGADORES, "w", encoding="utf-8") as f:  # guarda os jogadores com as quadrículas inicializadas
         json.dump(jogadores, f, ensure_ascii=False, indent=4)
 
     return tabuleiro
@@ -74,7 +74,7 @@ def imprimir_tabuleiro(tabuleiro):
         print(linha_formatada)
         print("-" * len(linha_formatada))
 
-def atualizar_tabuleiro(tabuleiro, jogadores): # reconstrói o tabuleiro com base nas quadrículas atuais de cada jogador
+def atualizar_tabuleiro(tabuleiro, jogadores):  # reconstrói o tabuleiro com base nas quadrículas atuais de cada jogador
     tabuleiro = [[" " for _ in range(10)] for _ in range(10)]
     for jogador in jogadores:
         for (linha, coluna) in jogador["quadriculas"]:
@@ -82,8 +82,7 @@ def atualizar_tabuleiro(tabuleiro, jogadores): # reconstrói o tabuleiro com bas
     return tabuleiro
 
 
-# Visinhos (posições adjacentes)
-
+# Vizinhos (posições adjacentes)
 
 def obter_vizinhos(jogador, jogadores):
     vizinhos = []
@@ -103,7 +102,7 @@ def obter_vizinhos(jogador, jogadores):
                         vizinhos.append(outro_jogador)
     return vizinhos
 
-    
+
 def selecionar_vizinho_manual(desafiante, jogadores):   # mostra os vizinhos disponíveis e deixa o desafiante escolher
     vizinhos = obter_vizinhos(desafiante, jogadores)
 
@@ -129,16 +128,15 @@ def selecionar_vizinho_manual(desafiante, jogadores):   # mostra os vizinhos dis
         return random.choice(vizinhos)
 
 
-
 # Perguntas e estatísticas
 
-def fazer_pergunta(jogador, pergunta): # mostra a pergunta e mede o tempo de resposta
+def fazer_pergunta(jogador, pergunta):  # mostra a pergunta e mede o tempo de resposta
     input(f"\nPrepara-te, {jogador['nome']}! Prime Enter")
     print(f"Pergunta: {pergunta['pergunta']}")
 
     inicio = time.time()
     resposta = input("A tua resposta: ").strip().lower()
-    tempo = round(time.time() - inicio, 2)  #arredondar
+    tempo = round(time.time() - inicio, 2)  # arredondar
 
     correta = resposta == pergunta["resposta"].strip().lower()
 
@@ -149,22 +147,29 @@ def fazer_pergunta(jogador, pergunta): # mostra a pergunta e mede o tempo de res
 
     return correta, tempo
 
-def atualizar_estatisticas_jogador(jogador, acertou, tempo, vencedor_duelo):  # atualiza os campos de estatísticas do jogador após o duelo
-    jogador["duelos_iniciados"] = jogador.get("duelos_iniciados", 0) + 1
+
+def atualizar_estatisticas_jogador(jogador, acertou, tempo, vencedor_duelo, foi_desafiante):
+    if foi_desafiante:
+        jogador["duelos_iniciados"] = jogador.get("duelos_iniciados", 0) + 1
+    else:
+        jogador["duelos_aceites"] = jogador.get("duelos_aceites", 0) + 1
+
+    jogador["perguntas_respondidas"] = jogador.get("perguntas_respondidas", 0) + 1
 
     if acertou:
         jogador["respostas_certas"] = jogador.get("respostas_certas", 0) + 1
 
     if vencedor_duelo == jogador["nome"]:
         jogador["duelos_ganhos"] = jogador.get("duelos_ganhos", 0) + 1
+    else:
+        jogador["duelos_perdidos"] = jogador.get("duelos_perdidos", 0) + 1
 
     tempos = jogador.get("tempos_resposta", [])
     tempos.append(tempo)
     jogador["tempos_resposta"] = tempos
 
 
-
-# Duelos:  duelo em formato melhor de 3 rondas, cada jogador responde a uma pergunta diferente por ronda ( para não haver empate)
+# Duelos: formato melhor de 3 rondas, cada jogador responde a uma pergunta diferente por ronda
 
 def melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores):
     pontos = {desafiante["nome"]: 0, desafiado["nome"]: 0}
@@ -174,9 +179,9 @@ def melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores):
     print(f"\nDUELO: {desafiante['nome']} vs {desafiado['nome']} ")
     print(f"Categoria: {categoria} | Melhor de {total_rondas} rondas\n")
 
-    # guarda os tempos e acertos por jogador para as estatísticas
     acertos = {desafiante["nome"]: False, desafiado["nome"]: False}
-    tempos = {desafiante["nome"]: 0, desafiado["nome"]: 0}
+    
+    tempos_acumulados = {desafiante["nome"]: [], desafiado["nome"]: []}
 
     for ronda in range(1, total_rondas + 1):
         print(f"Ronda {ronda}/{total_rondas} | {desafiante['nome']}: {pontos[desafiante['nome']]} — {desafiado['nome']}: {pontos[desafiado['nome']]}")
@@ -193,7 +198,7 @@ def melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores):
         perguntas_usadas.append(pergunta["pergunta"])
         acertou, tempo = fazer_pergunta(primeiro, pergunta)
         acertos[primeiro["nome"]] = acertou
-        tempos[primeiro["nome"]] = tempo
+        tempos_acumulados[primeiro["nome"]].append(tempo)  # CORREÇÃO 4: acumular
         if acertou:
             pontos[primeiro["nome"]] += 1
 
@@ -206,7 +211,7 @@ def melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores):
         perguntas_usadas.append(pergunta["pergunta"])
         acertou, tempo = fazer_pergunta(segundo, pergunta)
         acertos[segundo["nome"]] = acertou
-        tempos[segundo["nome"]] = tempo
+        tempos_acumulados[segundo["nome"]].append(tempo)  
         if acertou:
             pontos[segundo["nome"]] += 1
 
@@ -221,7 +226,7 @@ def melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores):
             print(f"{desafiado['nome']} venceu antecipadamente!")
             break
 
-    # desempate — rondas extra até haver vencedor
+    # desempate: rondas extra até haver vencedor
     while pontos[desafiante["nome"]] == pontos[desafiado["nome"]]:
         print("\nEmpate, próxima ronda.")
 
@@ -230,13 +235,18 @@ def melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores):
         print(f"\nVez de {primeiro['nome']}:")
         pergunta = sortear_pergunta_unica(perguntas, categoria, perguntas_usadas)
         if not pergunta:
-            # sem perguntas: o desafiado mantém a quadrícula
             print(f"Sem perguntas para continuar. {desafiado['nome']} mantém a quadrícula.")
-            return desafiado["nome"]
+            vencedor = desafiado["nome"]
+            # calcular tempo médio acumulado para cada jogador
+            tempo_desafiante = round(sum(tempos_acumulados[desafiante["nome"]]) / len(tempos_acumulados[desafiante["nome"]]), 2) if tempos_acumulados[desafiante["nome"]] else 0
+            tempo_desafiado  = round(sum(tempos_acumulados[desafiado["nome"]])  / len(tempos_acumulados[desafiado["nome"]]),  2) if tempos_acumulados[desafiado["nome"]]  else 0
+            atualizar_estatisticas_jogador(desafiante, acertos[desafiante["nome"]], tempo_desafiante, vencedor, foi_desafiante=True)
+            atualizar_estatisticas_jogador(desafiado,  acertos[desafiado["nome"]],  tempo_desafiado,  vencedor, foi_desafiante=False)
+            return vencedor, tempo_desafiante, tempo_desafiado
         perguntas_usadas.append(pergunta["pergunta"])
         acertou, tempo = fazer_pergunta(primeiro, pergunta)
         acertos[primeiro["nome"]] = acertou
-        tempos[primeiro["nome"]] = tempo
+        tempos_acumulados[primeiro["nome"]].append(tempo)
         if acertou:
             pontos[primeiro["nome"]] += 1
 
@@ -244,25 +254,34 @@ def melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores):
         pergunta = sortear_pergunta_unica(perguntas, categoria, perguntas_usadas)
         if not pergunta:
             print(f"Sem perguntas para continuar. {desafiado['nome']} mantém a quadrícula.")
-            return desafiado["nome"]
+            vencedor = desafiado["nome"]
+            tempo_desafiante = round(sum(tempos_acumulados[desafiante["nome"]]) / len(tempos_acumulados[desafiante["nome"]]), 2) if tempos_acumulados[desafiante["nome"]] else 0
+            tempo_desafiado  = round(sum(tempos_acumulados[desafiado["nome"]])  / len(tempos_acumulados[desafiado["nome"]]),  2) if tempos_acumulados[desafiado["nome"]]  else 0
+            atualizar_estatisticas_jogador(desafiante, acertos[desafiante["nome"]], tempo_desafiante, vencedor, foi_desafiante=True)
+            atualizar_estatisticas_jogador(desafiado,  acertos[desafiado["nome"]],  tempo_desafiado,  vencedor, foi_desafiante=False)
+            return vencedor, tempo_desafiante, tempo_desafiado
         perguntas_usadas.append(pergunta["pergunta"])
         acertou, tempo = fazer_pergunta(segundo, pergunta)
         acertos[segundo["nome"]] = acertou
-        tempos[segundo["nome"]] = tempo
+        tempos_acumulados[segundo["nome"]].append(tempo)
         if acertou:
             pontos[segundo["nome"]] += 1
 
     vencedor = desafiante["nome"] if pontos[desafiante["nome"]] > pontos[desafiado["nome"]] else desafiado["nome"]
     print(f"\nVencedor do duelo: {vencedor}")
 
-    # atualizar estatísticas de ambos os jogadores
-    atualizar_estatisticas_jogador(desafiante, acertos[desafiante["nome"]], tempos[desafiante["nome"]], vencedor)
-    atualizar_estatisticas_jogador(desafiado, acertos[desafiado["nome"]], tempos[desafiado["nome"]], vencedor)
+    
+    tempo_desafiante = round(sum(tempos_acumulados[desafiante["nome"]]) / len(tempos_acumulados[desafiante["nome"]]), 2) if tempos_acumulados[desafiante["nome"]] else 0
+    tempo_desafiado  = round(sum(tempos_acumulados[desafiado["nome"]])  / len(tempos_acumulados[desafiado["nome"]]),  2) if tempos_acumulados[desafiado["nome"]]  else 0
 
-    return vencedor
+    atualizar_estatisticas_jogador(desafiante, acertos[desafiante["nome"]], tempo_desafiante, vencedor, foi_desafiante=True)
+    atualizar_estatisticas_jogador(desafiado,  acertos[desafiado["nome"]],  tempo_desafiado,  vencedor, foi_desafiante=False)
+
+    
+    return vencedor, tempo_desafiante, tempo_desafiado
 
 
-# Registo do duelo no ficheiro duelo.json e excutar duelo
+# Registo do duelo no ficheiro duelo.json e executar duelo
 
 def executar_duelo(desafiante, desafiado, jogadores, duelos):
     print(f"\nDUELO: {desafiante['nome']} desafia {desafiado['nome']}!")
@@ -271,7 +290,8 @@ def executar_duelo(desafiante, desafiado, jogadores, duelos):
     categoria = desafiado["categoria"]
     perguntas = carregar_perguntas()
 
-    vencedor = melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores)
+  
+    vencedor, tempo_desafiante, tempo_desafiado = melhor_de_3(perguntas, categoria, desafiante, desafiado, jogadores)
 
     # transferir quadrícula se o desafiante ganhou
     quadriculas_transferidas = []
@@ -281,16 +301,14 @@ def executar_duelo(desafiante, desafiado, jogadores, duelos):
         print(f"{desafiado['nome']} defendeu com sucesso!")
     guardar_jogadores(jogadores)
 
-    # atualizar duelo no ficheiro duelos.json
+
     duelo = {
         "id_duelo": len(duelos) + 1,
         "desafiante": desafiante["nome"],
         "desafiado": desafiado["nome"],
         "categoria": categoria,
-        "resposta_desafiante": "",
-        "tempo_desafiante": 0,
-        "resposta_desafiado": "",
-        "tempo_desafiado": 0,
+        "tempo_desafiante": tempo_desafiante,
+        "tempo_desafiado": tempo_desafiado,
         "vencedor": vencedor,
         "quadriculas_transferidas": quadriculas_transferidas
     }
@@ -323,21 +341,21 @@ def transferir_quadricula(ganhador, perdedor, jogadores):
     print(f"Sem quadrículas adjacentes para transferir.")
     return []
 
-#Pergunta ao utilizador se o vencedor deve participar ou não no próximo duelo
+# Pergunta ao utilizador se o vencedor deve participar ou não no próximo duelo
 
-def escolher_proximo_desafiante(vencedor_nome, jogadores):   
+def escolher_proximo_desafiante(vencedor_nome, jogadores):
     print(f"\n{vencedor_nome} venceu o duelo!")
     print("1. Vencedor fica no próximo duelo")
     print("2. Outros jogadores")
-    
+
     opcao = input("Escolha: ")
-    
+
     if opcao == "1":
         for j in jogadores:
             if j["nome"] == vencedor_nome:
                 j["regressos_grelha"] += 1
                 return j
-    
+
     # opção 2 ou inválida: sortear outro jogador que não o vencedor
     outros = [j for j in jogadores if j["nome"] != vencedor_nome and len(j["quadriculas"]) > 0]
     if outros:
@@ -345,22 +363,22 @@ def escolher_proximo_desafiante(vencedor_nome, jogadores):
     return None
 
 
-# Condição de fim do jogo 
+# Condição de fim do jogo
 
 def verificar_fim_jogo(jogadores):
     jogadores_ativos = []
- 
+
     for jogador in jogadores:
         if len(jogador["quadriculas"]) > 0:
-            jogadores_ativos.append(jogador)  #cria lista dos jogadores que ainda têm quadrículas
- 
+            jogadores_ativos.append(jogador)  # cria lista dos jogadores que ainda têm quadrículas
+
     if len(jogadores_ativos) == 1:
-        print(f"Fim do jogo! Vencedor: {jogadores[0]['nome']}")   #quando só há um com quadrículas
+        print(f"Fim do jogo! Vencedor: {jogadores_ativos[0]['nome']}")  # quando só há um com quadrículas
         return True
     return False
 
 
-# Loop princial do iniciar_jogo ( chamado no menu principal)
+# Loop principal do iniciar_jogo (chamado no menu principal)
 
 def iniciar_jogo():
     jogadores = carregar_jogadores()
