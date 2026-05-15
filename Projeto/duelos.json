@@ -20,5 +20,20 @@
         "tempo_desafiado": 10.46,
         "vencedor": "Pedro Santos",
         "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 3,
+        "desafiante": "Sara Dias",
+        "desafiado": "Marta Baptista",
+        "categoria": "Peixes",
+        "tempo_desafiante": 2.96,
+        "tempo_desafiado": 10.93,
+        "vencedor": "Sara Dias",
+        "quadriculas_transferidas": [
+            [
+                2,
+                9
+            ]
+        ]
     }
 ]

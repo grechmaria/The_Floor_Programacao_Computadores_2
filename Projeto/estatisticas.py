@@ -10,26 +10,22 @@ from duelos import carregar_duelos
 
 # FUNCOES DE CALCULO
 
-#Tempos médios de resposta por duelo:
-def tempo_medio_resposta(duelos):
+#Tempos médios de resposta (calculado a partir dos jogadores):
+def tempo_medio_resposta(jogadores):
     try:
-        tempos = []
+        todos_tempos = []
+        for jogador in jogadores:
+            todos_tempos.extend(jogador.get("tempos_resposta", []))
 
-        for duelo in duelos:
-            if duelo["tempo_desafiante"] is not None:
-                tempos.append(duelo["tempo_desafiante"])
-            if duelo["tempo_desafiado"] is not None:
-                tempos.append(duelo["tempo_desafiado"])
+        if not todos_tempos:
+            print("Sem tempos registados para calcular a média.")
+            return 0.0
 
-        media = sum(tempos) / len(tempos)
+        media = sum(todos_tempos) / len(todos_tempos)
         return media
 
-    except ZeroDivisionError:
-        print("Sem duelos para calcular a média.")
-        return 0.0
-
-    except TypeError:
-        print("Erro: tempo de resposta com valor inválido.")
+    except (ZeroDivisionError, TypeError):
+        print("Erro ao calcular o tempo médio de resposta.")
         return 0.0
 
 
@@ -37,22 +33,22 @@ def tempo_medio_resposta(duelos):
 def media_duelos_regressos(jogadores, duelos):
     try:
         total_duelos = len(duelos)
-        total_regressos = sum(jogador["regressos_grelha"] for jogador in jogadores)
+        total_regressos = sum(jogador.get("regressos_grelha", 0) for jogador in jogadores)
         total_jogadores = len(jogadores)
+
+        if total_jogadores == 0:
+            print("Sem jogadores registados para calcular a média.")
+            return 0.0, 0.0
 
         media_duelos = total_duelos / total_jogadores
         media_regressos = total_regressos / total_jogadores
 
-        print(f"Número médio de duelos por jogador: {media_duelos}")
-        print(f"Número médio de regressos à grelha por jogador: {media_regressos}")
+        print(f"Número médio de duelos por jogador: {media_duelos:.2f}")
+        print(f"Número médio de regressos à grelha por jogador: {media_regressos:.2f}")
 
         return media_duelos, media_regressos
 
-    except ZeroDivisionError:
-        print("Sem jogadores registados para calcular a média.")
-        return 0.0, 0.0
-
-    except TypeError:
+    except (ZeroDivisionError, TypeError):
         print("Erro: valor inválido nos dados dos jogadores.")
         return 0.0, 0.0
 
@@ -62,28 +58,39 @@ def media_duelos_regressos(jogadores, duelos):
 
 def estatisticas_jogador(jogadores):
     # pede o nome do jogador
-    nome = input("Nome do jogador: ")
+    nome = input("Nome do jogador: ").strip()
 
     for jogador in jogadores:
         if jogador["nome"].lower() == nome.lower():
 
-            tempos = jogador["tempos_resposta"]
+            tempos = jogador.get("tempos_resposta", [])
+            perguntas_respondidas = jogador.get("perguntas_respondidas", 0)
+            respostas_certas      = jogador.get("respostas_certas", 0)
+            duelos_iniciados      = jogador.get("duelos_iniciados", 0)
+            duelos_aceites        = jogador.get("duelos_aceites", 0)
+            duelos_ganhos         = jogador.get("duelos_ganhos", 0)
+            duelos_perdidos       = jogador.get("duelos_perdidos", 0)
+            regressos             = jogador.get("regressos_grelha", 0)
+            quadriculas           = len(jogador.get("quadriculas", []))
+            perguntas_cat         = jogador.get("perguntas_por_categoria", {})
 
-            # se não tiver tempos ainda
-            if len(tempos) == 0:
-                print(f"{jogador['nome']}: sem estatísticas ainda.")
-                return
-
-            tempo_medio = sum(tempos) / len(tempos)
-            perguntas_por_categoria = jogador["perguntas_por_categoria"]
-            categorias_conquistadas = len(jogador["quadriculas"])
-            agressividade = jogador["duelos_iniciados"] - jogador["regressos_grelha"]
+            tempo_medio = (sum(tempos) / len(tempos)) if tempos else 0.0
+            taxa_acerto = (respostas_certas / perguntas_respondidas * 100) if perguntas_respondidas > 0 else 0.0
+            agressividade = duelos_iniciados - regressos
 
             print(f"\nEstatísticas de {jogador['nome']}:")
-            print(f"Tempo médio de resposta: {tempo_medio} segundos")
-            print(f"Perguntas por categoria: {perguntas_por_categoria}")
-            print(f"Quadrículas conquistadas: {categorias_conquistadas}")
-            print(f"Nível de agressividade: {agressividade}")
+            print(f"  Tempo médio de resposta : {tempo_medio:.2f}s")
+            print(f"  Perguntas respondidas   : {perguntas_respondidas}")
+            print(f"  Respostas certas        : {respostas_certas} ({taxa_acerto:.1f}%)")
+            print(f"  Duelos iniciados        : {duelos_iniciados}")
+            print(f"  Duelos aceites          : {duelos_aceites}")
+            print(f"  Duelos ganhos           : {duelos_ganhos}")
+            print(f"  Duelos perdidos         : {duelos_perdidos}")
+            print(f"  Regressos à grelha      : {regressos}")
+            print(f"  Quadrículas atuais      : {quadriculas}")
+            print(f"  Nível de agressividade  : {agressividade}")
+            if perguntas_cat:
+                print(f"  Perguntas por categoria : {perguntas_cat}")
             return
 
     print(f"Jogador '{nome}' não encontrado.")
@@ -92,7 +99,7 @@ def estatisticas_jogador(jogadores):
 # Jogador mais rápido
 def jogador_mais_rapido(jogadores):
     # filtra só jogadores com tempos registados
-    jogadores_com_tempos = [j for j in jogadores if len(j["tempos_resposta"]) > 0]
+    jogadores_com_tempos = [j for j in jogadores if j.get("tempos_resposta")]
 
     if not jogadores_com_tempos:
         print("Sem tempos registados para calcular o jogador mais rápido.")
@@ -101,37 +108,47 @@ def jogador_mais_rapido(jogadores):
     jogador_rapido = min(jogadores_com_tempos, key=lambda j: sum(j["tempos_resposta"]) / len(j["tempos_resposta"]))
     menor_tempo = sum(jogador_rapido["tempos_resposta"]) / len(jogador_rapido["tempos_resposta"])
 
-    print(f"O jogador mais rápido é {jogador_rapido['nome']} com um tempo médio de {menor_tempo} segundos.")
+    print(f"O jogador mais rápido é {jogador_rapido['nome']} com um tempo médio de {menor_tempo:.2f} segundos.")
     return jogador_rapido["nome"], menor_tempo
 
 
 # Jogador mais agressivo
 def jogador_mais_agressivo(jogadores):
-    jogador_com_agressividade = [j for j in jogadores if j["duelos_iniciados"] - j["regressos_grelha"] > 0]
+    candidatos = [j for j in jogadores if j.get("duelos_iniciados", 0) > 0]
 
-    if not jogador_com_agressividade:
+    if not candidatos:
         print("Informação insuficiente para calcular o jogador mais agressivo.")
-        return "", 0.0
-    
-    jogador_agressivo = max(jogadores, key=lambda j: j["duelos_iniciados"] - j["regressos_grelha"])
-    maior_agressividade = jogador_agressivo["duelos_iniciados"] - jogador_agressivo["regressos_grelha"]
+        return "", 0
 
-    print(f"O jogador mais agressivo é {jogador_agressivo['nome']} com um nível de agressividade de {maior_agressividade}.")
-    return jogador_agressivo["nome"], maior_agressividade
+    jogador_agressivo = max(
+        candidatos,
+        key=lambda j: j.get("duelos_iniciados", 0) - j.get("regressos_grelha", 0)
+    )
+    agressividade = jogador_agressivo.get("duelos_iniciados", 0) - jogador_agressivo.get("regressos_grelha", 0)
 
-   
+    print(f"O jogador mais agressivo é {jogador_agressivo['nome']} com um nível de agressividade de {agressividade}.")
+    return jogador_agressivo["nome"], agressividade
 
-#Para mostrar no menu principal
 
-def mostrar_estatisticas():
-    jogadores = carregar_jogadores()
-    duelos = carregar_duelos()
-    media=tempo_medio_resposta(duelos)
-    print(f"O tempo médio de resposta é de {media} segundos.")
-    media_duelos_regressos(jogadores, duelos)
-    estatisticas_jogador(jogadores)
-    jogador_mais_rapido(jogadores)
-    jogador_mais_agressivo(jogadores)
+# Resumo dos duelos
+def resumo_duelos(duelos):
+    """Mostra um resumo dos duelos realizados."""
+    if not duelos:
+        print("Sem duelos registados.")
+        return
+
+    print(f"\nTotal de duelos realizados: {len(duelos)}")
+    print(f"{'─'*55}")
+    for d in duelos:
+        print(f"  Duelo {d['id_duelo']}: {d['desafiante']} vs {d['desafiado']}")
+        print(f"    Categoria : {d['categoria']}")
+        print(f"    {d['desafiante']}: {d.get('acertos_desafiante', '-')} acertos "
+              f"({d.get('tempo_medio_desafiante', 0):.2f}s médio)")
+        print(f"    {d['desafiado']}: {d.get('acertos_desafiado', '-')} acertos "
+              f"({d.get('tempo_medio_desafiado', 0):.2f}s médio)")
+        print(f"    Vencedor  : {d['vencedor']}")
+        print(f"{'─'*55}")
+
 
 # MATPLOTLIB
 
@@ -146,16 +163,16 @@ def grafico_duelos_ganhos_perdidos(jogadores):
 
     jogadores_ativos = [
         j for j in jogadores
-        if j["duelos_iniciados"] > 0 or j["duelos_ganhos"] > 0
+        if j.get("duelos_iniciados", 0) > 0 or j.get("duelos_ganhos", 0) > 0
     ]
     if not jogadores_ativos:
         print("[Gráfico] Sem duelos registados para mostrar.")
         return
 
     nomes = [j["nome"] for j in jogadores_ativos]
-    ganhos = [j["duelos_ganhos"] for j in jogadores_ativos]
+    ganhos = [j.get("duelos_ganhos", 0) for j in jogadores_ativos]
     perdidos = [
-        j["duelos_iniciados"] - j["duelos_ganhos"] for j in jogadores_ativos
+        j.get("duelos_iniciados", 0) - j.get("duelos_ganhos", 0) for j in jogadores_ativos
     ]
 
     x = range(len(nomes))
@@ -203,7 +220,7 @@ def grafico_duelos_ganhos_perdidos(jogadores):
 # Tempo médio de resposta por jogador
 def grafico_tempo_medio_por_jogador(jogadores):
 
-    jogadores_com_tempos = [j for j in jogadores if len(j["tempos_resposta"]) > 0]
+    jogadores_com_tempos = [j for j in jogadores if j.get("tempos_resposta")]
     if not jogadores_com_tempos:
         print("[Gráfico] Sem tempos de resposta registados.")
         return
@@ -240,7 +257,7 @@ def grafico_tempo_medio_por_jogador(jogadores):
 # Distribuição das vitórias entre jogadores
 def grafico_circular_vitorias(jogadores):
 
-    jogadores_com_vitorias = [j for j in jogadores if j["duelos_ganhos"] > 0]
+    jogadores_com_vitorias = [j for j in jogadores if j.get("duelos_ganhos", 0) > 0]
     if not jogadores_com_vitorias:
         print("[Gráfico] Sem vitórias registadas.")
         return
@@ -275,15 +292,15 @@ def grafico_agressividade(jogadores):
 
     jogadores_ativos = [
         j for j in jogadores
-        if j["duelos_iniciados"] > 0 or j["regressos_grelha"] > 0
+        if j.get("duelos_iniciados", 0) > 0 or j.get("regressos_grelha", 0) > 0
     ]
     if not jogadores_ativos:
         print("[Gráfico] Sem dados de agressividade.")
         return
 
     nomes = [j["nome"] for j in jogadores_ativos]
-    iniciados = [j["duelos_iniciados"] for j in jogadores_ativos]
-    regressos = [j["regressos_grelha"] for j in jogadores_ativos]
+    iniciados = [j.get("duelos_iniciados", 0) for j in jogadores_ativos]
+    regressos = [j.get("regressos_grelha", 0) for j in jogadores_ativos]
 
     x = range(len(nomes))
     largura = 0.35
@@ -309,44 +326,13 @@ def grafico_agressividade(jogadores):
     plt.show()
 
 
-# Quadrículas por jogador (território atual)
-def grafico_quadriculas_por_jogador(jogadores):
-    jogadores_ativos = [j for j in jogadores if len(j["quadriculas"]) > 0]
-    if not jogadores_ativos:
-        print("[Gráfico] Sem quadrículas registadas.")
-        return
-
-    jogadores_ativos.sort(key=lambda j: len(j["quadriculas"]), reverse=True)
-    nomes = [j["nome"] for j in jogadores_ativos]
-    quadriculas = [len(j["quadriculas"]) for j in jogadores_ativos]
-
-    cores = _cor_padrao(len(nomes))
-    fig, ax = plt.subplots(figsize=(max(8, len(nomes) * 0.6), 5))
-    barras = ax.bar(nomes, quadriculas, color=cores)
-
-    for barra, val in zip(barras, quadriculas):
-        ax.text(
-            barra.get_x() + barra.get_width() / 2,
-            barra.get_height() + 0.1,
-            str(val),
-            ha="center", va="bottom", fontsize=9
-        )
-
-    ax.set_title("Quadrículas por Jogador (Território Atual)", fontsize=13, fontweight="bold")
-    ax.set_xlabel("Jogador")
-    ax.set_ylabel("Nº de Quadrículas")
-    ax.set_xticks(range(len(nomes)))
-    ax.set_xticklabels(nomes, rotation=45, ha="right", fontsize=9)
-    ax.grid(axis="y", linestyle="--", alpha=0.5)
-    plt.tight_layout()
-    plt.show()
 
 
 # Taxa de acerto global (certas vs erradas)
 def grafico_circular_taxa_acerto(jogadores):
 
-    total_respondidas = sum(j["perguntas_respondidas"] for j in jogadores)
-    total_certas = sum(j["respostas_certas"] for j in jogadores)
+    total_respondidas = sum(j.get("perguntas_respondidas", 0) for j in jogadores)
+    total_certas = sum(j.get("respostas_certas", 0) for j in jogadores)
     total_erradas = total_respondidas - total_certas
 
     if total_respondidas == 0:
@@ -405,7 +391,7 @@ def grafico_duelos_por_categoria(duelos):
     plt.tight_layout()
     plt.show()
 
-# menu de estatisticas4
+# menu de estatisticas
 
 def mostrar_estatisticas():
     jogadores = carregar_jogadores()
@@ -418,12 +404,12 @@ def mostrar_estatisticas():
         print("3. Estatísticas de um jogador específico")
         print("4. Jogador mais rápido")
         print("5. Jogador mais agressivo")
+        print("6. Resumo dos duelos")
         print("─── Gráficos ───────────────────────────")
-        print("6.  Duelos ganhos vs perdidos [barras]")
-        print("7.  Tempo médio de resposta por jogador [barras horizontais]")
-        print("8.  Distribuição de vitórias [circular]")
-        print("9.  Agressividade por jogador [barras]")
-        print("10. Quadrículas por jogador [barras]")
+        print("7.  Duelos ganhos vs perdidos [barras]")
+        print("8.  Tempo médio de resposta por jogador [barras horizontais]")
+        print("9.  Distribuição de vitórias [circular]")
+        print("10. Agressividade por jogador [barras]")
         print("11. Taxa de acerto global [circular]")
         print("12. Duelos por categoria [barras horizontais]")
         print("0. Voltar")
@@ -431,8 +417,9 @@ def mostrar_estatisticas():
         opcao = input("Escolha uma opção: ").strip()
 
         if opcao == "1":
-            media = tempo_medio_resposta(duelos)
-            print(f"Tempo médio de resposta: {media:.2f}s")
+            media = tempo_medio_resposta(jogadores)
+            if media > 0:
+                print(f"Tempo médio de resposta: {media:.2f}s")
 
         elif opcao == "2":
             media_duelos_regressos(jogadores, duelos)
@@ -447,19 +434,20 @@ def mostrar_estatisticas():
             jogador_mais_agressivo(jogadores)
 
         elif opcao == "6":
-            grafico_duelos_ganhos_perdidos(jogadores)
+            resumo_duelos(duelos)
 
         elif opcao == "7":
-            grafico_tempo_medio_por_jogador(jogadores)
+            grafico_duelos_ganhos_perdidos(jogadores)
 
         elif opcao == "8":
-            grafico_circular_vitorias(jogadores)
+            grafico_tempo_medio_por_jogador(jogadores)
 
         elif opcao == "9":
-            grafico_agressividade(jogadores)
+            grafico_circular_vitorias(jogadores)
 
         elif opcao == "10":
-            grafico_quadriculas_por_jogador(jogadores)
+            grafico_agressividade(jogadores)
+
 
         elif opcao == "11":
             grafico_circular_taxa_acerto(jogadores)
@@ -472,8 +460,3 @@ def mostrar_estatisticas():
 
         else:
             print("Opção inválida.")
-
-
-
-    
-
