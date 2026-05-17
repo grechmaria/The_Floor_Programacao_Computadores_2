@@ -431,10 +431,6 @@
             [
                 1,
                 9
-            ],
-            [
-                2,
-                9
             ]
         ],
         "duelos_iniciados": 1,
@@ -653,7 +649,12 @@
         "profissao": "Veterinária",
         "cidade": "Leiria",
         "categoria": "Peixes",
-        "quadriculas": [],
+        "quadriculas": [
+            [
+                2,
+                9
+            ]
+        ],
         "duelos_iniciados": 0,
         "duelos_aceites": 1,
         "duelos_ganhos": 0,
@@ -1734,14 +1735,16 @@
                 8
             ]
         ],
-        "duelos_iniciados": 0,
+        "duelos_iniciados": 1,
         "duelos_aceites": 0,
         "duelos_ganhos": 0,
-        "duelos_perdidos": 0,
+        "duelos_perdidos": 1,
         "regressos_grelha": 0,
-        "perguntas_respondidas": 0,
+        "perguntas_respondidas": 5,
         "respostas_certas": 0,
-        "tempos_resposta": [],
+        "tempos_resposta": [
+            48.52
+        ],
         "perguntas_por_categoria": {}
     },
     {
@@ -1756,14 +1759,16 @@
                 9
             ]
         ],
-        "duelos_iniciados": 0,
+        "duelos_iniciados": 1,
         "duelos_aceites": 0,
-        "duelos_ganhos": 0,
+        "duelos_ganhos": 1,
         "duelos_perdidos": 0,
-        "regressos_grelha": 0,
-        "perguntas_respondidas": 0,
+        "regressos_grelha": 1,
+        "perguntas_respondidas": 4,
         "respostas_certas": 0,
-        "tempos_resposta": [],
+        "tempos_resposta": [
+            0.61
+        ],
         "perguntas_por_categoria": {}
     },
     {

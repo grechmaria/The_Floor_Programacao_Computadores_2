@@ -13,39 +13,9 @@ from duelos import iniciar_jogo
 
 FICHEIRO_JOGADORES = "jogadores.json"
 FICHEIRO_PERGUNTAS = "categorias.json"
-
-jogadores = carregar_jogadores()
-
-#Inicializar categorias (atribuição de uma categoria a um jogador)
-def inicializar_categoria(lista_jogadores):
-    with open(FICHEIRO_PERGUNTAS, encoding="utf-8") as f:
-        perguntas = json.load(f)
-
-    categorias_vistas = []
-    for p in perguntas:
-        if p["categoria"] not in categorias_vistas:
-            categorias_vistas.append(p["categoria"])
-
-    
-    for i, jogador in enumerate(lista_jogadores):
-        jogador["categoria"] = categorias_vistas[i]
-
-    # Guarda a lista atualizada no ficheiro de jogadores
-    with open(FICHEIRO_JOGADORES, "w", encoding="utf-8") as f:
-        json.dump(lista_jogadores, f, ensure_ascii=False, indent=4)
-
-    print("Categorias inicializadas com sucesso!")
-    return lista_jogadores
-
-
  
-# Guardar o estado dos jogadores no ficheiro dos jogadores 
-def guardar_jogadores(jogadores):
-    with open("jogadores.json", "w", encoding="utf-8") as f:
-        json.dump(jogadores, f, ensure_ascii=False, indent=4) #ensure_ascii=False=guarda acentos, indent=4=formata com 4 espaços (padrão)
 
- 
-inicializar_categoria(jogadores)
+
 
 #Menu princial para aceder aos menus do jogadores, perguntas, o jogo em si e estatísticas. O jogo é executado por esta função.
 def menu_principal():
@@ -73,6 +43,3 @@ def menu_principal():
             print("Opção inválida.")
 
 menu_principal()
-
-
-

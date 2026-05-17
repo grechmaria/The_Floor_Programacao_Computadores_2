@@ -1,39 +1,43 @@
 [
     {
-        "id_duelo": 0,
-        "desafiante": "",
-        "desafiado": "",
-        "categoria": "",
-        "resposta_desafiante": "",
-        "tempo_desafiante": 0,
-        "resposta_desafiado": "",
-        "tempo_desafiado": 0,
-        "vencedor": "",
+        "id_duelo": 1,
+        "desafiante": "Vítor Azevedo",
+        "desafiado": "Artur Dias",
+        "categoria": "Transportes",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 2.73,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 2.03,
+        "vencedor": "Artur Dias",
         "quadriculas_transferidas": []
     },
     {
         "id_duelo": 2,
-        "desafiante": "Maria Costa",
-        "desafiado": "Pedro Santos",
-        "categoria": "Montanhas",
-        "tempo_desafiante": 7.76,
-        "tempo_desafiado": 10.46,
-        "vencedor": "Pedro Santos",
-        "quadriculas_transferidas": []
+        "desafiante": "Beatriz Santos",
+        "desafiado": "Miguel Ferreira",
+        "categoria": "Fadistas",
+        "acertos_desafiante": 2,
+        "tempo_medio_desafiante": 7.8,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 1.29,
+        "vencedor": "Beatriz Santos",
+        "quadriculas_transferidas": [
+            [
+                8,
+                8
+            ]
+        ]
     },
     {
         "id_duelo": 3,
-        "desafiante": "Sara Dias",
-        "desafiado": "Marta Baptista",
-        "categoria": "Peixes",
-        "tempo_desafiante": 2.96,
-        "tempo_desafiado": 10.93,
-        "vencedor": "Sara Dias",
-        "quadriculas_transferidas": [
-            [
-                2,
-                9
-            ]
-        ]
+        "desafiante": "António Pacheco",
+        "desafiado": "Lurdes Nogueira",
+        "categoria": "Agricultura",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 48.52,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0.61,
+        "vencedor": "Lurdes Nogueira",
+        "quadriculas_transferidas": []
     }
 ]
