@@ -187,5 +187,34 @@
                 0
             ]
         ]
+    },
+    {
+        "id_duelo": 13,
+        "desafiante": "Vanessa Simões",
+        "desafiado": "Tatiana Lopes",
+        "categoria": "Desportistas",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 6.95,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 6.36,
+        "vencedor": "Tatiana Lopes",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 14,
+        "desafiante": "Tiago Duarte",
+        "desafiado": "Tomás Guerreiro",
+        "categoria": "Apps famosas",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Tiago Duarte",
+        "quadriculas_transferidas": [
+            [
+                3,
+                6
+            ]
+        ]
     }
 ]
