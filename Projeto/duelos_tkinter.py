@@ -10,7 +10,7 @@ import random
 import time
 import threading
 
-# ── importações do projeto ────────────────────────────────────────────────────
+# importações do projeto 
 from gestao_jogadores import carregar_jogadores, guardar_jogadores
 from duelos import (
     carregar_duelos,
@@ -27,9 +27,8 @@ from duelos import (
 DURACAO_DUELO = 45  # segundos
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+ 
 #  UTILITÁRIOS DE ESTILO
-# ══════════════════════════════════════════════════════════════════════════════
 
 CORES = {
     "bg":       "#0a0a0a",
@@ -71,9 +70,8 @@ def _titulo(pai, texto, tam=20):
                     fg=CORES["titulo"], bg=CORES["bg"])
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  1. SELEÇÃO DE VIZINHO
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _obter_vizinhos(jogador, jogadores):
     vizinhos = []
@@ -125,9 +123,7 @@ def selecionar_vizinho_tkinter(desafiante, jogadores):
     return resultado[0]
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 #  2. DUELO — janela principal com cronómetro e perguntas
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
     """
@@ -140,7 +136,7 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
 
     resultado = [None]   # guardará o vencedor quando a janela fechar
 
-    # ── janela ────────────────────────────────────────────────────────────────
+    #  janela 
     janela = tk.Toplevel()
     _estilo_janela(janela, "DUELO", 520, 520)
     janela.grab_set()
@@ -198,7 +194,7 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
     lbl_feedback = _label(janela, "", tam=10)
     lbl_feedback.pack(pady=2)
 
-    # ── estado interno ─────────────────────────────────────────────────────
+    #  estado interno 
     estado = {
         "idx_pergunta":   0,
         "vez":            0,   # 0 = desafiante, 1 = desafiado
@@ -327,13 +323,12 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
     return resultado[0], tempos, acertos
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 #  3. JANELA DE RESULTADO
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo, on_close):
     jan = tk.Toplevel()
-    _estilo_janela(jan, "Resultado do Duelo", 420, 320)
+    _estilo_janela(jan, "Resultado do Duelo", 420, 400)
     jan.grab_set()
 
     _titulo(jan, "RESULTADO FINAL", 20).pack(pady=(18, 4))
@@ -366,16 +361,15 @@ def _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo, o
     jan.wait_window()
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 #  4. PRÓXIMO DESAFIANTE
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def escolher_proximo_desafiante_tkinter(vencedor_nome, jogadores):
     """Popup: vencedor fica ou sorteia outro?"""
     resultado = [None]
 
     jan = tk.Toplevel()
-    _estilo_janela(jan, "Próximo Duelo", 400, 220)
+    _estilo_janela(jan, "Próximo Duelo", 400, 300)
     jan.grab_set()
 
     _titulo(jan, "PRÓXIMO DUELO", 16).pack(pady=(16, 4))
@@ -408,9 +402,8 @@ def escolher_proximo_desafiante_tkinter(vencedor_nome, jogadores):
     return resultado[0]
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 #  5. EXECUTAR DUELO (equivalente a duelos.executar_duelo)
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def executar_duelo_tkinter(desafiante, desafiado, jogadores, duelos):
     categoria = desafiado["categoria"]
@@ -470,9 +463,8 @@ def executar_duelo_tkinter(desafiante, desafiado, jogadores, duelos):
     return duelo
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 #  6. LOOP PRINCIPAL DO JOGO EM TKINTER
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def _verificar_fim_tkinter(jogadores):
     ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]
@@ -608,9 +600,9 @@ def iniciar_jogo_tkinter(root=None):
     ciclo_jogo()
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  7. CARREGAR JOGO (retomar jogo guardado) em Tkinter
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def carregar_jogo_tkinter():
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -630,7 +622,7 @@ def carregar_jogo_tkinter():
     iniciar_jogo_tkinter()
 
 
-# ── Teste isolado ──────────────────────────────────────────────────────────────
+# Teste isolado
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     raiz = tk.Tk()

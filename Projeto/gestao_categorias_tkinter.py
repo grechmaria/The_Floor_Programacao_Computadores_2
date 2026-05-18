@@ -12,7 +12,7 @@ from gestao_categorias_perguntas import (
     obter_categorias,
 )
 
-# ── Estilo ────────────────────────────────────────────────────────────────────
+#  Estilo 
 
 CORES = {
     "bg":       "#0a0a0a",
@@ -59,9 +59,8 @@ def _entry(pai, var, largura=30):
                     relief="flat", bd=4)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  1. JANELA PRINCIPAL
-# ══════════════════════════════════════════════════════════════════════════════
 
 def menu_categorias_tkinter():
     """Abre a janela principal de gestão de categorias e perguntas."""
@@ -73,7 +72,7 @@ def menu_categorias_tkinter():
 
     _titulo(janela, "CATEGORIAS E PERGUNTAS").pack(pady=(14, 6))
 
-    # ── Painel esquerdo: lista de categorias ──────────────────────────────────
+    #  Painel esquerdo: lista de categorias 
     frame_principal = tk.Frame(janela, bg=CORES["bg"])
     frame_principal.pack(fill="both", expand=True, padx=14, pady=(0, 4))
 
@@ -95,7 +94,7 @@ def menu_categorias_tkinter():
     lb_cats.pack(side="left", fill="both", expand=True)
     scroll_cats.pack(side="right", fill="y")
 
-    # ── Painel direito: perguntas da categoria selecionada ────────────────────
+    #  Painel direito: perguntas da categoria selecionada 
     frame_dir = tk.Frame(frame_principal, bg=CORES["bg"])
     frame_dir.pack(side="left", fill="both", expand=True)
 
@@ -128,7 +127,7 @@ def menu_categorias_tkinter():
     tabela.pack(side="left", fill="both", expand=True)
     scroll_tab.pack(side="right", fill="y")
 
-    # ── Funções de atualização ────────────────────────────────────────────────
+    # Funções de atualização 
 
     def _atualizar_categorias():
         lb_cats.delete(0, "end")
@@ -153,7 +152,7 @@ def menu_categorias_tkinter():
     lb_cats.bind("<<ListboxSelect>>", _ao_selecionar_categoria)
     _atualizar_categorias()
 
-    # ── Botões ────────────────────────────────────────────────────────────────
+    # Botões 
     frame_btns = tk.Frame(janela, bg=CORES["bg"])
     frame_btns.pack(pady=6)
 
@@ -222,9 +221,8 @@ def menu_categorias_tkinter():
               command=janela.destroy).grid(row=1, column=2, padx=5, pady=3)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  2. NOVA CATEGORIA
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _janela_nova_categoria(perguntas, callback):
     jan = tk.Toplevel()
@@ -271,9 +269,8 @@ def _janela_nova_categoria(perguntas, callback):
     _btn(frame_btn, "Cancelar",  jan.destroy, cor=CORES["cinza"], largura=14).pack(side="left", padx=8)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  3. ADICIONAR PERGUNTA
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _janela_adicionar_pergunta(categoria, perguntas, cb_cats, cb_tab):
     jan = tk.Toplevel()
@@ -311,9 +308,8 @@ def _janela_adicionar_pergunta(categoria, perguntas, cb_cats, cb_tab):
     _btn(frame_btn, "Cancelar",  jan.destroy, cor=CORES["cinza"], largura=14).pack(side="left", padx=8)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 #  4. EDITAR PERGUNTA
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def _janela_editar_pergunta(p_obj, perguntas, cb_cats, cb_tab):
     jan = tk.Toplevel()
@@ -351,10 +347,8 @@ def _janela_editar_pergunta(p_obj, perguntas, cb_cats, cb_tab):
     _btn(frame_btn, "Guardar", confirmar,  cor=CORES["verde"], largura=14).pack(side="left", padx=8)
     _btn(frame_btn, "Cancelar", jan.destroy, cor=CORES["cinza"], largura=14).pack(side="left", padx=8)
 
-
-# ══════════════════════════════════════════════════════════════════════════════
 #  5. PESQUISAR PERGUNTA
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def _janela_pesquisar(perguntas):
     jan = tk.Toplevel()
@@ -408,7 +402,7 @@ def _janela_pesquisar(perguntas):
     _btn(jan, "Fechar", jan.destroy, cor=CORES["cinza"], largura=14).pack(pady=8)
 
 
-# ── Teste isolado ──────────────────────────────────────────────────────────────
+# Teste isolado
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     raiz = tk.Tk()

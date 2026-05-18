@@ -4,7 +4,7 @@
         "idade": 21,
         "profissao": "Estudante",
         "cidade": "Braga",
-        "categoria": "Profissões",
+        "categoria": "Videojogos",
         "quadriculas": [
             [
                 0,
@@ -26,7 +26,7 @@
         "idade": 22,
         "profissao": "Engenheira",
         "cidade": "Porto",
-        "categoria": "Corpos de água",
+        "categoria": "Mitologia",
         "quadriculas": [
             [
                 0,
@@ -50,7 +50,7 @@
         "idade": 23,
         "profissao": "Professor",
         "cidade": "Lisboa",
-        "categoria": "Flores",
+        "categoria": "Datas importantes",
         "quadriculas": [
             [
                 0,
@@ -74,7 +74,7 @@
         "idade": 20,
         "profissao": "Designer",
         "cidade": "Coimbra",
-        "categoria": "Futebolistas",
+        "categoria": "Tipos de casas",
         "quadriculas": [
             [
                 0,
@@ -96,7 +96,7 @@
         "idade": 24,
         "profissao": "Geógrafo",
         "cidade": "Faro",
-        "categoria": "Instrumentos musicais",
+        "categoria": "Sobremesas internacionais",
         "quadriculas": [
             [
                 0,
@@ -118,7 +118,7 @@
         "idade": 22,
         "profissao": "Músico",
         "cidade": "Aveiro",
-        "categoria": "Línguas",
+        "categoria": "Partes do corpo",
         "quadriculas": [
             [
                 0,
@@ -140,7 +140,7 @@
         "idade": 25,
         "profissao": "Ator",
         "cidade": "Guimarães",
-        "categoria": "Filmes de animação",
+        "categoria": "Cidades portuguesas",
         "quadriculas": [
             [
                 0,
@@ -162,7 +162,7 @@
         "idade": 21,
         "profissao": "Programador",
         "cidade": "Setúbal",
-        "categoria": "Tipos de bebidas quentes",
+        "categoria": "Jardinagem",
         "quadriculas": [
             [
                 0,
@@ -184,7 +184,7 @@
         "idade": 23,
         "profissao": "Escritor",
         "cidade": "Évora",
-        "categoria": "Corpo humano",
+        "categoria": "Redes sociais",
         "quadriculas": [
             [
                 0,
@@ -206,7 +206,7 @@
         "idade": 22,
         "profissao": "Veterinário",
         "cidade": "Leiria",
-        "categoria": "Higiene e beleza",
+        "categoria": "Comida rápida",
         "quadriculas": [
             [
                 0,
@@ -250,7 +250,7 @@
         "idade": 19,
         "profissao": "Estudante",
         "cidade": "Bragança",
-        "categoria": "Lendas da música",
+        "categoria": "Religião",
         "quadriculas": [
             [
                 1,
@@ -272,7 +272,7 @@
         "idade": 27,
         "profissao": "Treinador",
         "cidade": "Portalegre",
-        "categoria": "Jogos de cartas",
+        "categoria": "Fadistas",
         "quadriculas": [
             [
                 1,
@@ -298,7 +298,7 @@
         "idade": 24,
         "profissao": "Designer",
         "cidade": "Viana do Castelo",
-        "categoria": "Carros",
+        "categoria": "Comida rápida",
         "quadriculas": [
             [
                 1,
@@ -320,7 +320,7 @@
         "idade": 28,
         "profissao": "Geógrafo",
         "cidade": "Funchal",
-        "categoria": "Guerras históricas",
+        "categoria": "Tipos de bebidas quentes",
         "quadriculas": [
             [
                 1,
@@ -342,7 +342,7 @@
         "idade": 23,
         "profissao": "Cantora",
         "cidade": "Ponta Delgada",
-        "categoria": "Escola",
+        "categoria": "Sobremesas internacionais",
         "quadriculas": [
             [
                 1,
@@ -364,7 +364,7 @@
         "idade": 29,
         "profissao": "Ator",
         "cidade": "Guarda",
-        "categoria": "Pintores",
+        "categoria": "Desastres naturais",
         "quadriculas": [
             [
                 1,
@@ -386,7 +386,7 @@
         "idade": 22,
         "profissao": "Programadora",
         "cidade": "Castelo Branco",
-        "categoria": "Objetos eletrónicos",
+        "categoria": "Doces",
         "quadriculas": [
             [
                 1,
@@ -408,7 +408,7 @@
         "idade": 30,
         "profissao": "Professor",
         "cidade": "Beja",
-        "categoria": "Tipos de queijo",
+        "categoria": "Vilas e aldeias de Portugal",
         "quadriculas": [
             [
                 1,
@@ -430,7 +430,7 @@
         "idade": 21,
         "profissao": "Bióloga",
         "cidade": "Santarém",
-        "categoria": "Guerras históricas",
+        "categoria": "Tipos de música",
         "quadriculas": [
             [
                 1,
@@ -454,7 +454,7 @@
         "idade": 20,
         "profissao": "Estudante",
         "cidade": "Braga",
-        "categoria": "Feriados",
+        "categoria": "Clima",
         "quadriculas": [
             [
                 2,
@@ -476,7 +476,7 @@
         "idade": 25,
         "profissao": "Investigadora",
         "cidade": "Porto",
-        "categoria": "Dias da semana",
+        "categoria": "Cultura italiana",
         "quadriculas": [
             [
                 2,
@@ -498,7 +498,7 @@
         "idade": 24,
         "profissao": "Atleta",
         "cidade": "Lisboa",
-        "categoria": "Tipos de casas",
+        "categoria": "Geografia de Portugal",
         "quadriculas": [
             [
                 2,
@@ -524,7 +524,7 @@
         "idade": 26,
         "profissao": "Designer",
         "cidade": "Coimbra",
-        "categoria": "Monumentos nacionais",
+        "categoria": "Aeroportos",
         "quadriculas": [
             [
                 2,
@@ -546,7 +546,7 @@
         "idade": 27,
         "profissao": "Cartógrafo",
         "cidade": "Faro",
-        "categoria": "Origens dos famosos",
+        "categoria": "Tipos de bebidas quentes",
         "quadriculas": [
             [
                 2,
@@ -568,7 +568,7 @@
         "idade": 22,
         "profissao": "Músico",
         "cidade": "Aveiro",
-        "categoria": "Apps famosas",
+        "categoria": "Árvores de fruto",
         "quadriculas": [
             [
                 2,
@@ -594,7 +594,7 @@
         "idade": 31,
         "profissao": "Ator",
         "cidade": "Guimarães",
-        "categoria": "Línguas",
+        "categoria": "Fórmula 1",
         "quadriculas": [
             [
                 2,
@@ -620,7 +620,7 @@
         "idade": 23,
         "profissao": "Programadora",
         "cidade": "Setúbal",
-        "categoria": "Ficção cientifica",
+        "categoria": "Tipos de casas",
         "quadriculas": [
             [
                 2,
@@ -642,7 +642,7 @@
         "idade": 28,
         "profissao": "Escritor",
         "cidade": "Évora",
-        "categoria": "Frutas",
+        "categoria": "Escola",
         "quadriculas": [
             [
                 2,
@@ -664,7 +664,7 @@
         "idade": 24,
         "profissao": "Veterinária",
         "cidade": "Leiria",
-        "categoria": "Atores",
+        "categoria": "Marcas",
         "quadriculas": [
             [
                 2,
@@ -688,7 +688,7 @@
         "idade": 21,
         "profissao": "Estudante",
         "cidade": "Viseu",
-        "categoria": "Animais selvagens",
+        "categoria": "Datas importantes",
         "quadriculas": [
             [
                 3,
@@ -710,7 +710,7 @@
         "idade": 22,
         "profissao": "Química",
         "cidade": "Bragança",
-        "categoria": "Montanhas",
+        "categoria": "Materiais de construção",
         "quadriculas": [
             [
                 3,
@@ -754,7 +754,7 @@
         "idade": 24,
         "profissao": "Artista",
         "cidade": "Viana do Castelo",
-        "categoria": "Tecnologia",
+        "categoria": "Datas importantes",
         "quadriculas": [
             [
                 3,
@@ -776,7 +776,7 @@
         "idade": 25,
         "profissao": "Geógrafo",
         "cidade": "Funchal",
-        "categoria": "Aeroportos",
+        "categoria": "Utensílios de cozinha",
         "quadriculas": [
             [
                 3,
@@ -798,7 +798,7 @@
         "idade": 23,
         "profissao": "Cantora",
         "cidade": "Ponta Delgada",
-        "categoria": "Instrumentos musicais",
+        "categoria": "Construção civil",
         "quadriculas": [
             [
                 3,
@@ -820,7 +820,7 @@
         "idade": 26,
         "profissao": "Ator",
         "cidade": "Guarda",
-        "categoria": "Utensílios de cozinha",
+        "categoria": "Moedas",
         "quadriculas": [
             [
                 3,
@@ -842,7 +842,7 @@
         "idade": 22,
         "profissao": "Programadora",
         "cidade": "Castelo Branco",
-        "categoria": "Pintores",
+        "categoria": "Fórmula 1",
         "quadriculas": [
             [
                 3,
@@ -864,7 +864,7 @@
         "idade": 29,
         "profissao": "Professor",
         "cidade": "Beja",
-        "categoria": "Atrações turísticas nacionais",
+        "categoria": "Trânsito",
         "quadriculas": [
             [
                 3,
@@ -886,7 +886,7 @@
         "idade": 24,
         "profissao": "Bióloga",
         "cidade": "Santarém",
-        "categoria": "Planetas",
+        "categoria": "Escola",
         "quadriculas": [
             [
                 3,
@@ -908,7 +908,7 @@
         "idade": 21,
         "profissao": "Estudante",
         "cidade": "Braga",
-        "categoria": "Datas importantes",
+        "categoria": "Tipos de queijo",
         "quadriculas": [
             [
                 4,
@@ -930,7 +930,7 @@
         "idade": 22,
         "profissao": "Física",
         "cidade": "Porto",
-        "categoria": "Mitologia",
+        "categoria": "Redes sociais",
         "quadriculas": [
             [
                 4,
@@ -952,7 +952,7 @@
         "idade": 23,
         "profissao": "Atleta",
         "cidade": "Lisboa",
-        "categoria": "Roupa e acessórios",
+        "categoria": "Frutas",
         "quadriculas": [
             [
                 4,
@@ -974,7 +974,7 @@
         "idade": 24,
         "profissao": "Designer",
         "cidade": "Coimbra",
-        "categoria": "Profissões",
+        "categoria": "Instrumentos musicais",
         "quadriculas": [
             [
                 4,
@@ -996,7 +996,7 @@
         "idade": 25,
         "profissao": "Geógrafo",
         "cidade": "Faro",
-        "categoria": "Jogos de tabuleiro",
+        "categoria": "Montanhas",
         "quadriculas": [
             [
                 4,
@@ -1018,7 +1018,7 @@
         "idade": 23,
         "profissao": "Músico",
         "cidade": "Aveiro",
-        "categoria": "Marcas de roupa",
+        "categoria": "Ficção cientifica",
         "quadriculas": [
             [
                 4,
@@ -1040,7 +1040,7 @@
         "idade": 26,
         "profissao": "Ator",
         "cidade": "Guimarães",
-        "categoria": "Partes do corpo",
+        "categoria": "Videojogos",
         "quadriculas": [
             [
                 4,
@@ -1062,7 +1062,7 @@
         "idade": 22,
         "profissao": "Programadora",
         "cidade": "Setúbal",
-        "categoria": "Legumes",
+        "categoria": "Bebidas",
         "quadriculas": [
             [
                 4,
@@ -1084,7 +1084,7 @@
         "idade": 30,
         "profissao": "Escritor",
         "cidade": "Évora",
-        "categoria": "Tecnologia",
+        "categoria": "Lendas da música",
         "quadriculas": [
             [
                 4,
@@ -1106,7 +1106,7 @@
         "idade": 24,
         "profissao": "Veterinária",
         "cidade": "Leiria",
-        "categoria": "Fórmula 1",
+        "categoria": "Geografia de Portugal",
         "quadriculas": [
             [
                 4,
@@ -1128,7 +1128,7 @@
         "idade": 21,
         "profissao": "Estudante",
         "cidade": "Viseu",
-        "categoria": "Flores",
+        "categoria": "Bebidas",
         "quadriculas": [
             [
                 5,
@@ -1150,7 +1150,7 @@
         "idade": 22,
         "profissao": "Engenheira",
         "cidade": "Bragança",
-        "categoria": "Redes sociais",
+        "categoria": "Desportos",
         "quadriculas": [
             [
                 5,
@@ -1194,7 +1194,7 @@
         "idade": 24,
         "profissao": "Designer",
         "cidade": "Viana do Castelo",
-        "categoria": "Tipos de bebidas quentes",
+        "categoria": "Cores",
         "quadriculas": [
             [
                 5,
@@ -1216,7 +1216,7 @@
         "idade": 25,
         "profissao": "Geógrafo",
         "cidade": "Funchal",
-        "categoria": "Peças de roupa",
+        "categoria": "Tecnologia",
         "quadriculas": [
             [
                 5,
@@ -1238,7 +1238,7 @@
         "idade": 23,
         "profissao": "Cantora",
         "cidade": "Ponta Delgada",
-        "categoria": "Higiene e beleza",
+        "categoria": "Futebolistas",
         "quadriculas": [
             [
                 5,
@@ -1260,7 +1260,7 @@
         "idade": 26,
         "profissao": "Ator",
         "cidade": "Guarda",
-        "categoria": "Animais selvagens",
+        "categoria": "Peças de roupa",
         "quadriculas": [
             [
                 5,
@@ -1282,7 +1282,7 @@
         "idade": 22,
         "profissao": "Programadora",
         "cidade": "Castelo Branco",
-        "categoria": "Línguas",
+        "categoria": "Tipos de veículos",
         "quadriculas": [
             [
                 5,
@@ -1304,7 +1304,7 @@
         "idade": 29,
         "profissao": "Escritor",
         "cidade": "Beja",
-        "categoria": "Profissões",
+        "categoria": "Peças de roupa",
         "quadriculas": [
             [
                 5,
@@ -1326,7 +1326,7 @@
         "idade": 24,
         "profissao": "Veterinária",
         "cidade": "Santarém",
-        "categoria": "Doces",
+        "categoria": "Bebidas alcoólicas",
         "quadriculas": [
             [
                 5,
@@ -1348,7 +1348,7 @@
         "idade": 21,
         "profissao": "Estudante",
         "cidade": "Braga",
-        "categoria": "Líderes mundiais",
+        "categoria": "Profissões",
         "quadriculas": [
             [
                 6,
@@ -1370,7 +1370,7 @@
         "idade": 22,
         "profissao": "Química",
         "cidade": "Porto",
-        "categoria": "Cores",
+        "categoria": "Capitais do mundo",
         "quadriculas": [
             [
                 6,
@@ -1392,7 +1392,7 @@
         "idade": 23,
         "profissao": "Treinador",
         "cidade": "Lisboa",
-        "categoria": "Fadistas",
+        "categoria": "Objetos eletrónicos",
         "quadriculas": [
             [
                 6,
@@ -1414,7 +1414,7 @@
         "idade": 24,
         "profissao": "Artista",
         "cidade": "Coimbra",
-        "categoria": "Tipos de casas",
+        "categoria": "Programação",
         "quadriculas": [
             [
                 6,
@@ -1436,7 +1436,7 @@
         "idade": 25,
         "profissao": "Geógrafo",
         "cidade": "Faro",
-        "categoria": "Países",
+        "categoria": "Títulos de filmes",
         "quadriculas": [
             [
                 6,
@@ -1458,7 +1458,7 @@
         "idade": 23,
         "profissao": "Músico",
         "cidade": "Aveiro",
-        "categoria": "Ferramentas",
+        "categoria": "Animais domésticos",
         "quadriculas": [
             [
                 6,
@@ -1480,29 +1480,31 @@
         "idade": 26,
         "profissao": "Ator",
         "cidade": "Guimarães",
-        "categoria": "Utensílios de cozinha",
+        "categoria": "Geografia de Portugal",
         "quadriculas": [
             [
                 6,
                 6
             ]
         ],
-        "duelos_iniciados": 0,
-        "duelos_aceites": 0,
+        "duelos_iniciados": 1,
+        "duelos_aceites": 1,
         "duelos_ganhos": 0,
-        "duelos_perdidos": 0,
+        "duelos_perdidos": 1,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
         "tempos_resposta": [],
-        "perguntas_por_categoria": {}
+        "perguntas_por_categoria": {
+            "Futebolistas": 0
+        }
     },
     {
         "nome": "Márcia Freitas",
         "idade": 22,
         "profissao": "Programadora",
         "cidade": "Setúbal",
-        "categoria": "Roupa e acessórios",
+        "categoria": "Bandeiras",
         "quadriculas": [
             [
                 6,
@@ -1524,7 +1526,7 @@
         "idade": 28,
         "profissao": "Professor",
         "cidade": "Évora",
-        "categoria": "Tipos de queijo",
+        "categoria": "Partes do corpo",
         "quadriculas": [
             [
                 6,
@@ -1546,7 +1548,7 @@
         "idade": 24,
         "profissao": "Bióloga",
         "cidade": "Leiria",
-        "categoria": "Agricultura",
+        "categoria": "Lendas da música",
         "quadriculas": [
             [
                 6,
@@ -1568,7 +1570,7 @@
         "idade": 21,
         "profissao": "Estudante",
         "cidade": "Viseu",
-        "categoria": "Bandeiras",
+        "categoria": "Dias da semana",
         "quadriculas": [
             [
                 7,
@@ -1590,7 +1592,7 @@
         "idade": 22,
         "profissao": "Física",
         "cidade": "Bragança",
-        "categoria": "Aeroportos",
+        "categoria": "Programação",
         "quadriculas": [
             [
                 7,
@@ -1612,7 +1614,7 @@
         "idade": 23,
         "profissao": "Atleta",
         "cidade": "Portalegre",
-        "categoria": "Líderes mundiais",
+        "categoria": "Meses",
         "quadriculas": [
             [
                 7,
@@ -1634,7 +1636,7 @@
         "idade": 24,
         "profissao": "Designer",
         "cidade": "Viana do Castelo",
-        "categoria": "Tipos de bebidas quentes",
+        "categoria": "Línguas",
         "quadriculas": [
             [
                 7,
@@ -1656,7 +1658,7 @@
         "idade": 25,
         "profissao": "Geógrafo",
         "cidade": "Funchal",
-        "categoria": "Árvores de fruto",
+        "categoria": "Videojogos",
         "quadriculas": [
             [
                 7,
@@ -1678,7 +1680,7 @@
         "idade": 23,
         "profissao": "Cantora",
         "cidade": "Ponta Delgada",
-        "categoria": "Atrações turísticas nacionais",
+        "categoria": "Lendas da música",
         "quadriculas": [
             [
                 7,
@@ -1700,29 +1702,33 @@
         "idade": 26,
         "profissao": "Ator",
         "cidade": "Guarda",
-        "categoria": "Cores",
+        "categoria": "Mitologia",
         "quadriculas": [
             [
                 7,
                 6
             ]
         ],
-        "duelos_iniciados": 0,
+        "duelos_iniciados": 1,
         "duelos_aceites": 0,
-        "duelos_ganhos": 0,
+        "duelos_ganhos": 1,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
-        "perguntas_respondidas": 0,
+        "perguntas_respondidas": 1,
         "respostas_certas": 0,
-        "tempos_resposta": [],
-        "perguntas_por_categoria": {}
+        "tempos_resposta": [
+            10.55
+        ],
+        "perguntas_por_categoria": {
+            "Futebolistas": 1
+        }
     },
     {
         "nome": "Ingrid Campos",
         "idade": 22,
         "profissao": "Programadora",
         "cidade": "Castelo Branco",
-        "categoria": "Tecnologia",
+        "categoria": "Videojogos",
         "quadriculas": [
             [
                 7,
@@ -1744,7 +1750,7 @@
         "idade": 29,
         "profissao": "Escritor",
         "cidade": "Beja",
-        "categoria": "Animais domésticos",
+        "categoria": "Guerras históricas",
         "quadriculas": [
             [
                 7,
@@ -1768,7 +1774,7 @@
         "idade": 24,
         "profissao": "Veterinária",
         "cidade": "Santarém",
-        "categoria": "Aeroportos",
+        "categoria": "Videojogos",
         "quadriculas": [
             [
                 7,
@@ -1792,29 +1798,26 @@
         "idade": 22,
         "profissao": "Estudante",
         "cidade": "Braga",
-        "categoria": "Trânsito",
-        "quadriculas": [
-            [
-                8,
-                0
-            ]
-        ],
-        "duelos_iniciados": 0,
-        "duelos_aceites": 0,
+        "categoria": "Profissões",
+        "quadriculas": [],
+        "duelos_iniciados": 1,
+        "duelos_aceites": 1,
         "duelos_ganhos": 0,
-        "duelos_perdidos": 0,
+        "duelos_perdidos": 1,
         "regressos_grelha": 0,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
         "tempos_resposta": [],
-        "perguntas_por_categoria": {}
+        "perguntas_por_categoria": {
+            "Profissões": 0
+        }
     },
     {
         "nome": "Patrícia Sousa",
         "idade": 23,
         "profissao": "Engenheira",
         "cidade": "Porto",
-        "categoria": "Transportes",
+        "categoria": "Bebidas alcoólicas",
         "quadriculas": [
             [
                 8,
@@ -1822,7 +1825,7 @@
             ]
         ],
         "duelos_iniciados": 0,
-        "duelos_aceites": 0,
+        "duelos_aceites": 1,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
@@ -1836,7 +1839,7 @@
         "idade": 24,
         "profissao": "Professor",
         "cidade": "Lisboa",
-        "categoria": "Meses",
+        "categoria": "Lendas da música",
         "quadriculas": [
             [
                 8,
@@ -1858,7 +1861,7 @@
         "idade": 21,
         "profissao": "Designer",
         "cidade": "Coimbra",
-        "categoria": "Bandeiras",
+        "categoria": "Videojogos",
         "quadriculas": [
             [
                 8,
@@ -1880,7 +1883,7 @@
         "idade": 25,
         "profissao": "Geógrafo",
         "cidade": "Faro",
-        "categoria": "Marcas de roupa",
+        "categoria": "Redes sociais",
         "quadriculas": [
             [
                 8,
@@ -1902,7 +1905,7 @@
         "idade": 22,
         "profissao": "Músico",
         "cidade": "Aveiro",
-        "categoria": "Partes do corpo",
+        "categoria": "Higiene e beleza",
         "quadriculas": [
             [
                 8,
@@ -1924,7 +1927,7 @@
         "idade": 23,
         "profissao": "Ator",
         "cidade": "Guimarães",
-        "categoria": "Profissões",
+        "categoria": "Fórmula 1",
         "quadriculas": [
             [
                 8,
@@ -1946,7 +1949,7 @@
         "idade": 24,
         "profissao": "Programadora",
         "cidade": "Setúbal",
-        "categoria": "Jogos olímpicos",
+        "categoria": "Mobília",
         "quadriculas": [
             [
                 8,
@@ -1968,7 +1971,7 @@
         "idade": 26,
         "profissao": "Escritor",
         "cidade": "Évora",
-        "categoria": "Tecnologia",
+        "categoria": "Jardinagem",
         "quadriculas": [
             [
                 8,
@@ -1990,7 +1993,7 @@
         "idade": 23,
         "profissao": "Veterinária",
         "cidade": "Leiria",
-        "categoria": "Origens dos famosos",
+        "categoria": "Pintores",
         "quadriculas": [
             [
                 8,
@@ -2012,29 +2015,35 @@
         "idade": 27,
         "profissao": "Advogado",
         "cidade": "Lisboa",
-        "categoria": "Desastres naturais",
+        "categoria": "Utensílios de cozinha",
         "quadriculas": [
             [
                 9,
                 0
+            ],
+            [
+                8,
+                0
             ]
         ],
-        "duelos_iniciados": 0,
+        "duelos_iniciados": 1,
         "duelos_aceites": 0,
-        "duelos_ganhos": 0,
+        "duelos_ganhos": 1,
         "duelos_perdidos": 0,
-        "regressos_grelha": 0,
+        "regressos_grelha": 1,
         "perguntas_respondidas": 0,
         "respostas_certas": 0,
         "tempos_resposta": [],
-        "perguntas_por_categoria": {}
+        "perguntas_por_categoria": {
+            "Profissões": 0
+        }
     },
     {
         "nome": "Leonor Barros",
         "idade": 20,
         "profissao": "Estudante",
         "cidade": "Porto",
-        "categoria": "Peixes",
+        "categoria": "Redes sociais",
         "quadriculas": [
             [
                 9,
@@ -2056,7 +2065,7 @@
         "idade": 28,
         "profissao": "Mecânico",
         "cidade": "Braga",
-        "categoria": "Geografia de Portugal",
+        "categoria": "Materiais de construção",
         "quadriculas": [
             [
                 9,
@@ -2078,7 +2087,7 @@
         "idade": 25,
         "profissao": "Polícia",
         "cidade": "Coimbra",
-        "categoria": "Instrumentos musicais",
+        "categoria": "Agricultura",
         "quadriculas": [
             [
                 9,
@@ -2100,7 +2109,7 @@
         "idade": 23,
         "profissao": "Enfermeira",
         "cidade": "Faro",
-        "categoria": "Dias da semana",
+        "categoria": "Tipos de música",
         "quadriculas": [
             [
                 9,
@@ -2122,7 +2131,7 @@
         "idade": 26,
         "profissao": "Motorista",
         "cidade": "Aveiro",
-        "categoria": "Higiene e beleza",
+        "categoria": "Montanhas",
         "quadriculas": [
             [
                 9,
@@ -2144,7 +2153,7 @@
         "idade": 21,
         "profissao": "Estudante",
         "cidade": "Guimarães",
-        "categoria": "Línguas",
+        "categoria": "Marcas",
         "quadriculas": [
             [
                 9,
@@ -2152,7 +2161,7 @@
             ]
         ],
         "duelos_iniciados": 0,
-        "duelos_aceites": 0,
+        "duelos_aceites": 1,
         "duelos_ganhos": 0,
         "duelos_perdidos": 0,
         "regressos_grelha": 0,
@@ -2166,7 +2175,7 @@
         "idade": 29,
         "profissao": "Gestor",
         "cidade": "Setúbal",
-        "categoria": "Ficção cientifica",
+        "categoria": "Aeroportos",
         "quadriculas": [
             [
                 9,
@@ -2188,7 +2197,7 @@
         "idade": 22,
         "profissao": "Psicóloga",
         "cidade": "Évora",
-        "categoria": "Fórmula 1",
+        "categoria": "Artigos de papelaria",
         "quadriculas": [
             [
                 9,
@@ -2210,7 +2219,7 @@
         "idade": 30,
         "profissao": "Arquitecto",
         "cidade": "Leiria",
-        "categoria": "Transportes",
+        "categoria": "Corpo humano",
         "quadriculas": [
             [
                 9,

@@ -13,7 +13,7 @@ from gestao_jogadores_tkinter import menu_jogadores_tkinter
 from gestao_categorias_tkinter import menu_categorias_tkinter        
 
 
-# ── Janela de menu principal ──────────────────────────────────────────────────
+# Janela de menu principal 
 
 def abrir_menu_jogo():
     janela_inicial.withdraw()
@@ -50,7 +50,7 @@ def sair():
     janela_inicial.destroy()
 
 
-# ── Janela inicial (ecrã de boas-vindas) ─────────────────────────────────────
+#  Janela inicial (ecrã de boas-vindas) 
 
 janela_inicial = tk.Tk()
 janela_inicial.title("The Floor")

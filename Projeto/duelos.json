@@ -119,5 +119,73 @@
         "tempo_medio_desafiado": 5.14,
         "vencedor": "Catarina Tavares",
         "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 9,
+        "desafiante": "Paulo Neves",
+        "desafiado": "Rita Duarte",
+        "categoria": "Apps famosas",
+        "acertos_desafiante": 2,
+        "tempo_medio_desafiante": 7.64,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 5.25,
+        "vencedor": "Paulo Neves",
+        "quadriculas_transferidas": [
+            [
+                9,
+                6
+            ]
+        ]
+    },
+    {
+        "id_duelo": 10,
+        "desafiante": "Fábio Rocha",
+        "desafiado": "Patrícia Sousa",
+        "categoria": "Pintores",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Fábio Rocha",
+        "quadriculas_transferidas": [
+            [
+                8,
+                1
+            ]
+        ]
+    },
+    {
+        "id_duelo": 11,
+        "desafiante": "Simão Guerreiro",
+        "desafiado": "Hélder Monteiro",
+        "categoria": "Futebolistas",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 10.55,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Simão Guerreiro",
+        "quadriculas_transferidas": [
+            [
+                6,
+                6
+            ]
+        ]
+    },
+    {
+        "id_duelo": 12,
+        "desafiante": "Jorge Valente",
+        "desafiado": "Fábio Rocha",
+        "categoria": "Profissões",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Jorge Valente",
+        "quadriculas_transferidas": [
+            [
+                8,
+                0
+            ]
+        ]
     }
 ]

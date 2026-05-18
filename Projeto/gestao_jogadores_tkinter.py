@@ -8,7 +8,7 @@ import os
 
 from gestao_jogadores import carregar_jogadores, guardar_jogadores
 
-# ── Estilo (igual ao duelos_tkinter) ─────────────────────────────────────────
+#  Estilo (igual ao duelos_tkinter) 
 
 CORES = {
     "bg":       "#0a0a0a",
@@ -55,9 +55,9 @@ def _entry(pai, var, largura=26):
                     relief="flat", bd=4)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  1. JANELA PRINCIPAL DE GESTÃO DE JOGADORES
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def menu_jogadores_tkinter():
     """Abre a janela principal de gestão de jogadores."""
@@ -69,7 +69,7 @@ def menu_jogadores_tkinter():
 
     _titulo(janela, "GESTÃO DE JOGADORES").pack(pady=(14, 6))
 
-    # ── Tabela de jogadores ───────────────────────────────────────────────────
+    #  Tabela de jogadores 
     frame_tabela = tk.Frame(janela, bg=CORES["bg"])
     frame_tabela.pack(fill="both", expand=True, padx=16, pady=(0, 6))
 
@@ -117,7 +117,7 @@ def menu_jogadores_tkinter():
 
     _atualizar_tabela()
 
-    # ── Botões de ação ────────────────────────────────────────────────────────
+    # Botões de ação 
     frame_btns = tk.Frame(janela, bg=CORES["bg"])
     frame_btns.pack(pady=8)
 
@@ -165,9 +165,9 @@ def menu_jogadores_tkinter():
               command=janela.destroy).pack(pady=(0, 10))
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  2. JANELA ADICIONAR JOGADOR
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def _janela_adicionar(jogadores, callback_atualizar):
     jan = tk.Toplevel()
@@ -232,9 +232,9 @@ def _janela_adicionar(jogadores, callback_atualizar):
     _btn(frame_btn, "Cancelar", jan.destroy, cor=CORES["cinza"], largura=14).pack(side="left", padx=8)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
+
 #  3. JANELA DETALHES DO JOGADOR
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def _janela_detalhes(jogador):
     jan = tk.Toplevel()
@@ -280,9 +280,8 @@ def _janela_detalhes(jogador):
     _btn(jan, "Fechar", jan.destroy, cor=CORES["cinza"], largura=14).pack(pady=12)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 #  4. IMPORTAR DE TXT
-# ══════════════════════════════════════════════════════════════════════════════
+
 
 def _importar_de_txt(caminho, jogadores, callback_atualizar):
     adicionados = duplicados = erros = 0
@@ -332,7 +331,7 @@ def _importar_de_txt(caminho, jogadores, callback_atualizar):
     )
 
 
-# ── Teste isolado ──────────────────────────────────────────────────────────────
+#  Teste isolado 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     raiz = tk.Tk()
