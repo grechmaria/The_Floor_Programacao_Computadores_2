@@ -39,5 +39,85 @@
         "tempo_medio_desafiado": 0.61,
         "vencedor": "Lurdes Nogueira",
         "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 4,
+        "desafiante": "Diogo Teixeira",
+        "desafiado": "Daniel Moreira",
+        "categoria": "Profissões",
+        "acertos_desafiante": 1,
+        "tempo_medio_desafiante": 7.03,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 4.53,
+        "vencedor": "Diogo Teixeira",
+        "quadriculas_transferidas": [
+            [
+                2,
+                2
+            ]
+        ]
+    },
+    {
+        "id_duelo": 5,
+        "desafiante": "Paulo Monteiro",
+        "desafiado": "Liliana Faria",
+        "categoria": "Países",
+        "acertos_desafiante": 2,
+        "tempo_medio_desafiante": 5.85,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 4.3,
+        "vencedor": "Paulo Monteiro",
+        "quadriculas_transferidas": [
+            [
+                2,
+                5
+            ]
+        ]
+    },
+    {
+        "id_duelo": 6,
+        "desafiante": "Ana Gomes",
+        "desafiado": "Rui Fernandes",
+        "categoria": "Bebidas",
+        "acertos_desafiante": 3,
+        "tempo_medio_desafiante": 5.65,
+        "acertos_desafiado": 2,
+        "tempo_medio_desafiado": 3.51,
+        "vencedor": "Ana Gomes",
+        "quadriculas_transferidas": [
+            [
+                8,
+                2
+            ]
+        ]
+    },
+    {
+        "id_duelo": 7,
+        "desafiante": "Carolina Tavares",
+        "desafiado": "Ana Gomes",
+        "categoria": "Instrumentos musicais",
+        "acertos_desafiante": 1,
+        "tempo_medio_desafiante": 40.73,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Carolina Tavares",
+        "quadriculas_transferidas": [
+            [
+                8,
+                3
+            ]
+        ]
+    },
+    {
+        "id_duelo": 8,
+        "desafiante": "Daniela Neves",
+        "desafiado": "Catarina Tavares",
+        "categoria": "Tecnologia",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 7.85,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 5.14,
+        "vencedor": "Catarina Tavares",
+        "quadriculas_transferidas": []
     }
 ]
