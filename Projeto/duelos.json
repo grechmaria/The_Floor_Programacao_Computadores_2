@@ -216,5 +216,39 @@
                 6
             ]
         ]
+    },
+    {
+        "id_duelo": 15,
+        "desafiante": "Alexandre Torres",
+        "desafiado": "Rafael Cunha",
+        "categoria": "Mobília",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Alexandre Torres",
+        "quadriculas_transferidas": [
+            [
+                5,
+                0
+            ]
+        ]
+    },
+    {
+        "id_duelo": 16,
+        "desafiante": "Ana Ferreira",
+        "desafiado": "Mariana Alves",
+        "categoria": "Montanhas",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Ana Ferreira",
+        "quadriculas_transferidas": [
+            [
+                1,
+                3
+            ]
+        ]
     }
 ]

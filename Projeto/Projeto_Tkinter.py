@@ -21,11 +21,11 @@ def abrir_menu_jogo():
     menu = tk.Toplevel()
     menu.title("The Floor - Menu")
     menu.geometry("400x440")
-    menu.configure(bg="black")
+    menu.configure(bg="#0d1b2a")
 
     tk.Label(
         menu, text="THE FLOOR",
-        font=("Impact", 30), fg="#4fc3f7", bg="black",
+        font=("Impact", 30), fg="#ffd600", bg="#0d1b2a",
     ).pack(pady=20)
 
     botoes = [
@@ -33,8 +33,8 @@ def abrir_menu_jogo():
         ("Carregar Jogo",    carregar_jogo_tkinter),
         ("Ver Tabuleiro",    abrir_tabuleiro),
         ("Estatísticas",     abrir_janela_graficos),
-        ("Gerir Jogadores",  menu_jogadores_tkinter),                # ← corrigido
-        ("Gerir Perguntas",  menu_categorias_tkinter),               # ← corrigido
+        ("Gerir Jogadores",  menu_jogadores_tkinter),                
+        ("Gerir Perguntas",  menu_categorias_tkinter),               
         ("Sair",             janela_inicial.destroy),
     ]
 
@@ -55,16 +55,16 @@ def sair():
 janela_inicial = tk.Tk()
 janela_inicial.title("The Floor")
 janela_inicial.geometry("400x300")
-janela_inicial.configure(bg="black")
+janela_inicial.configure(bg="#0d1b2a")
 
 tk.Label(
     janela_inicial, text="THE FLOOR",
-    font=("Impact", 28), fg="blue", bg="black",
+    font=("Impact", 28), fg="#ffd600", bg="#0d1b2a",
 ).pack(pady=40)
 
 tk.Label(
     janela_inicial, text="Queres começar o jogo?",
-    font=("Impact", 13), fg="blue", bg="black",
+    font=("Impact", 13), fg="#ffffff", bg="#0d1b2a",
 ).pack(pady=10)
 
 tk.Button(

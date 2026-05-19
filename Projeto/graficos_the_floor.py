@@ -85,14 +85,13 @@ def abrir_janela_graficos():
     janela = tk.Toplevel()
     janela.title("The Floor - Estatísticas")
     janela.geometry("420x460")
-    janela.configure(bg="black")
+    janela.configure(bg="#0d1b2a")
 
     tk.Label(
         janela,
         text="ESTATÍSTICAS",
         font=("Impact", 26),
-        fg="blue",
-        bg="black",
+        fg="#ffd600", bg="#0d1b2a",
     ).pack(pady=18)
 
     # Cada tuplo: (texto do botão, função a chamar)
@@ -110,7 +109,7 @@ def abrir_janela_graficos():
             janela,
             text=texto,
             font=("Impact", 11),
-            width=30,
+            width=30,bg="#1976d2", fg="white", relief="flat",
             command=comando,
         ).pack(pady=5)
 
@@ -118,7 +117,7 @@ def abrir_janela_graficos():
         janela,
         text="Fechar",
         font=("Impact", 11),
-        width=30,
+        width=30,bg="#546e7a", fg="white", relief="flat",
         command=janela.destroy,
     ).pack(pady=14)
 

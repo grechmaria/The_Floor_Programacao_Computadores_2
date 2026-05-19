@@ -11,16 +11,16 @@ from gestao_jogadores import carregar_jogadores, guardar_jogadores
 #  Estilo (igual ao duelos_tkinter) 
 
 CORES = {
-    "bg":       "#0a0a0a",
-    "painel":   "#111111",
-    "accent":   "#1565c0",
-    "accent2":  "#0d47a1",
-    "texto":    "#e0e0e0",
-    "titulo":   "#4fc3f7",
+    "bg":       "#0d1b2a",
+    "painel":   "#1b2a3b",
+    "accent":   "#1976d2",
+    "accent2":  "#1565c0",
+    "texto":    "#ffffff",
+    "titulo":   "#ffd600",
     "verde":    "#43a047",
     "vermelho": "#e53935",
-    "amarelo":  "#fdd835",
-    "cinza":    "#555555",
+    "amarelo":  "#ffd600",
+    "cinza":    "#546e7a",
 }
 
 def _estilo_janela(janela, titulo, largura=560, altura=460):
@@ -51,7 +51,7 @@ def _titulo(pai, texto, tam=20):
 
 def _entry(pai, var, largura=26):
     return tk.Entry(pai, textvariable=var, font=("Courier", 11), width=largura,
-                    bg="#1e1e1e", fg="white", insertbackground="white",
+                    bg="#1b2a3b", fg="#ffffff", insertbackground="#ffd600",
                     relief="flat", bd=4)
 
 

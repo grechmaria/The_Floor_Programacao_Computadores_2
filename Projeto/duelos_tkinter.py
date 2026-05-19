@@ -31,16 +31,16 @@ DURACAO_DUELO = 45  # segundos
 #  UTILITÁRIOS DE ESTILO
 
 CORES = {
-    "bg":       "#0a0a0a",
-    "painel":   "#111111",
-    "accent":   "#1565c0",
-    "accent2":  "#0d47a1",
-    "texto":    "#e0e0e0",
-    "titulo":   "#4fc3f7",
+    "bg":       "#0d1b2a",
+    "painel":   "#1b2a3b",
+    "accent":   "#1976d2",
+    "accent2":  "#1565c0",
+    "texto":    "#ffffff",
+    "titulo":   "#ffd600",
     "verde":    "#43a047",
     "vermelho": "#e53935",
-    "amarelo":  "#fdd835",
-    "cinza":    "#555555",
+    "amarelo":  "#ffd600",
+    "cinza":    "#546e7a",
 }
 
 def _estilo_janela(janela, titulo, largura=480, altura=360):
@@ -100,8 +100,9 @@ def selecionar_vizinho_tkinter(desafiante, jogadores):
 
     resultado = [None]
 
+    altura = max(280, 140 + len(vizinhos) * 54)
     janela = tk.Toplevel()
-    _estilo_janela(janela, "Escolher Vizinho", 460, 80 + len(vizinhos) * 46)
+    _estilo_janela(janela, "Escolher Vizinho", 520, altura)
     janela.grab_set()
 
     _titulo(janela, "ESCOLHER VIZINHO").pack(pady=(14, 2))
@@ -182,7 +183,7 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
     entrada_var = tk.StringVar()
     entrada = tk.Entry(frame_entrada, textvariable=entrada_var,
                        font=("Courier", 13), width=28,
-                       bg="#1e1e1e", fg="white", insertbackground="white",
+                       bg="#1b2a3b", fg="#ffffff", insertbackground="#ffd600",
                        relief="flat", bd=4)
     entrada.pack(side="left", padx=(0, 8))
 
