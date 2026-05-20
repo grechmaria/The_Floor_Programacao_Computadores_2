@@ -250,5 +250,109 @@
                 3
             ]
         ]
+    },
+    {
+        "id_duelo": 17,
+        "desafiante": "Cátia Gomes",
+        "desafiado": "Fernando Rocha",
+        "categoria": "Sistemas operativos",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 15.13,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 6.58,
+        "vencedor": "Fernando Rocha",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 18,
+        "desafiante": "Diogo Teixeira",
+        "desafiado": "Inês Carvalho",
+        "categoria": "Jardinagem",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 2.0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0.12,
+        "vencedor": "Inês Carvalho",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 19,
+        "desafiante": "Inês Monteiro",
+        "desafiado": "Paulo Neves",
+        "categoria": "Continentes",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 2.24,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Inês Monteiro",
+        "quadriculas_transferidas": [
+            [
+                9,
+                7
+            ]
+        ]
+    },
+    {
+        "id_duelo": 20,
+        "desafiante": "Sofia Silva",
+        "desafiado": "Pedro Lopes",
+        "categoria": "Peixes",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Sofia Silva",
+        "quadriculas_transferidas": [
+            [
+                8,
+                6
+            ]
+        ]
+    },
+    {
+        "id_duelo": 21,
+        "desafiante": "Carla Martins",
+        "desafiado": "Miguel Ferreira",
+        "categoria": "Partes do corpo",
+        "acertos_desafiante": 1,
+        "tempo_medio_desafiante": 4.84,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 8.73,
+        "vencedor": "Carla Martins",
+        "quadriculas_transferidas": [
+            [
+                8,
+                8
+            ]
+        ]
+    },
+    {
+        "id_duelo": 22,
+        "desafiante": "Pedro Lopes",
+        "desafiado": "Simão Guerreiro",
+        "categoria": "Árvores de fruto",
+        "acertos_desafiante": 1,
+        "tempo_medio_desafiante": 7.57,
+        "acertos_desafiado": 1,
+        "tempo_medio_desafiado": 5.0,
+        "vencedor": "Simão Guerreiro",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 23,
+        "desafiante": "Leandro Melo",
+        "desafiado": "Fernando Rocha",
+        "categoria": "Pequeno almoço de hotel",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 0,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 0,
+        "vencedor": "Leandro Melo",
+        "quadriculas_transferidas": [
+            [
+                5,
+                2
+            ]
+        ]
     }
 ]
