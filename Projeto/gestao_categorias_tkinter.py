@@ -27,13 +27,13 @@ CORES = {
     "cinza":    "#546e7a",
 }
 
-def _estilo_janela(janela, titulo, largura=680, altura=520):
+def _estilo_janela(janela, titulo, largura=780, altura=620):
     janela.title(titulo)
     janela.geometry(f"{largura}x{altura}")
     janela.configure(bg=CORES["bg"])
-    janela.resizable(False, False)
+    janela.resizable(True, True)
 
-def _btn(pai, texto, comando, cor=None, largura=18, fonte_tam=10):
+def _btn(pai, texto, comando, cor=None, largura=20, fonte_tam=11):
     cor = cor or CORES["accent"]
     return tk.Button(
         pai, text=texto, command=comando,
@@ -43,18 +43,18 @@ def _btn(pai, texto, comando, cor=None, largura=18, fonte_tam=10):
         cursor="hand2",
     )
 
-def _label(pai, texto, cor=None, tam=10, bold=False):
+def _label(pai, texto, cor=None, tam=11, bold=False):
     peso = "bold" if bold else "normal"
     cor = cor or CORES["texto"]
     return tk.Label(pai, text=texto, font=("Courier", tam, peso),
                     fg=cor, bg=CORES["bg"])
 
-def _titulo(pai, texto, tam=20):
+def _titulo(pai, texto, tam=22):
     return tk.Label(pai, text=texto, font=("Impact", tam),
                     fg=CORES["titulo"], bg=CORES["bg"])
 
-def _entry(pai, var, largura=30):
-    return tk.Entry(pai, textvariable=var, font=("Courier", 11), width=largura,
+def _entry(pai, var, largura=32):
+    return tk.Entry(pai, textvariable=var, font=("Courier", 12), width=largura,
                     bg="#1b2a3b", fg="#ffffff", insertbackground="#ffd600",
                     relief="flat", bd=4)
 
@@ -67,7 +67,7 @@ def menu_categorias_tkinter():
     perguntas = carregar_perguntas()
 
     janela = tk.Toplevel()
-    _estilo_janela(janela, "The Floor — Categorias e Perguntas", 720, 560)
+    _estilo_janela(janela, "The Floor — Categorias e Perguntas", 720, 640)
     janela.grab_set()
 
     _titulo(janela, "CATEGORIAS E PERGUNTAS").pack(pady=(14, 6))
@@ -76,19 +76,19 @@ def menu_categorias_tkinter():
     frame_principal = tk.Frame(janela, bg=CORES["bg"])
     frame_principal.pack(fill="both", expand=True, padx=14, pady=(0, 4))
 
-    frame_esq = tk.Frame(frame_principal, bg=CORES["bg"], width=200)
+    frame_esq = tk.Frame(frame_principal, bg=CORES["bg"], width=240)
     frame_esq.pack(side="left", fill="y", padx=(0, 8))
     frame_esq.pack_propagate(False)
 
-    _label(frame_esq, "CATEGORIAS", cor=CORES["titulo"], tam=10, bold=True).pack(pady=(4, 4))
+    _label(frame_esq, "CATEGORIAS", cor=CORES["titulo"], tam=11, bold=True).pack(pady=(4, 4))
 
-    lb_cats = tk.Listbox(frame_esq, font=("Courier", 10),
+    lb_cats = tk.Listbox(frame_esq, font=("Courier", 11),
                          bg=CORES["painel"], fg=CORES["texto"],
                          selectbackground=CORES["accent"],
                          selectforeground="white",
                          relief="flat", bd=0,
                          activestyle="none",
-                         height=18)
+                         height=14)
     scroll_cats = tk.Scrollbar(frame_esq, orient="vertical", command=lb_cats.yview)
     lb_cats.configure(yscrollcommand=scroll_cats.set)
     lb_cats.pack(side="left", fill="both", expand=True)
@@ -98,29 +98,29 @@ def menu_categorias_tkinter():
     frame_dir = tk.Frame(frame_principal, bg=CORES["bg"])
     frame_dir.pack(side="left", fill="both", expand=True)
 
-    _label(frame_dir, "PERGUNTAS", cor=CORES["titulo"], tam=10, bold=True).pack(pady=(4, 4))
+    _label(frame_dir, "PERGUNTAS", cor=CORES["titulo"], tam=11, bold=True).pack(pady=(4, 4))
 
     colunas = ("pergunta", "resposta")
-    tabela = ttk.Treeview(frame_dir, columns=colunas, show="headings", height=18)
+    tabela = ttk.Treeview(frame_dir, columns=colunas, show="headings", height=16)
 
     estilo = ttk.Style()
     estilo.theme_use("clam")
     estilo.configure("Treeview",
                      background=CORES["painel"],
                      foreground=CORES["texto"],
-                     rowheight=24,
+                     rowheight=28,
                      fieldbackground=CORES["painel"],
-                     font=("Courier", 9))
+                     font=("Courier", 11))
     estilo.configure("Treeview.Heading",
                      background=CORES["accent"],
                      foreground="white",
-                     font=("Impact", 10))
+                     font=("Impact", 12))
     estilo.map("Treeview", background=[("selected", CORES["accent2"])])
 
     tabela.heading("pergunta", text="Pergunta")
     tabela.heading("resposta", text="Resposta")
-    tabela.column("pergunta", width=300)
-    tabela.column("resposta", width=180)
+    tabela.column("pergunta", width=360)
+    tabela.column("resposta", width=220)
 
     scroll_tab = tk.Scrollbar(frame_dir, orient="vertical", command=tabela.yview)
     tabela.configure(yscrollcommand=scroll_tab.set)
@@ -211,14 +211,30 @@ def menu_categorias_tkinter():
     def abrir_pesquisar():
         _janela_pesquisar(perguntas)
 
-    _btn(frame_btns, "➕  Nova Categoria",    abrir_nova_categoria,    cor=CORES["verde"],    largura=20).grid(row=0, column=0, padx=5, pady=3)
-    _btn(frame_btns, "➕  Add Pergunta",       abrir_adicionar_pergunta,cor=CORES["accent"],   largura=20).grid(row=0, column=1, padx=5, pady=3)
-    _btn(frame_btns, "✏  Editar Pergunta",    abrir_editar_pergunta,   cor=CORES["amarelo"],  largura=20).grid(row=0, column=2, padx=5, pady=3)
-    _btn(frame_btns, "🗑  Remover Pergunta",  remover_pergunta_sel,    cor=CORES["vermelho"], largura=20).grid(row=1, column=0, padx=5, pady=3)
-    _btn(frame_btns, "🔍  Pesquisar",         abrir_pesquisar,         cor=CORES["cinza"],    largura=20).grid(row=1, column=1, padx=5, pady=3)
+    def remover_categoria_sel():
+        cat = _categoria_selecionada()
+        if not cat:
+            return
+        total = sum(1 for p in perguntas if p["categoria"] == cat)
+        msg = (f"Remover a categoria '{cat}' e todas as suas {total} pergunta(s)?"
+               if total else f"Remover a categoria '{cat}'?")
+        if not messagebox.askyesno("Confirmar", msg):
+            return
+        perguntas[:] = [p for p in perguntas if p["categoria"] != cat]
+        guardar_perguntas(perguntas)
+        tabela.delete(*tabela.get_children())
+        _atualizar_categorias()
+        messagebox.showinfo("Removida", f"Categoria '{cat}' removida.")
+
+    _btn(frame_btns, "➕  Nova Categoria",     abrir_nova_categoria,    cor=CORES["verde"],    largura=20).grid(row=0, column=0, padx=5, pady=3)
+    _btn(frame_btns, "➕  Adicionar Pergunta",   abrir_adicionar_pergunta,cor=CORES["accent"],   largura=20).grid(row=0, column=1, padx=5, pady=3)
+    _btn(frame_btns, "✏  Editar Pergunta",     abrir_editar_pergunta,   cor=CORES["amarelo"],  largura=20).grid(row=0, column=2, padx=5, pady=3)
+    _btn(frame_btns, "🗑  Remover Pergunta",   remover_pergunta_sel,    cor=CORES["vermelho"], largura=20).grid(row=1, column=0, padx=5, pady=3)
+    _btn(frame_btns, "🗑  Remover Categoria",  remover_categoria_sel,   cor=CORES["vermelho"], largura=20).grid(row=1, column=1, padx=5, pady=3)
+    _btn(frame_btns, "🔍  Pesquisar",          abrir_pesquisar,         cor=CORES["cinza"],    largura=20).grid(row=1, column=2, padx=5, pady=3)
     tk.Button(frame_btns, text="Fechar", font=("Impact", 10), width=20,
               bg=CORES["cinza"], fg="white", relief="flat",
-              command=janela.destroy).grid(row=1, column=2, padx=5, pady=3)
+              command=janela.destroy).grid(row=2, column=0, columnspan=3, pady=4)
 
 
 

@@ -81,16 +81,16 @@ def abrir_tabuleiro():
         if n > 0:
             contagem[jogador["nome"]] = n
 
-    TAM = 52  # tamanho de cada célula em pixels
+    TAM = 64  # tamanho de cada célula em pixels
 
     # --- Título ---
     tk.Label(
         janela,
         text="THE FLOOR",
-        font=("Impact", 22),
+        font=("Impact", 26),
         fg="#4fc3f7",
         bg="#0a0a0a",
-    ).grid(row=0, column=0, columnspan=11, pady=(12, 4))
+    ).grid(row=0, column=0, columnspan=11, pady=(14, 6))
 
     # --- Grelha 10x10 ---
     frame_grelha = tk.Frame(janela, bg="#0a0a0a")
@@ -121,7 +121,7 @@ def abrir_tabuleiro():
             tk.Label(
                 frame_cel,
                 text=texto,
-                font=("Impact", 11),
+                font=("Impact", 13),
                 fg="white",
                 bg=cor,
             ).pack(expand=True)
@@ -135,7 +135,7 @@ def abrir_tabuleiro():
     tk.Label(
         frame_lateral,
         text="JOGADORES",
-        font=("Impact", 13),
+        font=("Impact", 15),
         fg="#4fc3f7",
         bg="#0a0a0a",
     ).pack(pady=(0, 6))
@@ -150,7 +150,7 @@ def abrir_tabuleiro():
         tk.Label(
             frame_linha,
             text="■",
-            font=("Arial", 10),
+            font=("Arial", 12),
             fg=cor,
             bg="#0a0a0a",
         ).pack(side="left")
@@ -159,7 +159,7 @@ def abrir_tabuleiro():
         tk.Label(
             frame_linha,
             text=f" {nome_curto} ({n})",
-            font=("Courier", 9),
+            font=("Courier", 11),
             fg="#cccccc",
             bg="#0a0a0a",
         ).pack(side="left")
@@ -171,7 +171,7 @@ def abrir_tabuleiro():
     rodape_label = tk.Label(
         janela,
         text=f"Jogadores ativos: {ativos}   |   Eliminados: {eliminados}",
-        font=("Courier", 10),
+        font=("Courier", 12),
         fg="#888888",
         bg="#0a0a0a",
     )
@@ -204,14 +204,14 @@ def abrir_tabuleiro():
     tk.Button(
         janela,
         text="↻  Atualizar Tabuleiro",
-        font=("Impact", 11),
+        font=("Impact", 13),
         fg="white",
         bg="#1565c0",
         activebackground="#0d47a1",
         relief="flat",
-        padx=10,
+        padx=12,
         command=atualizar,
-    ).grid(row=3, column=0, columnspan=11, pady=(0, 12))
+    ).grid(row=3, column=0, columnspan=11, pady=(0, 14))
 
 
 # Permite testar isoladamente

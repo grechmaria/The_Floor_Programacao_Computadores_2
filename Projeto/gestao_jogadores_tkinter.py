@@ -23,13 +23,13 @@ CORES = {
     "cinza":    "#546e7a",
 }
 
-def _estilo_janela(janela, titulo, largura=560, altura=460):
+def _estilo_janela(janela, titulo, largura=680, altura=560):
     janela.title(titulo)
     janela.geometry(f"{largura}x{altura}")
     janela.configure(bg=CORES["bg"])
-    janela.resizable(False, False)
+    janela.resizable(True, True)
 
-def _btn(pai, texto, comando, cor=None, largura=20, fonte_tam=10):
+def _btn(pai, texto, comando, cor=None, largura=22, fonte_tam=11):
     cor = cor or CORES["accent"]
     return tk.Button(
         pai, text=texto, command=comando,
@@ -39,18 +39,18 @@ def _btn(pai, texto, comando, cor=None, largura=20, fonte_tam=10):
         cursor="hand2",
     )
 
-def _label(pai, texto, cor=None, tam=10, bold=False):
+def _label(pai, texto, cor=None, tam=11, bold=False):
     peso = "bold" if bold else "normal"
     cor = cor or CORES["texto"]
     return tk.Label(pai, text=texto, font=("Courier", tam, peso),
                     fg=cor, bg=CORES["bg"])
 
-def _titulo(pai, texto, tam=20):
+def _titulo(pai, texto, tam=22):
     return tk.Label(pai, text=texto, font=("Impact", tam),
                     fg=CORES["titulo"], bg=CORES["bg"])
 
-def _entry(pai, var, largura=26):
-    return tk.Entry(pai, textvariable=var, font=("Courier", 11), width=largura,
+def _entry(pai, var, largura=28):
+    return tk.Entry(pai, textvariable=var, font=("Courier", 12), width=largura,
                     bg="#1b2a3b", fg="#ffffff", insertbackground="#ffd600",
                     relief="flat", bd=4)
 
@@ -81,13 +81,13 @@ def menu_jogadores_tkinter():
     estilo.configure("Treeview",
                      background=CORES["painel"],
                      foreground=CORES["texto"],
-                     rowheight=22,
+                     rowheight=26,
                      fieldbackground=CORES["painel"],
-                     font=("Courier", 9))
+                     font=("Courier", 11))
     estilo.configure("Treeview.Heading",
                      background=CORES["accent"],
                      foreground="white",
-                     font=("Impact", 10))
+                     font=("Impact", 12))
     estilo.map("Treeview", background=[("selected", CORES["accent2"])])
 
     tabela.heading("nome",        text="Nome")
@@ -96,11 +96,11 @@ def menu_jogadores_tkinter():
     tabela.heading("cidade",      text="Cidade")
     tabela.heading("quadriculas", text="Quadrículas")
 
-    tabela.column("nome",        width=160)
-    tabela.column("idade",       width=55,  anchor="center")
-    tabela.column("profissao",   width=120)
-    tabela.column("cidade",      width=110)
-    tabela.column("quadriculas", width=80,  anchor="center")
+    tabela.column("nome",        width=180)
+    tabela.column("idade",       width=60,  anchor="center")
+    tabela.column("profissao",   width=140)
+    tabela.column("cidade",      width=130)
+    tabela.column("quadriculas", width=90,  anchor="center")
 
     scroll = tk.Scrollbar(frame_tabela, orient="vertical", command=tabela.yview)
     tabela.configure(yscrollcommand=scroll.set)
@@ -238,9 +238,10 @@ def _janela_adicionar(jogadores, callback_atualizar):
 
 def _janela_detalhes(jogador):
     jan = tk.Toplevel()
-    _estilo_janela(jan, f"Detalhes — {jogador['nome']}", 420, 420)
+    _estilo_janela(jan, f"Detalhes — {jogador['nome']}", 520, 560)
+    jan.grab_set()
 
-    _titulo(jan, jogador["nome"], 16).pack(pady=(14, 6))
+    _titulo(jan, jogador["nome"], 18).pack(pady=(14, 6))
 
     frame = tk.Frame(jan, bg=CORES["painel"], padx=16, pady=12)
     frame.pack(fill="x", padx=20)
@@ -261,23 +262,23 @@ def _janela_detalhes(jogador):
     ]
 
     for i, (label, valor) in enumerate(campos):
-        tk.Label(frame, text=f"{label}:", font=("Courier", 9, "bold"),
-                 fg=CORES["titulo"], bg=CORES["painel"], anchor="w", width=22
+        tk.Label(frame, text=f"{label}:", font=("Courier", 11, "bold"),
+                 fg=CORES["titulo"], bg=CORES["painel"], anchor="w", width=24
                  ).grid(row=i, column=0, sticky="w", pady=2)
-        tk.Label(frame, text=str(valor), font=("Courier", 9),
+        tk.Label(frame, text=str(valor), font=("Courier", 11),
                  fg=CORES["texto"], bg=CORES["painel"], anchor="w"
                  ).grid(row=i, column=1, sticky="w", pady=2, padx=(8, 0))
 
     tempos = jogador.get("tempos_resposta", [])
     tempo_med = round(sum(tempos) / len(tempos), 2) if tempos else "—"
-    tk.Label(frame, text="Tempo médio (s):", font=("Courier", 9, "bold"),
-             fg=CORES["titulo"], bg=CORES["painel"], anchor="w", width=22
+    tk.Label(frame, text="Tempo médio (s):", font=("Courier", 11, "bold"),
+             fg=CORES["titulo"], bg=CORES["painel"], anchor="w", width=24
              ).grid(row=len(campos), column=0, sticky="w", pady=2)
-    tk.Label(frame, text=str(tempo_med), font=("Courier", 9),
+    tk.Label(frame, text=str(tempo_med), font=("Courier", 11),
              fg=CORES["texto"], bg=CORES["painel"], anchor="w"
              ).grid(row=len(campos), column=1, sticky="w", pady=2, padx=(8, 0))
 
-    _btn(jan, "Fechar", jan.destroy, cor=CORES["cinza"], largura=14).pack(pady=12)
+    _btn(jan, "◀  Voltar", jan.destroy, cor=CORES["cinza"], largura=14).pack(pady=12)
 
 
 #  4. IMPORTAR DE TXT

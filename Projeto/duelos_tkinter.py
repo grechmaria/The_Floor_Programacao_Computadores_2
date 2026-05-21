@@ -31,25 +31,25 @@ DURACAO_DUELO = 45  # segundos
 #  UTILITÁRIOS DE ESTILO
 
 CORES = {
-    "bg":       "#0d1b2a",
-    "painel":   "#1b2a3b",
-    "accent":   "#1976d2",
-    "accent2":  "#1565c0",
-    "texto":    "#ffffff",
-    "titulo":   "#ffd600",
+    "bg":       "#0a0a0a",
+    "painel":   "#111111",
+    "accent":   "#1565c0",
+    "accent2":  "#0d47a1",
+    "texto":    "#e0e0e0",
+    "titulo":   "#4fc3f7",
     "verde":    "#43a047",
     "vermelho": "#e53935",
-    "amarelo":  "#ffd600",
-    "cinza":    "#546e7a",
+    "amarelo":  "#fdd835",
+    "cinza":    "#555555",
 }
 
-def _estilo_janela(janela, titulo, largura=480, altura=360):
+def _estilo_janela(janela, titulo, largura=600, altura=460):
     janela.title(titulo)
     janela.geometry(f"{largura}x{altura}")
     janela.configure(bg=CORES["bg"])
-    janela.resizable(False, False)
+    janela.resizable(True, True)
 
-def _btn(pai, texto, comando, cor=None, largura=22, fonte_tam=11):
+def _btn(pai, texto, comando, cor=None, largura=24, fonte_tam=12):
     cor = cor or CORES["accent"]
     return tk.Button(
         pai, text=texto, command=comando,
@@ -59,13 +59,13 @@ def _btn(pai, texto, comando, cor=None, largura=22, fonte_tam=11):
         cursor="hand2",
     )
 
-def _label(pai, texto, cor=None, tam=11, bold=False):
+def _label(pai, texto, cor=None, tam=12, bold=False):
     peso = "bold" if bold else "normal"
     cor = cor or CORES["texto"]
     return tk.Label(pai, text=texto, font=("Courier", tam, peso),
-                    fg=cor, bg=CORES["bg"], wraplength=440)
+                    fg=cor, bg=CORES["bg"], wraplength=540)
 
-def _titulo(pai, texto, tam=20):
+def _titulo(pai, texto, tam=22):
     return tk.Label(pai, text=texto, font=("Impact", tam),
                     fg=CORES["titulo"], bg=CORES["bg"])
 
@@ -100,9 +100,8 @@ def selecionar_vizinho_tkinter(desafiante, jogadores):
 
     resultado = [None]
 
-    altura = max(280, 140 + len(vizinhos) * 54)
     janela = tk.Toplevel()
-    _estilo_janela(janela, "Escolher Vizinho", 520, altura)
+    _estilo_janela(janela, "Escolher Vizinho", 560, 100 + len(vizinhos) * 52)
     janela.grab_set()
 
     _titulo(janela, "ESCOLHER VIZINHO").pack(pady=(14, 2))
@@ -118,7 +117,7 @@ def selecionar_vizinho_tkinter(desafiante, jogadores):
 
     for viz in vizinhos:
         texto = f"{viz['nome']}  [{viz['categoria']}]"
-        _btn(frame, texto, lambda v=viz: escolher(v), largura=36).pack(pady=3)
+        _btn(frame, texto, lambda v=viz: escolher(v), largura=40).pack(pady=3)
 
     janela.wait_window()
     return resultado[0]
@@ -139,41 +138,41 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
 
     #  janela 
     janela = tk.Toplevel()
-    _estilo_janela(janela, "DUELO", 520, 520)
+    _estilo_janela(janela, "DUELO", 640, 620)
     janela.grab_set()
 
     # Título
-    _titulo(janela, "THE FLOOR — DUELO", 18).pack(pady=(10, 0))
+    _titulo(janela, "THE FLOOR — DUELO", 20).pack(pady=(10, 0))
     lbl_vs = _label(janela,
                     f"{desafiante['nome']}  vs  {desafiado['nome']}",
-                    cor=CORES["amarelo"], tam=12, bold=True)
+                    cor=CORES["amarelo"], tam=14, bold=True)
     lbl_vs.pack()
-    _label(janela, f"Categoria: {categoria}", cor=CORES["titulo"], tam=10).pack()
+    _label(janela, f"Categoria: {categoria}", cor=CORES["titulo"], tam=12).pack()
 
     # Cronómetro
     frame_crono = tk.Frame(janela, bg=CORES["bg"])
     frame_crono.pack(pady=4)
-    lbl_crono = tk.Label(frame_crono, text="45", font=("Impact", 28),
+    lbl_crono = tk.Label(frame_crono, text="45", font=("Impact", 34),
                          fg=CORES["amarelo"], bg=CORES["bg"], width=4)
     lbl_crono.pack()
 
     # Placar
     lbl_placar = _label(janela,
                         f"{desafiante['nome']}: 0  |  {desafiado['nome']}: 0",
-                        cor=CORES["verde"], tam=11, bold=True)
+                        cor=CORES["verde"], tam=13, bold=True)
     lbl_placar.pack(pady=2)
 
     # Área de pergunta
     frame_pergunta = tk.Frame(janela, bg=CORES["painel"], padx=12, pady=10)
     frame_pergunta.pack(fill="x", padx=20, pady=6)
 
-    lbl_vez = _label(frame_pergunta, "", cor=CORES["titulo"], tam=10, bold=True)
+    lbl_vez = _label(frame_pergunta, "", cor=CORES["titulo"], tam=12, bold=True)
     lbl_vez.configure(bg=CORES["painel"])
     lbl_vez.pack()
 
-    lbl_pergunta = tk.Label(frame_pergunta, text="", font=("Courier", 11),
+    lbl_pergunta = tk.Label(frame_pergunta, text="", font=("Courier", 13),
                             fg=CORES["texto"], bg=CORES["painel"],
-                            wraplength=460, justify="left")
+                            wraplength=560, justify="left")
     lbl_pergunta.pack(pady=(4, 2))
 
     # Entrada de resposta
@@ -182,13 +181,13 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
 
     entrada_var = tk.StringVar()
     entrada = tk.Entry(frame_entrada, textvariable=entrada_var,
-                       font=("Courier", 13), width=28,
-                       bg="#1b2a3b", fg="#ffffff", insertbackground="#ffd600",
+                       font=("Courier", 14), width=30,
+                       bg="#1e1e1e", fg="white", insertbackground="white",
                        relief="flat", bd=4)
     entrada.pack(side="left", padx=(0, 8))
 
     btn_responder = _btn(frame_entrada, "Responder", lambda: None,
-                         cor=CORES["verde"], largura=12, fonte_tam=10)
+                         cor=CORES["verde"], largura=14, fonte_tam=11)
     btn_responder.pack(side="left")
 
     # Feedback
@@ -329,10 +328,10 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
 
 def _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo, on_close):
     jan = tk.Toplevel()
-    _estilo_janela(jan, "Resultado do Duelo", 420, 400)
+    _estilo_janela(jan, "Resultado do Duelo", 520, 480)
     jan.grab_set()
 
-    _titulo(jan, "RESULTADO FINAL", 20).pack(pady=(18, 4))
+    _titulo(jan, "RESULTADO FINAL", 22).pack(pady=(18, 4))
 
     cor_des = CORES["verde"] if vencedor == desafiante["nome"] else CORES["vermelho"]
     cor_def = CORES["verde"] if vencedor == desafiado["nome"]  else CORES["vermelho"]
@@ -342,22 +341,22 @@ def _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo, o
     t_def = (round(sum(tempos[desafiado["nome"]]) / len(tempos[desafiado["nome"]]), 2)
              if tempos[desafiado["nome"]] else 0)
 
-    _label(jan, f"{desafiante['nome']}", cor=cor_des, tam=12, bold=True).pack()
+    _label(jan, f"{desafiante['nome']}", cor=cor_des, tam=14, bold=True).pack()
     _label(jan, f"{pontos[desafiante['nome']]} acertos  |  {t_des}s médio",
-           cor=cor_des, tam=10).pack()
+           cor=cor_des, tam=12).pack()
 
-    _label(jan, "vs", cor=CORES["cinza"], tam=10).pack(pady=4)
+    _label(jan, "vs", cor=CORES["cinza"], tam=11).pack(pady=4)
 
-    _label(jan, f"{desafiado['nome']}", cor=cor_def, tam=12, bold=True).pack()
+    _label(jan, f"{desafiado['nome']}", cor=cor_def, tam=14, bold=True).pack()
     _label(jan, f"{pontos[desafiado['nome']]} acertos  |  {t_def}s médio",
-           cor=cor_def, tam=10).pack()
+           cor=cor_def, tam=12).pack()
 
     tk.Label(jan, text=f"🏆  {vencedor}  ganhou!",
-             font=("Impact", 16), fg=CORES["amarelo"], bg=CORES["bg"]).pack(pady=(14, 2))
-    _label(jan, f"({motivo})", cor=CORES["cinza"], tam=9).pack()
+             font=("Impact", 18), fg=CORES["amarelo"], bg=CORES["bg"]).pack(pady=(14, 2))
+    _label(jan, f"({motivo})", cor=CORES["cinza"], tam=11).pack()
 
     _btn(jan, "Continuar", lambda: (jan.destroy(), on_close()),
-         cor=CORES["accent"], largura=18).pack(pady=14)
+         cor=CORES["accent"], largura=20).pack(pady=14)
 
     jan.wait_window()
 
@@ -370,12 +369,12 @@ def escolher_proximo_desafiante_tkinter(vencedor_nome, jogadores):
     resultado = [None]
 
     jan = tk.Toplevel()
-    _estilo_janela(jan, "Próximo Duelo", 400, 300)
+    _estilo_janela(jan, "Próximo Duelo", 500, 360)
     jan.grab_set()
 
-    _titulo(jan, "PRÓXIMO DUELO", 16).pack(pady=(16, 4))
-    _label(jan, f"{vencedor_nome} venceu!", cor=CORES["amarelo"], tam=11, bold=True).pack()
-    _label(jan, "O vencedor quer continuar a jogar?", tam=10).pack(pady=6)
+    _titulo(jan, "PRÓXIMO DUELO", 18).pack(pady=(16, 4))
+    _label(jan, f"{vencedor_nome} venceu!", cor=CORES["amarelo"], tam=13, bold=True).pack()
+    _label(jan, "O vencedor quer continuar a jogar?", tam=12).pack(pady=6)
 
     frame = tk.Frame(jan, bg=CORES["bg"])
     frame.pack(pady=6)
@@ -395,9 +394,9 @@ def escolher_proximo_desafiante_tkinter(vencedor_nome, jogadores):
         jan.destroy()
 
     _btn(frame, f"✔  {vencedor_nome} continua", ficar,
-         cor=CORES["verde"], largura=28).pack(pady=4)
+         cor=CORES["verde"], largura=32).pack(pady=4)
     _btn(frame, "🎲  Sortear outro jogador", sortear,
-         cor=CORES["cinza"], largura=28).pack(pady=4)
+         cor=CORES["cinza"], largura=32).pack(pady=4)
 
     jan.wait_window()
     return resultado[0]
@@ -484,30 +483,30 @@ def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
     pausar_cb()  → guarda e sai
     """
     jan = tk.Toplevel()
-    _estilo_janela(jan, "Entre Duelos", 460, 420)
+    _estilo_janela(jan, "Entre Duelos", 560, 500)
     jan.grab_set()
 
-    _titulo(jan, "THE FLOOR", 20).pack(pady=(12, 2))
+    _titulo(jan, "THE FLOOR", 22).pack(pady=(12, 2))
 
     ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]
-    _label(jan, f"Jogadores ativos: {len(ativos)}", cor=CORES["amarelo"], tam=10).pack()
+    _label(jan, f"Jogadores ativos: {len(ativos)}", cor=CORES["amarelo"], tam=12).pack()
 
     # Mini-ranking (top 8)
     ranking = sorted(ativos, key=lambda j: len(j.get("quadriculas", [])), reverse=True)
     frame_rank = tk.Frame(jan, bg=CORES["painel"], padx=10, pady=8)
     frame_rank.pack(fill="x", padx=20, pady=8)
 
-    tk.Label(frame_rank, text="TOP JOGADORES", font=("Impact", 11),
+    tk.Label(frame_rank, text="TOP JOGADORES", font=("Impact", 13),
              fg=CORES["titulo"], bg=CORES["painel"]).pack()
 
     for j in ranking[:8]:
         n_quads = len(j.get("quadriculas", []))
         linha = f"  {j['nome']:<22} {n_quads} quadrículas"
-        tk.Label(frame_rank, text=linha, font=("Courier", 9),
+        tk.Label(frame_rank, text=linha, font=("Courier", 11),
                  fg=CORES["texto"], bg=CORES["painel"], anchor="w").pack(fill="x")
 
     _label(jan, f"Próximo desafiante: {desafiante_nome}",
-           cor=CORES["verde"], tam=10, bold=True).pack(pady=4)
+           cor=CORES["verde"], tam=12, bold=True).pack(pady=4)
 
     frame_btn = tk.Frame(jan, bg=CORES["bg"])
     frame_btn.pack(pady=8)
@@ -523,9 +522,9 @@ def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
         pausar_cb()
 
     _btn(frame_btn, "▶  Próximo Duelo", continuar,
-         cor=CORES["verde"], largura=24).pack(pady=4)
+         cor=CORES["verde"], largura=28).pack(pady=4)
     _btn(frame_btn, "⏸  Pausar e Guardar", pausar,
-         cor=CORES["cinza"], largura=24).pack(pady=4)
+         cor=CORES["cinza"], largura=28).pack(pady=4)
 
     jan.wait_window()
 

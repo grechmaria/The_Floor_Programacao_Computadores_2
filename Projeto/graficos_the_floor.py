@@ -84,14 +84,16 @@ def _grafico_categorias():
 def abrir_janela_graficos():
     janela = tk.Toplevel()
     janela.title("The Floor - Estatísticas")
-    janela.geometry("420x460")
-    janela.configure(bg="#0d1b2a")
+    janela.geometry("520x560")
+    janela.configure(bg="black")
+    janela.resizable(True, True)
 
     tk.Label(
         janela,
         text="ESTATÍSTICAS",
-        font=("Impact", 26),
-        fg="#ffd600", bg="#0d1b2a",
+        font=("Impact", 30),
+        fg="blue",
+        bg="black",
     ).pack(pady=18)
 
     # Cada tuplo: (texto do botão, função a chamar)
@@ -108,16 +110,16 @@ def abrir_janela_graficos():
         tk.Button(
             janela,
             text=texto,
-            font=("Impact", 11),
-            width=30,bg="#1976d2", fg="white", relief="flat",
+            font=("Impact", 13),
+            width=34,
             command=comando,
-        ).pack(pady=5)
+        ).pack(pady=6)
 
     tk.Button(
         janela,
         text="Fechar",
-        font=("Impact", 11),
-        width=30,bg="#546e7a", fg="white", relief="flat",
+        font=("Impact", 13),
+        width=34,
         command=janela.destroy,
     ).pack(pady=14)
 
