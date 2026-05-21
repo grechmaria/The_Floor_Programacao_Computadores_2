@@ -1,16 +1,13 @@
 # duelos_tkinter.py
 # Versão gráfica (Tkinter) da dinâmica de jogo The Floor.
-# Substitui todas as interações shell de duelos.py por janelas Tkinter.
 
 import tkinter as tk
-from tkinter import messagebox, simpledialog
+from tkinter import messagebox
 import json
 import os
 import random
 import time
-import threading
 
-# importações do projeto 
 from gestao_jogadores import carregar_jogadores, guardar_jogadores
 from duelos import (
     carregar_duelos,
@@ -23,12 +20,12 @@ from duelos import (
     verificar_fim_jogo,
     _atualizar_estatisticas,
 )
+from tabuleiro_tkinter import JanelaTabuleiro
 
 DURACAO_DUELO = 45  # segundos
 
 
- 
-#  UTILITÁRIOS DE ESTILO
+# Estilos e utilitários
 
 CORES = {
     "bg":       "#0a0a0a",
@@ -70,10 +67,11 @@ def _titulo(pai, texto, tam=22):
                     fg=CORES["titulo"], bg=CORES["bg"])
 
 
-
-#  1. SELEÇÃO DE VIZINHO
+# Seleção de vizinho
 
 def _obter_vizinhos(jogador, jogadores):
+    # Percorre todas as casas do jogador e verifica quais os adversários que têm
+    # pelo menos uma casa adjacente (cima, baixo, esquerda, direita)
     vizinhos = []
     for (linha, coluna) in jogador["quadriculas"]:
         posicoes = [
@@ -90,8 +88,7 @@ def _obter_vizinhos(jogador, jogadores):
     return vizinhos
 
 
-def selecionar_vizinho_tkinter(desafiante, jogadores):
-    """Abre janela para o desafiante escolher um vizinho. Devolve o vizinho ou None."""
+def selecionar_vizinho_tkinter(desafiante, jogadores, tabuleiro_ref=None):
     vizinhos = _obter_vizinhos(desafiante, jogadores)
     if not vizinhos:
         messagebox.showinfo("Sem Vizinhos",
@@ -123,46 +120,35 @@ def selecionar_vizinho_tkinter(desafiante, jogadores):
     return resultado[0]
 
 
-#  2. DUELO — janela principal com cronómetro e perguntas
+# Duelo — janela principal com cronómetro e perguntas
 
 def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
-    """
-    Corre o duelo de 45 s em Tkinter.
-    Devolve (vencedor_nome, tempos_dict, acertos_dict).
-    """
+    """Corre o duelo de 45 s. Devolve (vencedor_nome, tempos_dict, acertos_dict)."""
     pontos  = {desafiante["nome"]: 0,  desafiado["nome"]: 0}
     tempos  = {desafiante["nome"]: [], desafiado["nome"]: []}
     acertos = {desafiante["nome"]: 0,  desafiado["nome"]: 0}
+    resultado = [None]
 
-    resultado = [None]   # guardará o vencedor quando a janela fechar
-
-    #  janela 
     janela = tk.Toplevel()
     _estilo_janela(janela, "DUELO", 640, 620)
     janela.grab_set()
 
-    # Título
     _titulo(janela, "THE FLOOR — DUELO", 20).pack(pady=(10, 0))
-    lbl_vs = _label(janela,
-                    f"{desafiante['nome']}  vs  {desafiado['nome']}",
-                    cor=CORES["amarelo"], tam=14, bold=True)
-    lbl_vs.pack()
+    _label(janela, f"{desafiante['nome']}  vs  {desafiado['nome']}",
+           cor=CORES["amarelo"], tam=14, bold=True).pack()
     _label(janela, f"Categoria: {categoria}", cor=CORES["titulo"], tam=12).pack()
 
-    # Cronómetro
     frame_crono = tk.Frame(janela, bg=CORES["bg"])
     frame_crono.pack(pady=4)
     lbl_crono = tk.Label(frame_crono, text="45", font=("Impact", 34),
                          fg=CORES["amarelo"], bg=CORES["bg"], width=4)
     lbl_crono.pack()
 
-    # Placar
     lbl_placar = _label(janela,
                         f"{desafiante['nome']}: 0  |  {desafiado['nome']}: 0",
                         cor=CORES["verde"], tam=13, bold=True)
     lbl_placar.pack(pady=2)
 
-    # Área de pergunta
     frame_pergunta = tk.Frame(janela, bg=CORES["painel"], padx=12, pady=10)
     frame_pergunta.pack(fill="x", padx=20, pady=6)
 
@@ -175,7 +161,6 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
                             wraplength=560, justify="left")
     lbl_pergunta.pack(pady=(4, 2))
 
-    # Entrada de resposta
     frame_entrada = tk.Frame(janela, bg=CORES["bg"])
     frame_entrada.pack(pady=4)
 
@@ -190,18 +175,16 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
                          cor=CORES["verde"], largura=14, fonte_tam=11)
     btn_responder.pack(side="left")
 
-    # Feedback
     lbl_feedback = _label(janela, "", tam=10)
     lbl_feedback.pack(pady=2)
 
-    #  estado interno 
     estado = {
-        "idx_pergunta":   0,
-        "vez":            0,   # 0 = desafiante, 1 = desafiado
-        "inicio_resp":    0.0,
-        "aguardando":     False,
-        "inicio_duelo":   time.time(),
-        "encerrado":      False,
+        "idx_pergunta": 0,
+        "vez":          0,   # 0 = desafiante, 1 = desafiado (alterna a cada resposta)
+        "inicio_resp":  0.0,
+        "aguardando":   False,
+        "inicio_duelo": time.time(),
+        "encerrado":    False,
     }
 
     jogadores_duelo = [desafiante, desafiado]
@@ -221,10 +204,7 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
         if estado["encerrado"]:
             return
         restante = DURACAO_DUELO - int(time.time() - estado["inicio_duelo"])
-        if restante <= 0:
-            encerrar_duelo()
-            return
-        if estado["idx_pergunta"] >= len(perguntas_duelo):
+        if restante <= 0 or estado["idx_pergunta"] >= len(perguntas_duelo):
             encerrar_duelo()
             return
 
@@ -254,8 +234,7 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
         if correta:
             pontos[jogador_atual["nome"]] += 1
             acertos[jogador_atual["nome"]] += 1
-            lbl_feedback.config(
-                text=f"✔ Correto! ({tempo_resp}s)", fg=CORES["verde"])
+            lbl_feedback.config(text=f"✔ Correto! ({tempo_resp}s)", fg=CORES["verde"])
         else:
             lbl_feedback.config(
                 text=f"✘ Errado! Resposta: {pergunta['resposta']} ({tempo_resp}s)",
@@ -265,20 +244,14 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
         entrada.config(state="disabled")
         estado["aguardando"] = False
 
-        # Atualizar placar
         lbl_placar.config(
             text=(f"{desafiante['nome']}: {pontos[desafiante['nome']]}  |  "
                   f"{desafiado['nome']}: {pontos[desafiado['nome']]}"))
 
-        # Avançar: alterna entre desafiante(0) e desafiado(1)
-        if estado["vez"] == 0:
-            estado["vez"] = 1
-            estado["idx_pergunta"] += 1
-            janela.after(1200, mostrar_proxima_pergunta)
-        else:
-            estado["vez"] = 0
-            estado["idx_pergunta"] += 1
-            janela.after(1200, mostrar_proxima_pergunta)
+        # Alterna a vez e avança para a pergunta seguinte
+        estado["vez"] = 1 - estado["vez"]
+        estado["idx_pergunta"] += 1
+        janela.after(1200, mostrar_proxima_pergunta)
 
     btn_responder.config(command=submeter_resposta)
     entrada.bind("<Return>", lambda e: submeter_resposta())
@@ -290,7 +263,6 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
         entrada.config(state="disabled")
         btn_responder.config(state="disabled")
 
-        # Determinar vencedor
         p_des = pontos[desafiante["nome"]]
         p_def = pontos[desafiado["nome"]]
 
@@ -301,7 +273,7 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
             vencedor = desafiado["nome"]
             motivo = "mais respostas certas"
         else:
-            # Desempate por tempo médio
+            # Empate em acertos — desempata pelo tempo médio de resposta
             t_des = (sum(tempos[desafiante["nome"]]) / len(tempos[desafiante["nome"]])
                      if tempos[desafiante["nome"]] else float("inf"))
             t_def = (sum(tempos[desafiado["nome"]]) / len(tempos[desafiado["nome"]])
@@ -310,21 +282,16 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
             motivo = "tempo médio mais rápido"
 
         resultado[0] = vencedor
-
-        # Janela de resultado
         _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo,
                           on_close=janela.destroy)
 
-    # Iniciar cronómetro e primeira pergunta
     janela.after(500, atualizar_crono)
     janela.after(300, mostrar_proxima_pergunta)
-
     janela.wait_window()
     return resultado[0], tempos, acertos
 
 
-#  3. JANELA DE RESULTADO
-
+# Resultado do duelo
 
 def _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo, on_close):
     jan = tk.Toplevel()
@@ -344,9 +311,7 @@ def _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo, o
     _label(jan, f"{desafiante['nome']}", cor=cor_des, tam=14, bold=True).pack()
     _label(jan, f"{pontos[desafiante['nome']]} acertos  |  {t_des}s médio",
            cor=cor_des, tam=12).pack()
-
     _label(jan, "vs", cor=CORES["cinza"], tam=11).pack(pady=4)
-
     _label(jan, f"{desafiado['nome']}", cor=cor_def, tam=14, bold=True).pack()
     _label(jan, f"{pontos[desafiado['nome']]} acertos  |  {t_def}s médio",
            cor=cor_def, tam=12).pack()
@@ -361,11 +326,9 @@ def _janela_resultado(desafiante, desafiado, pontos, tempos, vencedor, motivo, o
     jan.wait_window()
 
 
-#  4. PRÓXIMO DESAFIANTE
-
+# Escolher próximo desafiante
 
 def escolher_proximo_desafiante_tkinter(vencedor_nome, jogadores):
-    """Popup: vencedor fica ou sorteia outro?"""
     resultado = [None]
 
     jan = tk.Toplevel()
@@ -402,10 +365,9 @@ def escolher_proximo_desafiante_tkinter(vencedor_nome, jogadores):
     return resultado[0]
 
 
-#  5. EXECUTAR DUELO (equivalente a duelos.executar_duelo)
+# Executar duelo
 
-
-def executar_duelo_tkinter(desafiante, desafiado, jogadores, duelos):
+def executar_duelo_tkinter(desafiante, desafiado, jogadores, duelos, tabuleiro_ref=None):
     categoria = desafiado["categoria"]
     desafiado["duelos_aceites"] = desafiado.get("duelos_aceites", 0) + 1
 
@@ -427,15 +389,23 @@ def executar_duelo_tkinter(desafiante, desafiado, jogadores, duelos):
     if vencedor == desafiante["nome"]:
         quadriculas_transferidas = transferir_quadricula(desafiante, desafiado, jogadores)
     else:
-        messagebox.showinfo("Defesa",
-                            f"{desafiado['nome']} defendeu com sucesso!")
-
-    guardar_jogadores(jogadores)
+        messagebox.showinfo("Defesa", f"{desafiado['nome']} defendeu com sucesso!")
 
     t_des = (round(sum(tempos[desafiante["nome"]]) / len(tempos[desafiante["nome"]]), 2)
              if tempos[desafiante["nome"]] else 0)
     t_def = (round(sum(tempos[desafiado["nome"]]) / len(tempos[desafiado["nome"]]), 2)
              if tempos[desafiado["nome"]] else 0)
+
+    # Atualiza as estatísticas nos objetos em memória antes de guardar,
+    # caso contrário o guardar_jogadores seria chamado sem elas
+    _atualizar_estatisticas(desafiante, t_des, vencedor,
+                            len(tempos[desafiante["nome"]]),
+                            acertos[desafiante["nome"]], categoria)
+    _atualizar_estatisticas(desafiado, t_def, vencedor,
+                            len(tempos[desafiado["nome"]]),
+                            acertos[desafiado["nome"]], categoria)
+
+    guardar_jogadores(jogadores)
 
     duelo = {
         "id_duelo":                 len(duelos) + 1,
@@ -452,36 +422,25 @@ def executar_duelo_tkinter(desafiante, desafiado, jogadores, duelos):
     duelos.append(duelo)
     guardar_duelos(duelos)
 
-    # Atualizar estatísticas
-    _atualizar_estatisticas(desafiante, t_des, vencedor,
-                            len(tempos[desafiante["nome"]]),
-                            acertos[desafiante["nome"]], categoria)
-    _atualizar_estatisticas(desafiado, t_def, vencedor,
-                            len(tempos[desafiado["nome"]]),
-                            acertos[desafiado["nome"]], categoria)
+    # Atualiza o tabuleiro visual após tudo estar guardado
+    if tabuleiro_ref and tabuleiro_ref.esta_aberto():
+        tabuleiro_ref.atualizar()
 
     return duelo
 
 
-#  6. LOOP PRINCIPAL DO JOGO EM TKINTER
-
+# Loop principal do jogo
 
 def _verificar_fim_tkinter(jogadores):
     ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]
     if len(ativos) == 1:
-        messagebox.showinfo("Fim de Jogo! 🏆",
-                            f"O vencedor é {ativos[0]['nome']}!")
+        messagebox.showinfo("Fim de Jogo! 🏆", f"O vencedor é {ativos[0]['nome']}!")
         return True
     return False
 
 
 def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
-                          proximo_cb, pausar_cb):
-    """
-    Janela mostrada entre duelos: tabuleiro resumido + botões Continuar / Pausar.
-    proximo_cb() → continua o jogo
-    pausar_cb()  → guarda e sai
-    """
+                          proximo_cb, pausar_cb, tabuleiro_ref=None):
     jan = tk.Toplevel()
     _estilo_janela(jan, "Entre Duelos", 560, 500)
     jan.grab_set()
@@ -491,7 +450,6 @@ def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
     ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]
     _label(jan, f"Jogadores ativos: {len(ativos)}", cor=CORES["amarelo"], tam=12).pack()
 
-    # Mini-ranking (top 8)
     ranking = sorted(ativos, key=lambda j: len(j.get("quadriculas", [])), reverse=True)
     frame_rank = tk.Frame(jan, bg=CORES["painel"], padx=10, pady=8)
     frame_rank.pack(fill="x", padx=20, pady=8)
@@ -517,6 +475,8 @@ def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
 
     def pausar():
         guardar_jogadores(jogadores)
+        if tabuleiro_ref and tabuleiro_ref.esta_aberto():
+            tabuleiro_ref.atualizar()
         messagebox.showinfo("Jogo Pausado", "Estado guardado. Até já!")
         jan.destroy()
         pausar_cb()
@@ -529,8 +489,12 @@ def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
     jan.wait_window()
 
 
-def iniciar_jogo_tkinter(root=None):
-    """Ponto de entrada do jogo em modo Tkinter. Chama-se a partir do menu."""
+def _iniciar_ciclo_jogo(inicializar=False):
+    """
+    Núcleo do loop de jogo. Se inicializar=True, chama inicializar_tabuleiro()
+    antes de começar — usado no Novo Duelo. Se False, retoma o estado que estava
+    guardado em jogadores.json — usado no Carregar Jogo.
+    """
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     jogadores = carregar_jogadores()
 
@@ -540,28 +504,48 @@ def iniciar_jogo_tkinter(root=None):
         return
 
     duelos = carregar_duelos()
-    inicializar_tabuleiro(jogadores)
 
-    proximo_desafiante = [None]   # lista para mutabilidade em closures
+    if inicializar:
+        ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]
+        if ativos:
+            resp = messagebox.askyesno(
+                "Jogo em Curso",
+                "Já existe um jogo em curso. Iniciar um novo duelo irá APAGAR o progresso atual.\n\nTem a certeza?")
+            if not resp:
+                return
+        inicializar_tabuleiro(jogadores)
+        jogadores = carregar_jogadores()
+
+    tabuleiro = JanelaTabuleiro()
+    tabuleiro.atualizar()
+
+    proximo_desafiante = [None]
     jogo_ativo = [True]
 
     def ciclo_jogo():
         if not jogo_ativo[0]:
             return
 
-        jogadores_atuais = carregar_jogadores()   # lê estado atualizado
+        jogadores_atuais = carregar_jogadores()
+
+        if tabuleiro.esta_aberto():
+            tabuleiro.atualizar()
 
         if _verificar_fim_tkinter(jogadores_atuais):
+            if tabuleiro.esta_aberto():
+                tabuleiro.atualizar()
             return
 
-        # Escolher desafiante
         if proximo_desafiante[0]:
-            # encontra o mesmo objeto na lista atualizada
             nome_prox = proximo_desafiante[0]["nome"]
             desafiante = next(
-                (j for j in jogadores_atuais if j["nome"] == nome_prox),
-                None)
+                (j for j in jogadores_atuais
+                 if j["nome"] == nome_prox and len(j.get("quadriculas", [])) > 0), None)
             proximo_desafiante[0] = None
+            # se o desafiante preferido entretanto foi eliminado, sorteia outro
+            if desafiante is None:
+                ativos = [j for j in jogadores_atuais if len(j.get("quadriculas", [])) > 0]
+                desafiante = random.choice(ativos) if ativos else None
         else:
             ativos = [j for j in jogadores_atuais if len(j.get("quadriculas", [])) > 0]
             desafiante = random.choice(ativos) if ativos else None
@@ -569,42 +553,47 @@ def iniciar_jogo_tkinter(root=None):
         if desafiante is None:
             return
 
-        # Escolher vizinho
-        desafiado = selecionar_vizinho_tkinter(desafiante, jogadores_atuais)
+        desafiado = selecionar_vizinho_tkinter(desafiante, jogadores_atuais, tabuleiro)
         if desafiado is None:
-            ciclo_jogo()   # tenta de novo com outro jogador
+            ciclo_jogo()
             return
 
-        # Executar duelo
-        duelo = executar_duelo_tkinter(desafiante, desafiado, jogadores_atuais, duelos)
+        duelo = executar_duelo_tkinter(
+            desafiante, desafiado, jogadores_atuais, duelos, tabuleiro_ref=tabuleiro)
         if duelo is None:
             ciclo_jogo()
             return
 
+        if tabuleiro.esta_aberto():
+            tabuleiro.atualizar()
+
         if _verificar_fim_tkinter(jogadores_atuais):
             guardar_jogadores(jogadores_atuais)
+            if tabuleiro.esta_aberto():
+                tabuleiro.atualizar()
             return
 
-        # Determinar próximo desafiante
         prox = escolher_proximo_desafiante_tkinter(duelo["vencedor"], jogadores_atuais)
         proximo_desafiante[0] = prox
 
-        # Mostrar ecrã entre duelos
         nome_prox_str = prox["nome"] if prox else "Aleatório"
         _janela_entre_duelos(
             nome_prox_str, jogadores_atuais, duelos,
             proximo_cb=ciclo_jogo,
             pausar_cb=lambda: jogo_ativo.__setitem__(0, False),
+            tabuleiro_ref=tabuleiro,
         )
 
     ciclo_jogo()
 
 
+# Pontos de entrada públicos
 
-#  7. CARREGAR JOGO (retomar jogo guardado) em Tkinter
+def novo_duelo_tkinter(root=None):
+    _iniciar_ciclo_jogo(inicializar=True)
 
 
-def carregar_jogo_tkinter():
+def carregar_jogo_tkinter(root=None):
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     jogadores = carregar_jogadores()
 
@@ -614,18 +603,103 @@ def carregar_jogo_tkinter():
 
     ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]
     if not ativos:
-        messagebox.showinfo("Sem Jogo", "Não há jogo guardado. Inicia um novo jogo.")
+        messagebox.showinfo(
+            "Sem Jogo Guardado",
+            "Não existe nenhum jogo em curso para retomar.\n\nInicia um Novo Duelo.")
         return
 
-    messagebox.showinfo("Jogo Carregado",
-                        f"Jogo retomado! {len(ativos)} jogadores ainda ativos.")
-    iniciar_jogo_tkinter()
+    messagebox.showinfo("Jogo Retomado",
+                        f"A retomar o jogo!\n{len(ativos)} jogadores ainda ativos.")
+    _iniciar_ciclo_jogo(inicializar=False)
 
 
-# Teste isolado
+# Reiniciar jogo
+
+def reiniciar_jogo_tkinter(root=None):
+    """
+    Mostra uma janela de confirmação antes de reiniciar. Se o utilizador confirmar,
+    chama _executar_reinicio() que faz o reset efetivo dos ficheiros.
+    """
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+    confirmacao = tk.Toplevel()
+    confirmacao.title("⚠  Reiniciar Jogo")
+    confirmacao.geometry("480x260")
+    confirmacao.configure(bg="#1a0000")
+    confirmacao.resizable(False, False)
+    confirmacao.grab_set()
+
+    tk.Label(confirmacao, text="⚠  ATENÇÃO  ⚠",
+             font=("Impact", 22), fg="#ff5252", bg="#1a0000").pack(pady=(20, 8))
+    tk.Label(confirmacao,
+             text="Esta ação irá:\n"
+                  "• Apagar todo o progresso do jogo atual\n"
+                  "• Repor todos os jogadores ao estado inicial\n"
+                  "• Limpar o historial de duelos\n\n"
+                  "Esta operação NÃO pode ser desfeita!",
+             font=("Courier", 11), fg="#ffcccc", bg="#1a0000",
+             justify="left").pack(padx=30)
+
+    frame_btns = tk.Frame(confirmacao, bg="#1a0000")
+    frame_btns.pack(pady=16)
+
+    def confirmar():
+        confirmacao.destroy()
+        _executar_reinicio()
+
+    def cancelar():
+        confirmacao.destroy()
+
+    tk.Button(frame_btns, text="✔  Sim, Reiniciar",
+              font=("Impact", 13), width=20, bg="#c62828", fg="white",
+              relief="flat", cursor="hand2", command=confirmar).pack(side="left", padx=8)
+    tk.Button(frame_btns, text="✘  Cancelar",
+              font=("Impact", 13), width=20, bg="#555555", fg="white",
+              relief="flat", cursor="hand2", command=cancelar).pack(side="left", padx=8)
+
+    confirmacao.wait_window()
+
+
+def _executar_reinicio():
+    import shutil
+
+    FICHEIRO_JOGADORES = "jogadores.json"
+    FICHEIRO_RESET     = "jogadores_reset.json"
+    FICHEIRO_DUELOS    = "duelos.json"
+
+    try:
+        if not os.path.exists(FICHEIRO_RESET):
+            messagebox.showerror("Erro", f"Ficheiro '{FICHEIRO_RESET}' não encontrado!")
+            return
+
+        shutil.copy2(FICHEIRO_RESET, FICHEIRO_JOGADORES)
+
+        with open(FICHEIRO_DUELOS, "w", encoding="utf-8") as f:
+            json.dump([], f, indent=4, ensure_ascii=False)
+
+        jogadores = carregar_jogadores()
+        if len(jogadores) < 100:
+            messagebox.showerror(
+                "Erro",
+                f"São necessários 100 jogadores no ficheiro reset. "
+                f"Encontrados: {len(jogadores)}.")
+            return
+
+        inicializar_tabuleiro(jogadores)
+
+        messagebox.showinfo(
+            "Jogo Reiniciado ✔",
+            "O jogo foi reiniciado com sucesso!\n\n"
+            "Todos os jogadores estão ativos no tabuleiro.\n"
+            "Podes iniciar um Novo Duelo quando quiseres.")
+
+    except Exception as e:
+        messagebox.showerror("Erro ao Reiniciar", str(e))
+
+
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     raiz = tk.Tk()
     raiz.withdraw()
-    iniciar_jogo_tkinter(raiz)
+    novo_duelo_tkinter(raiz)
     raiz.mainloop()

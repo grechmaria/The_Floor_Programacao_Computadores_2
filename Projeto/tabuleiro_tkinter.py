@@ -1,15 +1,12 @@
 # tabuleiro_tkinter.py
 # Visualização gráfica do tabuleiro The Floor em Tkinter
-# Grelha 10x10 com cores por jogador, atualiza em tempo real
 
 import tkinter as tk
 import json
 import os
-import random
 
 FICHEIRO_JOGADORES = "jogadores.json"
 
-# Paleta de cores para os jogadores (até 100 cores distintas)
 PALETA = [
     "#e63946", "#457b9d", "#2a9d8f", "#e9c46a", "#f4a261",
     "#264653", "#8ecae6", "#a8dadc", "#606c38", "#dda15e",
@@ -34,7 +31,7 @@ PALETA = [
 ]
 
 
-def carregar_jogadores():
+def _carregar_jogadores():
     if not os.path.exists(FICHEIRO_JOGADORES):
         return []
     try:
@@ -44,17 +41,13 @@ def carregar_jogadores():
         return []
 
 
-def construir_mapa_cores(jogadores):
-    """Associa uma cor a cada jogador."""
-    mapa = {}
-    for i, jogador in enumerate(jogadores):
-        mapa[jogador["nome"]] = PALETA[i % len(PALETA)]
-    return mapa
+def _construir_mapa_cores(jogadores):
+    # Cada jogador recebe sempre a mesma cor baseada na sua posição na lista original
+    return {j["nome"]: PALETA[i % len(PALETA)] for i, j in enumerate(jogadores)}
 
 
-def construir_grelha(jogadores):
-    """Reconstrói a grelha 10x10 a partir das quadrículas dos jogadores."""
-    grelha = [[None for _ in range(10)] for _ in range(10)]
+def _construir_grelha(jogadores):
+    grelha = [[None] * 10 for _ in range(10)]
     for jogador in jogadores:
         for quad in jogador.get("quadriculas", []):
             linha, coluna = quad[0], quad[1]
@@ -63,161 +56,157 @@ def construir_grelha(jogadores):
     return grelha
 
 
-def abrir_tabuleiro():
-    """Abre a janela do tabuleiro gráfico."""
-    janela = tk.Toplevel()
-    janela.title("The Floor - Tabuleiro")
-    janela.configure(bg="#0a0a0a")
-    janela.resizable(False, False)
+# Classe JanelaTabuleiro
 
-    jogadores = carregar_jogadores()
-    mapa_cores = construir_mapa_cores(jogadores)
-    grelha = construir_grelha(jogadores)
+class JanelaTabuleiro:
+    """
+    Janela do tabuleiro reutilizável. Pode ser aberta standalone (botão do menu)
+    ou mantida aberta durante um jogo. O método atualizar() relê o ficheiro e
+    redesenha tudo sem abrir uma janela nova.
+    """
 
-    # Contar quadrículas por jogador para o painel lateral
-    contagem = {}
-    for jogador in jogadores:
-        n = len(jogador.get("quadriculas", []))
-        if n > 0:
-            contagem[jogador["nome"]] = n
+    def __init__(self, root=None, titulo="The Floor - Tabuleiro"):
+        self.janela = tk.Toplevel(root) if root else tk.Toplevel()
+        self.janela.title(titulo)
+        self.janela.configure(bg="#0a0a0a")
+        self.janela.resizable(False, False)
 
-    TAM = 64  # tamanho de cada célula em pixels
+        self.TAM = 58
 
-    # --- Título ---
-    tk.Label(
-        janela,
-        text="THE FLOOR",
-        font=("Impact", 26),
-        fg="#4fc3f7",
-        bg="#0a0a0a",
-    ).grid(row=0, column=0, columnspan=11, pady=(14, 6))
+        jogadores = _carregar_jogadores()
+        self.mapa_cores = _construir_mapa_cores(jogadores)
 
-    # --- Grelha 10x10 ---
-    frame_grelha = tk.Frame(janela, bg="#0a0a0a")
-    frame_grelha.grid(row=1, column=0, padx=12, pady=8)
+        self._construir_ui(jogadores)
 
-    celulas = {}
-    for i in range(10):
-        for j in range(10):
-            nome = grelha[i][j]
-            cor = mapa_cores.get(nome, "#1a1a2e") if nome else "#1a1a2e"
-            texto = ""
-            if nome:
-                # Mostra as iniciais do jogador
-                partes = nome.split()
-                texto = partes[0][0] + (partes[-1][0] if len(partes) > 1 else "")
+    def _construir_ui(self, jogadores):
+        janela = self.janela
 
-            frame_cel = tk.Frame(
-                frame_grelha,
-                width=TAM,
-                height=TAM,
-                bg=cor,
-                highlightbackground="#0a0a0a",
-                highlightthickness=1,
-            )
-            frame_cel.grid(row=i, column=j, padx=1, pady=1)
-            frame_cel.pack_propagate(False)
+        tk.Label(janela, text="THE FLOOR — TABULEIRO",
+                 font=("Impact", 22), fg="#4fc3f7", bg="#0a0a0a",
+                 ).grid(row=0, column=0, columnspan=12, pady=(12, 4))
 
-            tk.Label(
-                frame_cel,
-                text=texto,
-                font=("Impact", 13),
-                fg="white",
-                bg=cor,
-            ).pack(expand=True)
+        frame_grelha = tk.Frame(janela, bg="#0a0a0a")
+        frame_grelha.grid(row=1, column=0, padx=10, pady=6)
 
-            celulas[(i, j)] = (frame_cel, cor, nome)
-
-    # --- Painel lateral: jogadores ativos ---
-    frame_lateral = tk.Frame(janela, bg="#0a0a0a")
-    frame_lateral.grid(row=1, column=10, padx=(4, 12), pady=8, sticky="n")
-
-    tk.Label(
-        frame_lateral,
-        text="JOGADORES",
-        font=("Impact", 15),
-        fg="#4fc3f7",
-        bg="#0a0a0a",
-    ).pack(pady=(0, 6))
-
-    # Ordena por número de quadrículas (maior primeiro)
-    ranking = sorted(contagem.items(), key=lambda x: x[1], reverse=True)
-    for nome, n in ranking[:20]:  # mostra os top 20
-        cor = mapa_cores.get(nome, "#888")
-        frame_linha = tk.Frame(frame_lateral, bg="#0a0a0a")
-        frame_linha.pack(anchor="w", pady=1)
-
-        tk.Label(
-            frame_linha,
-            text="■",
-            font=("Arial", 12),
-            fg=cor,
-            bg="#0a0a0a",
-        ).pack(side="left")
-
-        nome_curto = nome if len(nome) <= 16 else nome[:14] + "…"
-        tk.Label(
-            frame_linha,
-            text=f" {nome_curto} ({n})",
-            font=("Courier", 11),
-            fg="#cccccc",
-            bg="#0a0a0a",
-        ).pack(side="left")
-
-    # --- Rodapé com estatísticas rápidas ---
-    ativos = len([j for j in jogadores if len(j.get("quadriculas", [])) > 0])
-    eliminados = len(jogadores) - ativos
-
-    rodape_label = tk.Label(
-        janela,
-        text=f"Jogadores ativos: {ativos}   |   Eliminados: {eliminados}",
-        font=("Courier", 12),
-        fg="#888888",
-        bg="#0a0a0a",
-    )
-    rodape_label.grid(row=2, column=0, columnspan=11, pady=(0, 10))
-
-    # --- Botão atualizar ---
-    def atualizar():
-        jogadores_novos = carregar_jogadores()
-        mapa_cores_novo = construir_mapa_cores(jogadores_novos)
-        grelha_nova = construir_grelha(jogadores_novos)
+        self.celulas = {}
+        grelha = _construir_grelha(jogadores)
 
         for i in range(10):
             for j in range(10):
-                nome = grelha_nova[i][j]
-                cor = mapa_cores_novo.get(nome, "#1a1a2e") if nome else "#1a1a2e"
-                texto = ""
-                if nome:
-                    partes = nome.split()
-                    texto = partes[0][0] + (partes[-1][0] if len(partes) > 1 else "")
-                frame_cel, _, _ = celulas[(i, j)]
+                nome = grelha[i][j]
+                cor = self.mapa_cores.get(nome, "#1a1a2e") if nome else "#1a1a2e"
+
+                frame_cel = tk.Frame(
+                    frame_grelha, width=self.TAM, height=self.TAM,
+                    bg=cor, highlightbackground="#0a0a0a", highlightthickness=1,
+                )
+                frame_cel.grid(row=i, column=j, padx=1, pady=1)
+                frame_cel.pack_propagate(False)
+
+                lbl = tk.Label(frame_cel, text=self._iniciais(nome),
+                               font=("Impact", 11), fg="white", bg=cor)
+                lbl.pack(expand=True)
+
+                self.celulas[(i, j)] = (frame_cel, lbl)
+
+        # Painel lateral com ranking dos jogadores ativos
+        self.frame_lateral = tk.Frame(janela, bg="#0a0a0a")
+        self.frame_lateral.grid(row=1, column=10, padx=(4, 10), pady=6, sticky="n")
+
+        tk.Label(self.frame_lateral, text="JOGADORES",
+                 font=("Impact", 13), fg="#4fc3f7", bg="#0a0a0a").pack(pady=(0, 4))
+
+        self.frame_ranking = tk.Frame(self.frame_lateral, bg="#0a0a0a")
+        self.frame_ranking.pack()
+
+        self.rodape_label = tk.Label(janela, text="",
+                                     font=("Courier", 11), fg="#888888", bg="#0a0a0a")
+        self.rodape_label.grid(row=2, column=0, columnspan=12, pady=(0, 6))
+
+        tk.Button(janela, text="↻  Atualizar",
+                  font=("Impact", 12), fg="white", bg="#1565c0",
+                  activebackground="#0d47a1", relief="flat", padx=10,
+                  command=self.atualizar,
+                  ).grid(row=3, column=0, columnspan=12, pady=(0, 10))
+
+        self._atualizar_painel(jogadores)
+
+    @staticmethod
+    def _iniciais(nome):
+        if not nome:
+            return ""
+        partes = nome.split()
+        return partes[0][0] + (partes[-1][0] if len(partes) > 1 else "")
+
+    def atualizar(self):
+        """Relê jogadores.json e redesenha a grelha e o painel lateral."""
+        jogadores = _carregar_jogadores()
+
+        # Garante que jogadores novos também recebem uma cor
+        for i, j in enumerate(jogadores):
+            if j["nome"] not in self.mapa_cores:
+                self.mapa_cores[j["nome"]] = PALETA[i % len(PALETA)]
+
+        grelha = _construir_grelha(jogadores)
+
+        for i in range(10):
+            for j in range(10):
+                nome = grelha[i][j]
+                cor = self.mapa_cores.get(nome, "#1a1a2e") if nome else "#1a1a2e"
+                frame_cel, lbl = self.celulas[(i, j)]
                 frame_cel.configure(bg=cor)
-                for widget in frame_cel.winfo_children():
-                    widget.configure(bg=cor, text=texto)
+                lbl.configure(bg=cor, text=self._iniciais(nome))
 
-        # Atualizar rodapé
-        ativos = len([j for j in jogadores_novos if len(j.get("quadriculas", [])) > 0])
-        eliminados = len(jogadores_novos) - ativos
-        rodape_label.configure(text=f"Jogadores ativos: {ativos}   |   Eliminados: {eliminados}")
+        self._atualizar_painel(jogadores)
 
-    tk.Button(
-        janela,
-        text="↻  Atualizar Tabuleiro",
-        font=("Impact", 13),
-        fg="white",
-        bg="#1565c0",
-        activebackground="#0d47a1",
-        relief="flat",
-        padx=12,
-        command=atualizar,
-    ).grid(row=3, column=0, columnspan=11, pady=(0, 14))
+    def _atualizar_painel(self, jogadores):
+        for widget in self.frame_ranking.winfo_children():
+            widget.destroy()
+
+        contagem = {
+            j["nome"]: len(j.get("quadriculas", []))
+            for j in jogadores
+            if len(j.get("quadriculas", [])) > 0
+        }
+        ranking = sorted(contagem.items(), key=lambda x: x[1], reverse=True)
+
+        for nome, n in ranking[:20]:
+            cor = self.mapa_cores.get(nome, "#888")
+            frame_linha = tk.Frame(self.frame_ranking, bg="#0a0a0a")
+            frame_linha.pack(anchor="w", pady=1)
+            tk.Label(frame_linha, text="■", font=("Arial", 10),
+                     fg=cor, bg="#0a0a0a").pack(side="left")
+            nome_curto = nome if len(nome) <= 14 else nome[:13] + "…"
+            tk.Label(frame_linha, text=f" {nome_curto} ({n})",
+                     font=("Courier", 10), fg="#cccccc", bg="#0a0a0a").pack(side="left")
+
+        ativos = len([j for j in jogadores if len(j.get("quadriculas", [])) > 0])
+        eliminados = len(jogadores) - ativos
+        self.rodape_label.configure(
+            text=f"Ativos: {ativos}   |   Eliminados: {eliminados}")
+
+    def fechar(self):
+        try:
+            self.janela.destroy()
+        except Exception:
+            pass
+
+    def esta_aberto(self):
+        try:
+            return self.janela.winfo_exists()
+        except Exception:
+            return False
 
 
-# Permite testar isoladamente
+# Função pública mantida para compatibilidade com o menu
+
+def abrir_tabuleiro(root=None):
+    return JanelaTabuleiro(root=root)
+
+
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     raiz = tk.Tk()
     raiz.withdraw()
-    abrir_tabuleiro()
+    abrir_tabuleiro(raiz)
     raiz.mainloop()
