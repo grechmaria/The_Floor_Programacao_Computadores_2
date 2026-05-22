@@ -60,10 +60,10 @@ def _entry(pai, var, largura=32):
 
 
 
-#  1. JANELA PRINCIPAL
+#  Janela principal
 
 def menu_categorias_tkinter():
-    """Abre a janela principal de gestão de categorias e perguntas."""
+    #Abre a janela principal de gestão de categorias e perguntas.
     perguntas = carregar_perguntas()
 
     janela = tk.Toplevel()
@@ -82,7 +82,7 @@ def menu_categorias_tkinter():
 
     _label(frame_esq, "CATEGORIAS", cor=CORES["titulo"], tam=11, bold=True).pack(pady=(4, 4))
 
-    lb_cats = tk.Listbox(frame_esq, font=("Courier", 11),
+    lb_cats = tk.Listbox(frame_esq, font=("Courier", 11),        #Cria uma caixa de lista para mostrar as categorias disponíveis
                          bg=CORES["painel"], fg=CORES["texto"],
                          selectbackground=CORES["accent"],
                          selectforeground="white",
@@ -238,7 +238,7 @@ def menu_categorias_tkinter():
 
 
 
-#  2. NOVA CATEGORIA
+#  Nova categoria
 
 def _janela_nova_categoria(perguntas, callback):
     jan = tk.Toplevel()
@@ -286,7 +286,7 @@ def _janela_nova_categoria(perguntas, callback):
 
 
 
-#  3. ADICIONAR PERGUNTA
+#  Adicionar pergunta
 
 def _janela_adicionar_pergunta(categoria, perguntas, cb_cats, cb_tab):
     jan = tk.Toplevel()
@@ -324,7 +324,7 @@ def _janela_adicionar_pergunta(categoria, perguntas, cb_cats, cb_tab):
     _btn(frame_btn, "Cancelar",  jan.destroy, cor=CORES["cinza"], largura=14).pack(side="left", padx=8)
 
 
-#  4. EDITAR PERGUNTA
+# Editar pergunta
 
 
 def _janela_editar_pergunta(p_obj, perguntas, cb_cats, cb_tab):
@@ -363,7 +363,7 @@ def _janela_editar_pergunta(p_obj, perguntas, cb_cats, cb_tab):
     _btn(frame_btn, "Guardar", confirmar,  cor=CORES["verde"], largura=14).pack(side="left", padx=8)
     _btn(frame_btn, "Cancelar", jan.destroy, cor=CORES["cinza"], largura=14).pack(side="left", padx=8)
 
-#  5. PESQUISAR PERGUNTA
+#  Pesquisar perguntas
 
 
 def _janela_pesquisar(perguntas):
@@ -388,7 +388,7 @@ def _janela_pesquisar(perguntas):
     tabela.column("pergunta",   width=260)
     tabela.column("resposta",   width=160)
 
-    estilo = ttk.Style()
+    estilo = ttk.Style() #Cria um objeto para personalizar a aparência dos widgets ttk (cores, fontes, etc.)
     estilo.configure("Treeview",
                      background=CORES["painel"], foreground=CORES["texto"],
                      rowheight=22, fieldbackground=CORES["painel"],

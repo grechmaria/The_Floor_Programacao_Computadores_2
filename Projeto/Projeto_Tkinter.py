@@ -1,5 +1,6 @@
 # Projeto_Tkinter.py
-# Ponto de entrada do jogo The Floor - janela inicial e menu principal
+# Ponto de entrada do jogo The Floor : janela inicial e menu principal
+# O jogo deve executado neste ficheiro.
 
 import tkinter as tk
 from tkinter import messagebox
@@ -29,6 +30,7 @@ CORES = {
     "laranja":  "#e65100",
 }
 
+#Função que cria e devolve um botão com as cores e fonte do jogo
 
 def _btn(pai, texto, comando, cor=None):
     cor = cor or CORES["accent"]
@@ -69,7 +71,7 @@ def _abrir_menu(root):
     menu.configure(bg=CORES["bg"])
     menu.resizable(True, True)
     menu.update_idletasks()
-    x = (menu.winfo_screenwidth()  - 580) // 2
+    x = (menu.winfo_screenwidth()  - 580) // 2  # Obtém a largura total do ecrã em píxeis
     y = (menu.winfo_screenheight() - 680) // 2
     menu.geometry(f"580x680+{x}+{y}")
 
@@ -87,7 +89,7 @@ def _abrir_menu(root):
         tk.Label(menu, text=texto,
                  font=("Courier", 9), fg="#455a64", bg=CORES["bg"]).pack(pady=(8, 2))
 
-    # Wrapper que apanha exceções e mostra uma caixa de erro em vez de crashar
+    # Wrapper que apanha exceções e mostra uma caixa de erro em vez de crashar, fn é o parâmetro que recebe a função a executar
     def abrir(fn, *args):
         def _cmd():
             try:

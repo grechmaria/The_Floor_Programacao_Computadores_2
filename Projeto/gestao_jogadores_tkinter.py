@@ -56,11 +56,11 @@ def _entry(pai, var, largura=28):
 
 
 
-#  1. JANELA PRINCIPAL DE GESTÃO DE JOGADORES
+#  Gestão de jogadores: janela
 
 
 def menu_jogadores_tkinter():
-    """Abre a janela principal de gestão de jogadores."""
+    #Abre a janela principal de gestão de jogadores.
     jogadores = carregar_jogadores()
 
     janela = tk.Toplevel()
@@ -74,7 +74,7 @@ def menu_jogadores_tkinter():
     frame_tabela.pack(fill="both", expand=True, padx=16, pady=(0, 6))
 
     colunas = ("nome", "idade", "profissao", "cidade", "quadriculas")
-    tabela = ttk.Treeview(frame_tabela, columns=colunas, show="headings", height=14)
+    tabela = ttk.Treeview(frame_tabela, columns=colunas, show="headings", height=14)  #Cria uma tabela com colunas para mostrar os dados dos jogadores
 
     estilo = ttk.Style()
     estilo.theme_use("clam")
@@ -166,7 +166,7 @@ def menu_jogadores_tkinter():
 
 
 
-#  2. JANELA ADICIONAR JOGADOR
+#  Adicionar jogador
 
 
 def _janela_adicionar(jogadores, callback_atualizar):
@@ -233,8 +233,7 @@ def _janela_adicionar(jogadores, callback_atualizar):
 
 
 
-#  3. JANELA DETALHES DO JOGADOR
-
+#  Detalhes do jogador
 
 def _janela_detalhes(jogador):
     jan = tk.Toplevel()
@@ -281,7 +280,7 @@ def _janela_detalhes(jogador):
     _btn(jan, "◀  Voltar", jan.destroy, cor=CORES["cinza"], largura=14).pack(pady=12)
 
 
-#  4. IMPORTAR DE TXT
+#  Importar o ficheiro TXT
 
 
 def _importar_de_txt(caminho, jogadores, callback_atualizar):

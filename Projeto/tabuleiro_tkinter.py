@@ -59,11 +59,11 @@ def _construir_grelha(jogadores):
 # Classe JanelaTabuleiro
 
 class JanelaTabuleiro:
-    """
-    Janela do tabuleiro reutilizável. Pode ser aberta standalone (botão do menu)
-    ou mantida aberta durante um jogo. O método atualizar() relê o ficheiro e
-    redesenha tudo sem abrir uma janela nova.
-    """
+    
+    #Janela do tabuleiro reutilizável. Pode ser aberta apenas no botão do menu
+    #ou mantida aberta durante um jogo. O método atualizar() relê o ficheiro e
+    #redesenha tudo sem abrir uma janela nova.
+    
 
     def __init__(self, root=None, titulo="The Floor - Tabuleiro"):
         self.janela = tk.Toplevel(root) if root else tk.Toplevel()
@@ -131,7 +131,7 @@ class JanelaTabuleiro:
 
         self._atualizar_painel(jogadores)
 
-    @staticmethod
+    @staticmethod #o símbolo que o Python usa para dizer "aplica esta regra à função seguinte" ,neste caso @staticmethod diz ao Python que o método não precisa do self
     def _iniciais(nome):
         if not nome:
             return ""
@@ -139,7 +139,7 @@ class JanelaTabuleiro:
         return partes[0][0] + (partes[-1][0] if len(partes) > 1 else "")
 
     def atualizar(self):
-        """Relê jogadores.json e redesenha a grelha e o painel lateral."""
+        #Relê jogadores.json e redesenha a grelha e o painel lateral.
         jogadores = _carregar_jogadores()
 
         # Garante que jogadores novos também recebem uma cor
@@ -160,7 +160,7 @@ class JanelaTabuleiro:
         self._atualizar_painel(jogadores)
 
     def _atualizar_painel(self, jogadores):
-        for widget in self.frame_ranking.winfo_children():
+        for widget in self.frame_ranking.winfo_children():    #Percorre todos os elementos visuais que existem dentro do painel de ranking
             widget.destroy()
 
         contagem = {

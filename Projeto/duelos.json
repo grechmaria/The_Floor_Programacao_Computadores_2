@@ -1,35 +1,42 @@
 [
     {
         "id_duelo": 1,
-        "desafiante": "Renato Leal",
-        "desafiado": "Carina Faria",
-        "categoria": "Higiene e beleza",
-        "acertos_desafiante": 2,
-        "tempo_medio_desafiante": 8.66,
-        "acertos_desafiado": 1,
-        "tempo_medio_desafiado": 4.81,
-        "vencedor": "Renato Leal",
-        "quadriculas_transferidas": [
-            [
-                6,
-                5
-            ]
-        ]
+        "desafiante": "Tatiana Lopes",
+        "desafiado": "Joel Sousa",
+        "categoria": "Atores",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 6.9,
+        "acertos_desafiado": 0,
+        "tempo_medio_desafiado": 3.31,
+        "vencedor": "Joel Sousa",
+        "quadriculas_transferidas": []
     },
     {
         "id_duelo": 2,
-        "desafiante": "Artur Dias",
-        "desafiado": "Elsa Ferreira",
-        "categoria": "Bebidas alcoólicas",
+        "desafiante": "António Pacheco",
+        "desafiado": "Miguel Ferreira",
+        "categoria": "Legumes",
         "acertos_desafiante": 0,
-        "tempo_medio_desafiante": 0,
+        "tempo_medio_desafiante": 3.96,
+        "acertos_desafiado": 2,
+        "tempo_medio_desafiado": 5.31,
+        "vencedor": "Miguel Ferreira",
+        "quadriculas_transferidas": []
+    },
+    {
+        "id_duelo": 3,
+        "desafiante": "Mateus Esteves",
+        "desafiado": "Daniel Vieira",
+        "categoria": "Ferramentas",
+        "acertos_desafiante": 0,
+        "tempo_medio_desafiante": 6.61,
         "acertos_desafiado": 0,
-        "tempo_medio_desafiado": 0,
-        "vencedor": "Artur Dias",
+        "tempo_medio_desafiado": 7.98,
+        "vencedor": "Mateus Esteves",
         "quadriculas_transferidas": [
             [
-                5,
-                9
+                9,
+                3
             ]
         ]
     }

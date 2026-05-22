@@ -123,7 +123,7 @@ def selecionar_vizinho_tkinter(desafiante, jogadores, tabuleiro_ref=None):
 # Duelo — janela principal com cronómetro e perguntas
 
 def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
-    """Corre o duelo de 45 s. Devolve (vencedor_nome, tempos_dict, acertos_dict)."""
+    #Corre o duelo de 45 s. Devolve (vencedor_nome, tempos_dict, acertos_dict).
     pontos  = {desafiante["nome"]: 0,  desafiado["nome"]: 0}
     tempos  = {desafiante["nome"]: [], desafiado["nome"]: []}
     acertos = {desafiante["nome"]: 0,  desafiado["nome"]: 0}
@@ -273,7 +273,7 @@ def _janela_duelo(perguntas_duelo, categoria, desafiante, desafiado):
             vencedor = desafiado["nome"]
             motivo = "mais respostas certas"
         else:
-            # Empate em acertos — desempata pelo tempo médio de resposta
+            # Empate em acertos : desempata pelo tempo médio de resposta
             t_des = (sum(tempos[desafiante["nome"]]) / len(tempos[desafiante["nome"]])
                      if tempos[desafiante["nome"]] else float("inf"))
             t_def = (sum(tempos[desafiado["nome"]]) / len(tempos[desafiado["nome"]])
@@ -432,7 +432,7 @@ def executar_duelo_tkinter(desafiante, desafiado, jogadores, duelos, tabuleiro_r
 # Loop principal do jogo
 
 def _verificar_fim_tkinter(jogadores):
-    ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]
+    ativos = [j for j in jogadores if len(j.get("quadriculas", [])) > 0]  #verifica os ativos
     if len(ativos) == 1:
         messagebox.showinfo("Fim de Jogo! 🏆", f"O vencedor é {ativos[0]['nome']}!")
         return True
@@ -457,7 +457,7 @@ def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
     tk.Label(frame_rank, text="TOP JOGADORES", font=("Impact", 13),
              fg=CORES["titulo"], bg=CORES["painel"]).pack()
 
-    for j in ranking[:8]:
+    for j in ranking[:8]:   # Limita a lista aos primeiros 8 jogadores do ranking
         n_quads = len(j.get("quadriculas", []))
         linha = f"  {j['nome']:<22} {n_quads} quadrículas"
         tk.Label(frame_rank, text=linha, font=("Courier", 11),
@@ -490,11 +490,11 @@ def _janela_entre_duelos(desafiante_nome, jogadores, duelos,
 
 
 def _iniciar_ciclo_jogo(inicializar=False):
-    """
-    Núcleo do loop de jogo. Se inicializar=True, chama inicializar_tabuleiro()
-    antes de começar — usado no Novo Duelo. Se False, retoma o estado que estava
-    guardado em jogadores.json — usado no Carregar Jogo.
-    """
+    
+    #Núcleo do loop de jogo. Se inicializar=True, chama inicializar_tabuleiro()
+    #antes de começar — usado no Novo Duelo. Se False, retoma o estado que estava
+    #guardado em jogadores.json — usado no Carregar Jogo.
+    
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     jogadores = carregar_jogadores()
 
@@ -616,10 +616,10 @@ def carregar_jogo_tkinter(root=None):
 # Reiniciar jogo
 
 def reiniciar_jogo_tkinter(root=None):
-    """
-    Mostra uma janela de confirmação antes de reiniciar. Se o utilizador confirmar,
-    chama _executar_reinicio() que faz o reset efetivo dos ficheiros.
-    """
+    
+    #Mostra uma janela de confirmação antes de reiniciar. Se o utilizador confirmar,
+    #chama _executar_reinicio() que faz o reset efetivo dos ficheiros.
+    
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     confirmacao = tk.Toplevel()
@@ -672,7 +672,7 @@ def _executar_reinicio():
             messagebox.showerror("Erro", f"Ficheiro '{FICHEIRO_RESET}' não encontrado!")
             return
 
-        shutil.copy2(FICHEIRO_RESET, FICHEIRO_JOGADORES)
+        shutil.copy2(FICHEIRO_RESET, FICHEIRO_JOGADORES)  #Copia o ficheiro de reset por cima do ficheiro de jogadores, repondo os dados iniciais
 
         with open(FICHEIRO_DUELOS, "w", encoding="utf-8") as f:
             json.dump([], f, indent=4, ensure_ascii=False)
